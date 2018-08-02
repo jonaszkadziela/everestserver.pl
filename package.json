@@ -1,0 +1,14 @@
+{
+  "name": "www.everestserver.pl",
+  "version": "1.0.0",
+  "description": "Website for EverestServer",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jonasz Kadziela",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}
