@@ -1,0 +1,21 @@
+.btn--icon-block {
+  width: 150px;
+  height: 100px;
+  padding: 0.75rem;
+  color: $white;
+  background-color: $primary;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken($white, 10%);
+    background-color: darken($primary, 10%);
+  }
+
+  .fa,
+  .fas {
+    display: block;
+    font-size: 3rem;
+    padding-bottom: 0.25rem;
+  }
+}

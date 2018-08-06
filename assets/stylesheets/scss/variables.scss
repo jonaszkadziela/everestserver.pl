@@ -4,6 +4,32 @@
 
 $primary: #1c68c4;
 
+$sizes: (
+  "600px": 600px
+);
+
+$spacer: 1rem;
+
+$spacers: (
+  "0-25": ($spacer * 0.25),
+  "0-5": ($spacer * 0.5),
+  "0-75": ($spacer * 0.75),
+  "1": $spacer,
+  "1-25": ($spacer * 1.25),
+  "2": ($spacer * 2),
+  "3": ($spacer * 3),
+  "4": ($spacer * 4),
+  "5": ($spacer * 5)
+);
+
 // Custom variables
 
 $min-body-width: 350px;
+
+$font-weights: (
+  "light": 300,
+  "normal": 400,
+  "semi-bold": 500,
+  "bold": 700,
+  "bolder": 900
+);

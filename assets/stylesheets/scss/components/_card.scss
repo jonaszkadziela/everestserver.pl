@@ -1,0 +1,14 @@
+.card-icon {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  padding: 1rem 1.15rem;
+  margin: auto;
+
+  &.bg-primary:hover,
+  &.bg-primary:focus,
+  &.bg-primary:active {
+    background-color: $primary !important;
+  }
+}
