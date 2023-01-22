@@ -9,6 +9,17 @@
         "type": "git",
         "url": "https://github.com/jonaszkadziela/everestserver.pl/"
     },
+    "browserslist": [
+        "defaults"
+    ],
+    "scripts": {
+        "clear": "shx rm -rf dist/*",
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development webpack --progress --config webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+        "serve": "cross-env NODE_ENV=development webpack serve"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.1",
         "@popperjs/core": "^2.11.6",
