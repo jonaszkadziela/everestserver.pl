@@ -19,5 +19,10 @@
     <body class="bg-image-primary bg-image-responsive d-flex flex-column min-vh-100">
         {{{ content }}}
         {{> ../partials/footer.html.hbs }}
+        <div aria-live="polite" aria-atomic="true" class="fixed-bottom">
+            <div class="bottom-0 end-0 p-2 toast-container">
+                {{> ../partials/privacy-warning.html.hbs }}
+            </div>
+        </div>
     </body>
 </html>
