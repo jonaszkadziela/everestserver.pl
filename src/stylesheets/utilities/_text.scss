@@ -1,9 +1,0 @@
-@each $weightKey, $weightValue in $font-weights {
-    .font-weight-#{$weightKey} {
-        font-weight: $weightValue !important;
-    }
-}
-
-.text-black-75 {
-    color: rgba($black, 0.75) !important;
-}

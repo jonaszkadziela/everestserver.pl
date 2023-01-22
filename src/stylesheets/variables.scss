@@ -1,39 +1,39 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
 
-// Bootstrap variables
+/**
+ * Bootstrap variables
+ */
 
 $primary: #1c68c4;
-
-$sizes: (
-  "600px": 600px
-);
 
 $spacer: 1rem;
 
 $spacers: (
-  "0-25": ($spacer * 0.25),
-  "0-5": ($spacer * 0.5),
-  "0-75": ($spacer * 0.75),
-  "1": $spacer,
-  "1-25": ($spacer * 1.25),
-  "2": ($spacer * 2),
-  "3": ($spacer * 3),
-  "4": ($spacer * 4),
-  "5": ($spacer * 5)
+    "0": 0,
+    "1": $spacer,
+    "2": ($spacer * 2),
+    "3": ($spacer * 3),
 );
 
-// Font Awesome variables
+$utilities: (
+    "max-width": (
+        property: max-width,
+        class: mw,
+        values: (
+            600px: 600px,
+            100: 100%,
+        ),
+    ),
+);
+
+/**
+ * Font Awesome variables
+ */
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
-// Custom variables
+/**
+ * Custom variables
+ */
 
 $min-body-width: 350px;
-
-$font-weights: (
-  "light": 300,
-  "normal": 400,
-  "semi-bold": 500,
-  "bold": 700,
-  "bolder": 900
-);
