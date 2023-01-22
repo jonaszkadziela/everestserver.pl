@@ -7,11 +7,7 @@ body {
 
 a {
     transition: all 0.1s;
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-    }
+    text-decoration: none;
 }
 
 ::selection {

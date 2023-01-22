@@ -13,7 +13,7 @@
         <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %> - EverestServer">
         <meta property="og:description" content="EverestServer - Spełniamy oczekiwania wyższe niż Everest.">
         <meta property="og:image" content="<%= require('../images/brand/og-image.jpg') %>">
-        <meta property="og:url" content="https://www.everestserver.pl/">
+        <meta property="og:url" content="https://www.everestserver.pl">
         <link href="<%= require('../images/brand/favicon.png') %>" rel="shortcut icon" type="image/png">
     </head>
     <body class="bg-image-primary bg-image-responsive d-flex flex-column min-vh-100">
@@ -21,20 +21,20 @@
             <div class="container m-auto p-2">
                 <div class="border-0 card mw-600px mx-auto text-center">
                     <div class="card-body p-2">
-                        <a href="index.html" class="mb-2 card-icon bg-primary">
+                        <a href="index.html" class="bg-primary card-icon mb-2">
                             <img src="<%= require('../images/brand/everestserver-logo.svg') %>" alt="EverestLogo" class="img-fluid">
                         </a>
-                        <h2 class="card-title mb-2">
-                            Witaj na EverestServer!
+                        <h2 class="card-title fw-normal mb-2">
+                            Witaj na Everest<b>Server</b>!
                         </h2>
-                        <div class="bg-light border border-2 border-primary card">
+                        <div class="bg-light border card">
                             <div class="card-body">
-                                <h5 class="card-title mb-1 text-primary">
+                                <h5 class="card-title fw-normal mb-1 text-primary">
                                     Wybierz serwis, z którego chcesz skorzystać
                                 </h5>
                                 <div class="justify-content-center row">
                                     <div class="col-md-4">
-                                        <a href="cloud/" class="btn btn--icon-block">
+                                        <a href="https://cloud.everestserver.pl" class="btn btn--icon-block">
                                             <i class="fa-cloud fa-solid"></i>
                                             <span class="fw-light">Everest</span><b>Cloud</b>
                                         </a>
@@ -46,5 +46,6 @@
                 </div>
             </div>
         </main>
+        <%= require('html-loader!./shared/_footer.html').default %>
     </body>
 </html>
