@@ -1,6 +1,6 @@
 {
-    "name": "www.everestserver.pl",
-    "version": "1.0.0",
+    "name": "everestserver.pl",
+    "version": "2.0.0",
     "description": "Beautiful & responsive website for EverestServer",
     "author": "Jonasz Kądziela",
     "private": true,
