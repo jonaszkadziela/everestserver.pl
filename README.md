@@ -1,5 +1,4 @@
-# Website www.everestserver.pl
-
+# Website everestserver.pl
 Beautiful & responsive website for EverestServer.
 
 ## A few words of introduction:
@@ -11,16 +10,16 @@ This is a website I created for my home server. Currently, it serves as a hub, s
 * Sass
 * Bootstrap
 * JavaScript
-* jQuery
+* Webpack
+* Handlebars
 
 ## Prerequisites:
 * Install npm (it comes bundled with [Node.js](https://nodejs.org/en/download/))
-* Install [Sass](https://sass-lang.com/install)
 
 ## How to set up locally?
 1. Clone the repository
 	```
-	$ git clone "https://github.com/jonaszkadziela/everestserver.pl.git"
+	$ git clone https://github.com/jonaszkadziela/everestserver.pl.git
 	```
 1. Enter **everestserver.pl** project directory
 	```
@@ -30,10 +29,21 @@ This is a website I created for my home server. Currently, it serves as a hub, s
 	```
 	$ npm install
 	```
+1. Run development web server
+	```
+	$ npm run serve
+	```
+1. Project should be running at [localhost:8080](http://localhost:8080)
 
 ## Development:
-* File `assets/stylesheets/scss/main.scss` includes all other stylesheets and should be compiled into `assets/stylesheets/css/main.min.css`
-* Folder `assets/javascripts/` contains all JavaScript files which preferably should be compiled into one file `assets/javascripts/main.min.js`
+* All source files are located in the `src` directory. When building the project, everything will be bundled using Webpack and outputted into the `dist` directory
+* The following custom `npm` commands are available in this project:
+	* `clear`: Clears the build. This removes all files from the `dist` directory, except for `.gitignore`
+    * `dev`: Alias for the `development` command
+    * `development`: Builds development project using Webpack. Adds additional files for easier development and debugging
+    * `prod`: Alias for the `production` command
+    * `production`: Builds production project using Webpack. Makes optimizations for production
+    * `serve`: Starts a development server that serves the project at [localhost:8080](http://localhost:8080)
 
 ## Links:
-* Live website: https://www.everestserver.pl/
+* Live website: https://everestserver.pl
