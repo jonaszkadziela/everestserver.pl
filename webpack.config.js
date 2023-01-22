@@ -7,6 +7,11 @@ const srcPath = Path.resolve(__dirname, 'src')
 
 const isProductionMode = process.env.NODE_ENV === 'production'
 
+const pages = {
+    index: 'Strona główna',
+    privacy: 'Polityka prywatności',
+}
+
 module.exports = {
     mode: isProductionMode ? 'production' : 'development',
     devtool: isProductionMode ? false : 'source-map',
@@ -97,10 +102,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        new HtmlWebpackPlugin({
-            title: 'Strona główna',
-            template: Path.join(srcPath, 'pages', 'index.html.hbs'),
-            filename: 'index.html',
+        ...Object.entries(pages).map(value => {
+            return new HtmlWebpackPlugin({
+                [value[0]]: true,
+                title: value[1],
+                template: Path.join(srcPath, 'pages', `${value[0]}.html.hbs`),
+                filename: `${value[0]}.html`,
+            })
         }),
     ],
 }
