@@ -84,6 +84,13 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.hbs$/i,
+                loader: 'handlebars-loader',
+                options: {
+                    inlineRequires: '/images/',
+                },
+            },
         ],
     },
     plugins: [
@@ -92,7 +99,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Strona główna',
-            template: Path.join(srcPath, 'pages', 'index.html'),
+            template: Path.join(srcPath, 'pages', 'index.html.hbs'),
             filename: 'index.html',
         }),
     ],

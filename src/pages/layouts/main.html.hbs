@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pl-PL">
+    <head>
+        <title>{{ htmlWebpackPlugin.options.title }} - EverestServer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="EverestServer - Spełniamy oczekiwania wyższe niż Everest.">
+        <meta name="keywords" content="everestserver, everestcloud, everest, server, cloud, storage">
+        <meta name="author" content="Jonasz Kądziela">
+        <meta property="og:locale" content="pl_PL">
+        <meta property="og:locale:alternate" content="en_GB">
+        <meta property="og:site_name" content="EverestServer">
+        <meta property="og:title" content="{{ htmlWebpackPlugin.options.title }} - EverestServer">
+        <meta property="og:description" content="EverestServer - Spełniamy oczekiwania wyższe niż Everest.">
+        <meta property="og:image" content="../../images/brand/og-image.jpg">
+        <meta property="og:url" content="https://www.everestserver.pl">
+        <link href="../../images/brand/favicon.png" rel="shortcut icon" type="image/png">
+    </head>
+    <body class="bg-image-primary bg-image-responsive d-flex flex-column min-vh-100">
+        {{{ content }}}
+        {{> ../partials/footer.html.hbs }}
+    </body>
+</html>
