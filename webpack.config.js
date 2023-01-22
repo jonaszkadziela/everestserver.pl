@@ -108,6 +108,7 @@ module.exports = {
                 title: value[1],
                 template: Path.join(srcPath, 'pages', `${value[0]}.html.hbs`),
                 filename: `${value[0]}.html`,
+                production: isProductionMode,
             })
         }),
     ],

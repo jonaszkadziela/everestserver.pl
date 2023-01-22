@@ -15,6 +15,9 @@
         <meta property="og:image" content="../../images/brand/og-image.jpg">
         <meta property="og:url" content="https://www.everestserver.pl">
         <link href="../../images/brand/favicon.png" rel="shortcut icon" type="image/png">
+        {{# if htmlWebpackPlugin.options.production }}
+            {{> ../partials/analytics.html.hbs }}
+        {{/ if}}
     </head>
     <body class="bg-image-primary bg-image-responsive bg-primary d-flex flex-column min-vh-100">
         {{{ content }}}
