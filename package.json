@@ -21,12 +21,12 @@
         "serve": "cross-env NODE_ENV=development webpack serve"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.2.1",
+        "@fortawesome/fontawesome-free": "^6.3.0",
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.3"
     },
     "devDependencies": {
-        "@babel/core": "^7.20.12",
+        "@babel/core": "^7.21.0",
         "@babel/preset-env": "^7.20.2",
         "autoprefixer": "^10.4.13",
         "babel-loader": "^9.1.2",
@@ -38,7 +38,7 @@
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.7.2",
         "postcss-loader": "^7.0.2",
-        "sass": "^1.57.1",
+        "sass": "^1.58.3",
         "sass-loader": "^13.2.0",
         "style-loader": "^3.3.1",
         "webpack": "^5.75.0",
