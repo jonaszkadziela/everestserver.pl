@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn () => view('home'))->name('home');
+Route::get('/privacy', fn () => view('privacy'))->name('privacy');

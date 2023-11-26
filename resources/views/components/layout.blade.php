@@ -25,7 +25,7 @@
         @isset($withFooter)
             <x-footer encoded-links="{!! json_encode([
                 'home' => route('home'),
-                'privacy' => '#',
+                'privacy' => route('privacy'),
                 'contact' => 'mailto:kontakt@jonaszkadziela.pl',
             ]) !!}" />
         @endisset
