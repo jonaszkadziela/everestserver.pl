@@ -29,5 +29,8 @@
                 'contact' => 'mailto:kontakt@jonaszkadziela.pl',
             ]) !!}" />
         @endisset
+        <div class="fixed bottom-0 m-8 right-0 toast-container">
+            @include('toasts.cookies')
+        </div>
     </body>
 </html>
