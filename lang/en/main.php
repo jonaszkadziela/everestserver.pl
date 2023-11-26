@@ -13,8 +13,15 @@ return [
 
     'description' => 'EverestServer - Meeting expectations higher than Everest',
 
+    'footer' => [
+        'programmed-with' => 'Designed and programmed with',
+        'by' => 'by',
+        'author' => 'Jonasz Kadziela',
+    ],
     'titles' => [
         'home' => 'Home',
+        'privacy' => 'Privacy policy',
+        'contact' => 'Contact',
     ],
 
 ];
