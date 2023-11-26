@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    min-width: 400px;
+    font-size: 1rem;
+    font-family: "Roboto", "Open Sans", "Helvetica", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    transition: all 0.1s;
+    text-decoration: none;
+}
+
+::selection {
+    color: #ffffff;
+    background: #1c68c4;
+}
+
+.bg-image-responsive {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+.bg-image-primary {
+    background-image: url("../images/backgrounds/bg-primary.jpg") !important;
+}
