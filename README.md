@@ -7,14 +7,13 @@ This is a website I created for my home server. Currently, it serves as a hub, s
 ## Used technologies:
 * HTML
 * CSS
-* Sass
-* Bootstrap
+* Tailwind CSS
 * JavaScript
-* Webpack
-* Handlebars
+* PHP
+* Laravel
 
 ## Prerequisites:
-* Install npm (it comes bundled with [Node.js](https://nodejs.org/en/download/))
+* Install and set up [Laravel Homestead](https://laravel.com/docs/10.x/homestead)
 
 ## How to set up locally?
 1. Clone the repository
@@ -31,19 +30,15 @@ This is a website I created for my home server. Currently, it serves as a hub, s
 	```
 1. Run development web server
 	```
-	$ npm run serve
+	$ npm run dev
 	```
-1. Project should be running at [localhost:8080](http://localhost:8080)
+1. Project should be running at [everestserver.test](http://everestserver.test)
 
 ## Development:
-* All source files are located in the `src` directory. When building the project, everything will be bundled using Webpack and outputted into the `dist` directory
+* This project follows directory structure and standards defined in [Laravel documentation](https://laravel.com/docs/10.x/structure)
 * The following custom `npm` commands are available in this project:
-	* `clear`: Clears the build. This removes all files from the `dist` directory, except for `.gitignore`
-    * `dev`: Alias for the `development` command
-    * `development`: Builds development project using Webpack. Adds additional files for easier development and debugging
-    * `prod`: Alias for the `production` command
-    * `production`: Builds production project using Webpack. Makes optimizations for production
-    * `serve`: Starts a development server that serves the project at [localhost:8080](http://localhost:8080)
+    * `build`: Builds production project using Vite. Makes optimizations for production
+    * `dev`: Starts a development server that serves the project at [everestserver.test](http://everestserver.test)
 
 ## Links:
 * Live website: https://everestserver.pl
