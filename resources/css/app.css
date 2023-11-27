@@ -1,12 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        font-family: "Roboto", "Open Sans", "Helvetica", sans-serif;
+    }
+}
+
 body {
     min-width: 400px;
     font-size: 1rem;
-    font-family: "Roboto", "Open Sans", "Helvetica", sans-serif;
-    -webkit-font-smoothing: antialiased;
 }
 
 a {
