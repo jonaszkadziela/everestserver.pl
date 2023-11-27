@@ -1,6 +1,14 @@
 {
+    "name": "everestserver.pl",
+    "version": "3.0.0",
+    "description": "Beautiful & responsive website for EverestServer",
+    "author": "Jonasz Kądziela",
     "private": true,
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jonaszkadziela/everestserver.pl"
+    },
     "scripts": {
         "dev": "vite",
         "build": "vite build"
