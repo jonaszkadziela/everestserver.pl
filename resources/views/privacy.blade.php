@@ -1,5 +1,6 @@
 <x-layout title="{{ Lang::get('main.titles.privacy') }}"
           body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
+          with-analytics
           with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
