@@ -1,4 +1,4 @@
-<div id="privacy-warning" class="bg-white border hover:shadow-xl max-w-md opacity-0 p-4 rounded-lg shadow-md transition-all duration-500" role="alert" aria-live="assertive" aria-atomic="true">
+<div id="privacy-warning" class="bg-white border duration-500 hidden hover:shadow-xl max-w-md opacity-0 p-4 rounded-lg shadow-md transition-all" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="text-sm">
         <p>
             {{ Lang::get('main.cookies.description') }}
@@ -22,6 +22,8 @@
     let dismissed = localStorage.getItem('privacy-warning-dismissed')
 
     if (privacyWarning !== null && dismissed !== 'true') {
+        privacyWarning.style.setProperty('display', 'block')
+
         setTimeout(() => privacyWarning.style.setProperty('opacity', 0.8), 250)
 
         dismissButton.addEventListener('click', () => {
