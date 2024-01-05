@@ -9,19 +9,39 @@
         </span>
         <i class="fa-solid fa-bars"></i>
     </div>
-    <div id="actions-menu" class="bg-white border hidden hover:shadow-xl px-4 py-2 rounded-lg shadow-md transition-shadow w-64">
-        <div class="font-medium">
-            {{ Lang::get('main.menu.change-language') }}
-        </div>
-        <div class="border-t my-1"></div>
-        @foreach (config('app.languages') as $language)
-            <a href="{{ action([LanguageController::class, 'change'], ['code' => $language]) }}" class="block">
-                <i class="{{ App::getLocale() === $language ? 'fa-solid' : 'fa-regular '}} fa-flag mr-1"></i>
-                <span>
-                    {{ Lang::get('main.languages.' . $language) }}
+    <div id="actions-menu" class="bg-white border hidden hover:shadow-xl px-6 py-4 rounded-lg shadow-md transition-shadow w-64">
+        <section class="mb-3">
+            <div class="font-medium">
+                {{ Lang::get('main.menu.change-language') }}
+            </div>
+            <div class="border-t my-1"></div>
+            @foreach (config('app.languages') as $language)
+                <a href="{{ action([LanguageController::class, 'change'], ['code' => $language]) }}" class="block">
+                    <i class="{{ App::getLocale() === $language ? 'fa-solid' : 'fa-regular '}} fa-flag mr-1"></i>
+                    <span>
+                        {{ Lang::get('main.languages.' . $language) }}
+                    </span>
+                </a>
+            @endforeach
+        </section>
+        <section>
+            <div class="font-medium">
+                {{ Lang::get('main.menu.your-account') }}
+            </div>
+            <div class="border-t mb-2 mt-1"></div>
+            <a href="{{ route('login') }}" class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white mb-1">
+                <span class="mr-2">
+                    {{ Lang::get('main.menu.log-in') }}
                 </span>
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
             </a>
-        @endforeach
+            <a href="{{ route('register') }}" class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white">
+                <span class="mr-2">
+                    {{ Lang::get('main.menu.register') }}
+                </span>
+                <i class="fa-solid fa-user-plus"></i>
+            </a>
+        </section>
     </div>
 </aside>
 

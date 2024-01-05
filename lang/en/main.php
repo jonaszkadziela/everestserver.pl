@@ -31,6 +31,9 @@ return [
     'menu' => [
         'title' => 'Menu',
         'change-language' => 'Change language',
+        'your-account' => 'Your account',
+        'log-in' => 'Log in',
+        'register' => 'Register',
     ],
     'titles' => [
         'home' => 'Home',
