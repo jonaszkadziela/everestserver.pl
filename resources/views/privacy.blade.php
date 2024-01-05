@@ -1,5 +1,6 @@
 <x-layout title="{{ Lang::get('main.titles.privacy') }}"
           body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
+          with-actions-menu
           with-analytics
           with-footer
 >

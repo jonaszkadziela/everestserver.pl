@@ -25,6 +25,9 @@
     </head>
     <body class="{{ $bodyClass }}">
         {{ $slot }}
+        @isset($withActionsMenu)
+            <x-actions-menu />
+        @endisset
         @isset($withFooter)
             <x-footer encoded-links="{!! json_encode([
                 'home' => route('home'),

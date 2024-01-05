@@ -24,6 +24,14 @@ return [
         'by' => 'by',
         'author' => 'Jonasz Kadziela',
     ],
+    'languages' => [
+        'en' => 'English',
+        'pl' => 'Polish',
+    ],
+    'menu' => [
+        'title' => 'Menu',
+        'change-language' => 'Change language',
+    ],
     'titles' => [
         'home' => 'Home',
         'privacy' => 'Privacy policy',

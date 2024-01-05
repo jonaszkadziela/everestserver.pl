@@ -24,6 +24,14 @@ return [
         'by' => 'przez',
         'author' => 'Jonasza Kądzielę',
     ],
+    'languages' => [
+        'en' => 'Angielski (English)',
+        'pl' => 'Polski (Polish)',
+    ],
+    'menu' => [
+        'title' => 'Menu',
+        'change-language' => 'Zmień język',
+    ],
     'titles' => [
         'home' => 'Strona główna',
         'privacy' => 'Polityka prywatności',
