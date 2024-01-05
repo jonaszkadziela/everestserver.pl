@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => view('home'))->name('home');
 Route::get('/privacy', fn () => view('privacy'))->name('privacy');
+
+Route::get('/language/{code}', [LanguageController::class, 'change']);
