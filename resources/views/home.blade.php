@@ -1,14 +1,14 @@
-<x-layout title="{{ Lang::get('main.titles.home') }}"
-          body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
-          with-actions-menu
-          with-analytics
-          with-footer
+<x-main-layout title="{{ Lang::get('main.titles.home') }}"
+               body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
+               with-actions-menu
+               with-analytics
+               with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
         <div class="bg-white border max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
             <a href="{{ route('home') }}">
                 <div class="bg-blue-700 flex h-24 items-center justify-center m-auto mb-6 rounded-full w-24">
-                    <img src="{{ Vite::asset('resources/images/brand/everestserver-logo.svg') }}" alt="{{ Lang::get('home.logo-alt') }}" class="flex h-16 pb-1 w-16">
+                    <x-application-logo class="block h-16 pb-1 w-16" />
                 </div>
             </a>
             <h1 class="mb-6 text-3xl">
@@ -32,4 +32,4 @@
             </div>
         </div>
     </main>
-</x-layout>
+</x-main-layout>

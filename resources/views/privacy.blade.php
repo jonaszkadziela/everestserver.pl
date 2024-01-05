@@ -1,8 +1,8 @@
-<x-layout title="{{ Lang::get('main.titles.privacy') }}"
-          body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
-          with-actions-menu
-          with-analytics
-          with-footer
+<x-main-layout title="{{ Lang::get('main.titles.privacy') }}"
+               body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
+               with-actions-menu
+               with-analytics
+               with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
         <div class="bg-white border md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
@@ -310,4 +310,4 @@
             </ol>
         </div>
     </main>
-</x-layout>
+</x-main-layout>
