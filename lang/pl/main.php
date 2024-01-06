@@ -36,9 +36,17 @@ return [
         'register' => 'Zarejestruj się',
     ],
     'titles' => [
-        'home' => 'Strona główna',
-        'privacy' => 'Polityka prywatności',
+        'confirm-password' => 'Potwierdź autoryzację',
         'contact' => 'Kontakt',
+        'dashboard' => 'Panel zarządzania',
+        'forgot-password' => 'Zapomniane hasło',
+        'home' => 'Strona główna',
+        'login' => 'Logowanie',
+        'privacy' => 'Polityka prywatności',
+        'profile' => 'Profil',
+        'register' => 'Rejestracja',
+        'reset-password' => 'Resetowanie hasła',
+        'verify-email' => 'Weryfikacja e-mail',
     ],
 
 ];

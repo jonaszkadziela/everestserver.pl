@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="{{ App::getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
+        <title>
+            {{ (isset($title) ? $title . ' - ' : '') . config('app.name') }}
+        </title>
+        @include('layouts.head-meta')
+        <link href="{{ Vite::asset('resources/images/brand/favicon.png') }}" rel="shortcut icon" type="image/png">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @if(App::isProduction() && isset($withAnalytics))
+            <x-analytics g-id="G-S4071NMXR0" />
+        @endif
     </head>
-    <body class="font-sans antialiased">
+    <body class="{{ $bodyClass }}">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 

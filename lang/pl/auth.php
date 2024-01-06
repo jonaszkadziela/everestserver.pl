@@ -17,4 +17,47 @@ return [
     'password' => 'Podane hasło jest nieprawidłowe.',
     'throttle' => 'Zbyt wiele prób logowania. Spróbuj ponownie za :seconds sekund.',
 
+    'actions' => [
+        'log-out' => 'Wyloguj się',
+    ],
+    'attributes' => [
+        'email' => 'E-mail',
+        'name' => 'Imię i nazwisko',
+        'new-password-confirmation' => 'Powtórz nowe hasło',
+        'new-password' => 'Nowe hasło',
+        'password-confirmation' => 'Powtórz hasło',
+        'password' => 'Hasło',
+    ],
+    'confirm-password' => [
+        'title' => 'Potwierdź dostęp, aby kontynuować',
+        'description' => 'To jest zastrzeżony obszar aplikacji. Przed kontynuowaniem potwierdź dostęp swoim hasłem',
+        'confirm' => 'Potwierdź',
+    ],
+    'forgot-password' => [
+        'title' => 'Nie pamiętasz hasła?',
+        'description' => 'Podaj nam tylko swój adres e-mail, a wyślemy Ci link do resetowania hasła, który umożliwi Ci wybranie nowego',
+        'reset-password' => 'Poproś o zresetowanie hasła',
+    ],
+    'login' => [
+        'title' => 'Zaloguj się na swoje konto',
+        'remember-me' => 'Zapamiętaj mnie',
+        'forgot-password' => 'Nie pamiętasz hasła?',
+        'log-in' => 'Zaloguj',
+    ],
+    'register' => [
+        'title' => 'Utwórz nowe konto',
+        'already-registered' => 'Posiadasz już konto?',
+        'register' => 'Załóż konto',
+    ],
+    'reset-password' => [
+        'title' => 'Zresetuj swoje hasło',
+        'save' => 'Zapisz',
+    ],
+    'verify-email' => [
+        'title' => 'Zweryfikuj swój adres e-mail',
+        'description' => 'Dziękujemy za zarejestrowanie się! Zanim zaczniesz korzystać z aplikacji, czy możesz zweryfikować swój adres e-mail, klikając w link, który wysłaliśmy do Ciebie e-mailem?',
+        'description-2' => 'Jeśli nie dotarł do Ciebie e-mail, z przyjemnością wyślemy Ci link ponownie',
+        'resend-verification' => 'Wyślij ponownie e-mail weryfikacyjny',
+    ],
+
 ];

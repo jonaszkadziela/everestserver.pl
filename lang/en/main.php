@@ -36,9 +36,17 @@ return [
         'register' => 'Register',
     ],
     'titles' => [
-        'home' => 'Home',
-        'privacy' => 'Privacy policy',
+        'confirm-password' => 'Confirm authorization',
         'contact' => 'Contact',
+        'dashboard' => 'Dashboard',
+        'forgot-password' => 'Forgot password',
+        'home' => 'Home',
+        'login' => 'Login',
+        'privacy' => 'Privacy policy',
+        'profile' => 'Profile',
+        'register' => 'Registration',
+        'reset-password' => 'Reset password',
+        'verify-email' => 'Verify email',
     ],
 
 ];
