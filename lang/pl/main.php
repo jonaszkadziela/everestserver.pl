@@ -29,11 +29,12 @@ return [
         'pl' => 'Polski (Polish)',
     ],
     'menu' => [
-        'title' => 'Menu',
         'change-language' => 'Zmień język',
-        'your-account' => 'Twoje konto',
         'log-in' => 'Zaloguj się',
+        'navigation' => 'Nawigacja',
         'register' => 'Zarejestruj się',
+        'title' => 'Menu',
+        'your-account' => 'Twoje konto',
     ],
     'titles' => [
         'confirm-password' => 'Potwierdź autoryzację',
