@@ -44,7 +44,7 @@ return [
         'home' => 'Strona główna',
         'login' => 'Logowanie',
         'privacy' => 'Polityka prywatności',
-        'profile' => 'Profil',
+        'profile' => 'Twój profil',
         'register' => 'Rejestracja',
         'reset-password' => 'Resetowanie hasła',
         'verify-email' => 'Weryfikacja e-mail',

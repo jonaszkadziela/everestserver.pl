@@ -21,6 +21,7 @@ return [
         'log-out' => 'Log out',
     ],
     'attributes' => [
+        'current-password' => 'Current password',
         'email' => 'Email',
         'name' => 'Name',
         'new-password-confirmation' => 'Confirm new password',

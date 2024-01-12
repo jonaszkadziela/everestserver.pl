@@ -44,7 +44,7 @@ return [
         'home' => 'Home',
         'login' => 'Login',
         'privacy' => 'Privacy policy',
-        'profile' => 'Profile',
+        'profile' => 'Your profile',
         'register' => 'Registration',
         'reset-password' => 'Reset password',
         'verify-email' => 'Verify email',
