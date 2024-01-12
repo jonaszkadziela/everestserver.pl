@@ -25,14 +25,17 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <div class="mr-2">
+                    <x-language-dropdown />
+                </div>
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ms-1">
-                                <i class="fa-solid fa-angle-down"></i>
-                            </div>
+                        <button class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
+                            <span class="font-bold mr-2">
+                                {{ Auth::user()->name }}
+                            </span>
+                            <i class="fa-solid fa-bars"></i>
                         </button>
                     </x-slot>
 
@@ -57,9 +60,13 @@
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <i class="fa-solid fa-bars inline-flex" :class="{'hidden': open, 'inline-flex': !open }"></i>
-                    <i class="fa-solid fa-xmark hidden" :class="{'hidden': !open, 'inline-flex': open }"></i>
+                <div class="mr-1">
+                    <x-language-dropdown class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
+                </div>
+
+                <button @click="open = !open" class="duration-150 ease-in-out focus:bg-gray-100 focus:outline-none focus:text-gray-700 h-8 hover:bg-gray-100 hover:text-gray-700 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
+                    <i class="fa-solid fa-bars fa-lg inline-flex" :class="{'hidden': open, 'inline-flex': !open }"></i>
+                    <i class="fa-solid fa-xmark fa-lg hidden" :class="{'hidden': !open, 'inline-flex': open }"></i>
                 </button>
             </div>
         </div>
