@@ -33,7 +33,7 @@
                     <x-slot name="trigger">
                         <button class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                             <span class="font-bold mr-2">
-                                {{ Auth::user()->name }}
+                                {{ Str::limit(Auth::user()->name, 10) }}
                             </span>
                             <i class="fa-solid fa-bars"></i>
                         </button>
