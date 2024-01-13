@@ -23,13 +23,13 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
+            <!-- Right Dropdowns -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <div class="mr-2">
                     <x-language-dropdown />
                 </div>
 
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="64">
                     <x-slot name="trigger">
                         <button class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                             <span class="font-bold mr-2">
@@ -40,20 +40,28 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ Lang::get('main.titles.profile') }}
-                        </x-dropdown-link>
+                        <section>
+                            <div class="font-medium">
+                                {{ Lang::get('main.menu.your-account') }}
+                            </div>
+                            <div class="border-t mb-2 mt-1"></div>
+                            <x-menu-link :href="route('profile.edit')">
+                                {{ Lang::get('main.titles.profile') }}
+                            </x-menu-link>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
 
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault(); this.closest('form').submit();"
-                            >
-                                {{ Lang::get('auth.actions.log-out') }}
-                            </x-dropdown-link>
-                        </form>
+                                <a class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center mt-2 px-4 py-2 rounded-full text-white"
+                                   href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); this.closest('form').submit();"
+                                >
+                                    <span class="mr-2">
+                                        {{ Lang::get('auth.actions.log-out') }}
+                                    </span>
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                </a>
+                            </form>
+                        </section>
                     </x-slot>
                 </x-dropdown>
             </div>
