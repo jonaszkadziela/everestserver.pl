@@ -32,7 +32,7 @@
                     <p class="text-sm mt-2 text-gray-800">
                         {{ Lang::get('profile.update-profile-information.email-unverified') }}.
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
                             {{ Lang::get('profile.update-profile-information.resend-email') }}.
                         </button>
                     </p>
