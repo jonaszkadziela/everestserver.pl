@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'alignmentClasses' => '', 'contentClasses' => 'py-1 bg-white'])
+@props(['align' => 'right', 'width' => 'w-48', 'alignmentClasses' => '', 'contentClasses' => 'py-1 bg-white'])
 
 @php
 switch ($align) {
@@ -29,7 +29,7 @@ $alignmentClasses = implode(' ', [$alignmentClasses, $defaultAlignmentClasses]);
          x-transition:leave="transition ease-in duration-75"
          x-transition:leave-start="opacity-100 scale-100"
          x-transition:leave-end="opacity-0 scale-95"
-         class="absolute z-50 mt-2 w-{{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
+         class="absolute mt-2 rounded-md shadow-lg {{ $width }} z-50 {{ $alignmentClasses }}"
          style="display: none;"
          @click="open = false"
     >

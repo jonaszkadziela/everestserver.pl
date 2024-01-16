@@ -2,7 +2,7 @@
     use App\Http\Controllers\LanguageController;
 @endphp
 
-<x-dropdown align="right" content-classes="bg-white px-6 py-4" width="64">
+<x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
     <x-slot name="trigger">
         <button {{ $attributes->merge(['class' => 'duration-150 ease-in-out hover:text-gray-700 inline-flex p-2 text-gray-500 text-sm transition']) }}>
             <div>

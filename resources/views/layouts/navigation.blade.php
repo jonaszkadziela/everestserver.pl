@@ -29,7 +29,7 @@
                     <x-language-dropdown />
                 </div>
 
-                <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="64">
+                <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
                     <x-slot name="trigger">
                         <button class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                             <span class="font-bold mr-2">
