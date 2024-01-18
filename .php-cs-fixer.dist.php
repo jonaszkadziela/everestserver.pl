@@ -16,5 +16,9 @@ $finder = (new Finder)
 return (new Config)
     ->setRules([
         '@PSR12' => true,
+        'concat_space' => [
+            'spacing' => 'one',
+        ],
+        'no_unused_imports' => true,
     ])
     ->setFinder($finder);

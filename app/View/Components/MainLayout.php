@@ -22,8 +22,7 @@ class MainLayout extends Component
         ?bool $withActionsMenu = null,
         ?bool $withAnalytics = null,
         ?bool $withFooter = null
-    )
-    {
+    ) {
         $this->title = $title;
         $this->bodyClass = $bodyClass;
         $this->withActionsMenu = $withActionsMenu;
