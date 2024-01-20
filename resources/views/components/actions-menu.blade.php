@@ -8,7 +8,7 @@
             <button type="button" tabindex="1" class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none shadow-md transition-shadow">
                 <span class="font-bold hidden md:block mr-2">
                     @auth
-                        {{ Str::limit(Auth::user()->name, 10) }}
+                        {{ Auth::user()->username }}
                     @else
                         {{ Lang::get('main.menu.title') }}
                     @endauth

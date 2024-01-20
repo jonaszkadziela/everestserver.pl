@@ -23,11 +23,11 @@ return [
     'attributes' => [
         'current-password' => 'Current password',
         'email' => 'Email',
-        'name' => 'Name',
         'new-password-confirmation' => 'Confirm new password',
         'new-password' => 'New password',
         'password-confirmation' => 'Confirm password',
         'password' => 'Password',
+        'username' => 'Username',
     ],
     'confirm-password' => [
         'title' => 'Confirm access to continue',

@@ -33,7 +33,7 @@
                     <x-slot name="trigger">
                         <button class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                             <span class="font-bold mr-2">
-                                {{ Str::limit(Auth::user()->name, 10) }}
+                                {{ Auth::user()->username }}
                             </span>
                             <i class="fa-solid fa-bars"></i>
                         </button>
@@ -95,7 +95,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">
-                    {{ Auth::user()->name }}
+                    {{ Auth::user()->username }}
                 </div>
                 <div class="font-medium text-sm text-gray-500">
                     {{ Auth::user()->email }}

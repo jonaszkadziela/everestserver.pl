@@ -23,11 +23,11 @@ return [
     'attributes' => [
         'current-password' => 'Obecne hasło',
         'email' => 'E-mail',
-        'name' => 'Imię i nazwisko',
         'new-password-confirmation' => 'Powtórz nowe hasło',
         'new-password' => 'Nowe hasło',
         'password-confirmation' => 'Powtórz hasło',
         'password' => 'Hasło',
+        'username' => 'Nazwa użytkownika',
     ],
     'confirm-password' => [
         'title' => 'Potwierdź dostęp, aby kontynuować',
