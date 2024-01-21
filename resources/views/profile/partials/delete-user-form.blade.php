@@ -1,6 +1,6 @@
 <section class="space-y-6">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="font-medium text-gray-900 text-lg">
             {{ Lang::get('profile.delete-user.title') }}
         </h2>
 
@@ -8,7 +8,7 @@
             {{ Lang::get('profile.delete-user.description') }}.
         </p>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="text-sm text-gray-600">
             {{ Lang::get('profile.delete-user.description-2') }}.
         </p>
     </header>
@@ -24,15 +24,15 @@
             @csrf
             @method('delete')
 
-            <h2 class="text-lg font-medium text-gray-900">
+            <h2 class="font-medium mb-6 text-gray-900 text-lg">
                 {{ Lang::get('profile.delete-user.modal.title') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="text-sm text-gray-600">
                 {{ Lang::get('profile.delete-user.modal.description') }}.
             </p>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="text-sm text-gray-600">
                 {{ Lang::get('profile.delete-user.modal.confirm') }}.
             </p>
 
@@ -43,6 +43,7 @@
                               name="password"
                               type="password"
                               class="mt-1 block w-full"
+                              required
                 />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />

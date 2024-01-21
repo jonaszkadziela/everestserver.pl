@@ -29,14 +29,14 @@ return [
         ],
     ],
     'update-profile-information' => [
-        'description' => 'Update your account\'s profile information and email address',
+        'description' => 'Update your details. After changing your email address, you must verify it again',
         'email-unverified' => 'Your email address is unverified',
         'resend-email' => 'Click here to re-send the verification email',
-        'title' => 'Profile information',
+        'title' => 'Update profile information',
         'verification-resent' => 'A new verification link has been sent to your email address',
     ],
     'update-password' => [
-        'description' => 'Ensure your account is using a long, random password to stay secure',
+        'description' => 'To stay safe, make sure your account uses a long password, made up of random letters, numbers and characters',
         'title' => 'Update password',
     ],
 

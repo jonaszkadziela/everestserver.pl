@@ -50,6 +50,7 @@ return [
         'description' => 'Dziękujemy za zarejestrowanie się! Zanim zaczniesz korzystać z aplikacji, czy możesz zweryfikować swój adres e-mail, klikając w link, który wysłaliśmy do Ciebie e-mailem?',
         'description-2' => 'Jeśli nie dotarł do Ciebie e-mail, z przyjemnością wyślemy Ci link ponownie',
         'resend-verification' => 'Wyślij ponownie e-mail weryfikacyjny',
+        'verification-link-sent' => 'Na adres e-mail podany podczas rejestracji został wysłany nowy link weryfikacyjny',
     ],
 
 ];

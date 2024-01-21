@@ -29,14 +29,14 @@ return [
         ],
     ],
     'update-profile-information' => [
-        'description' => 'Zaktualizuj dane użytkownika i adres e-mail swojego konta',
+        'description' => 'Zaktualizuj swoje dane. Po zmianie adresu e-mail należy go ponownie zweryfikować',
         'email-unverified' => 'Twój adres e-mail nie został jeszcze zweryfikowany',
         'resend-email' => 'Kliknij tutaj, aby ponownie wysłać e-mail weryfikacyjny',
-        'title' => 'Dane użytkownika',
+        'title' => 'Zmiana danych użytkownika',
         'verification-resent' => 'Nowy link weryfikacyjny został wysłany na Twój adres e-mail',
     ],
     'update-password' => [
-        'description' => 'Aby zachować bezpieczeństwo, upewnij się, że Twoje konto używa długiego, losowego hasła',
+        'description' => 'Aby zachować bezpieczeństwo, upewnij się, że Twoje konto używa długiego hasła, złożonego z losowych liter, cyfr i znaków',
         'title' => 'Zmiana hasła',
     ],
 
