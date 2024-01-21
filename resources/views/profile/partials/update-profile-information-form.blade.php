@@ -17,13 +17,13 @@
         @method('patch')
 
         <div>
-            <x-input-label for="username" :value="Lang::get('auth.attributes.username')" />
+            <x-input-label for="username" :value="Lang::get('validation.attributes.username')" />
             <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" required autofocus autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('username')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="Lang::get('auth.attributes.email')" />
+            <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 

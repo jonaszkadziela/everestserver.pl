@@ -20,15 +20,6 @@ return [
     'actions' => [
         'log-out' => 'Log out',
     ],
-    'attributes' => [
-        'current-password' => 'Current password',
-        'email' => 'Email',
-        'new-password-confirmation' => 'Confirm new password',
-        'new-password' => 'New password',
-        'password-confirmation' => 'Confirm password',
-        'password' => 'Password',
-        'username' => 'Username',
-    ],
     'confirm-password' => [
         'title' => 'Confirm access to continue',
         'description' => 'This is a secure area of the application. Please confirm access with your password before continuing',

@@ -20,15 +20,6 @@ return [
     'actions' => [
         'log-out' => 'Wyloguj się',
     ],
-    'attributes' => [
-        'current-password' => 'Obecne hasło',
-        'email' => 'E-mail',
-        'new-password-confirmation' => 'Powtórz nowe hasło',
-        'new-password' => 'Nowe hasło',
-        'password-confirmation' => 'Powtórz hasło',
-        'password' => 'Hasło',
-        'username' => 'Nazwa użytkownika',
-    ],
     'confirm-password' => [
         'title' => 'Potwierdź dostęp, aby kontynuować',
         'description' => 'To jest zastrzeżony obszar aplikacji. Przed kontynuowaniem potwierdź dostęp swoim hasłem',

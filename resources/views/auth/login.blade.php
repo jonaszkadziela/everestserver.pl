@@ -25,16 +25,17 @@
 
                 <!-- Email Address -->
                 <div>
-                    <x-input-label for="email" :value="Lang::get('auth.attributes.email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                    <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-input-label for="password" :value="Lang::get('auth.attributes.password')" />
+                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-text-input id="password" class="block mt-1 w-full"
+                    <x-text-input id="password"
+                                  class="block mt-1 w-full"
                                   type="password"
                                   name="password"
                                   autocomplete="current-password"

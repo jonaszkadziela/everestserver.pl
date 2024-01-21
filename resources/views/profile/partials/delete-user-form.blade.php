@@ -37,7 +37,7 @@
             </p>
 
             <div class="mt-6">
-                <x-input-label for="password" :value="Lang::get('auth.attributes.password')" />
+                <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
                 <x-text-input id="password"
                               name="password"

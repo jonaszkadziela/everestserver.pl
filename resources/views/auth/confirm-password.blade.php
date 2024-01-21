@@ -25,9 +25,10 @@
 
                 <!-- Password -->
                 <div>
-                    <x-input-label for="password" :value="Lang::get('auth.attributes.password')" />
+                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-text-input id="password" class="block mt-1 w-full"
+                    <x-text-input id="password"
+                                  class="block mt-1 w-full"
                                   type="password"
                                   name="password"
                                   autocomplete="current-password"

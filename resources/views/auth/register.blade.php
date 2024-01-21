@@ -22,35 +22,39 @@
 
                 <!-- Username -->
                 <div>
-                    <x-input-label for="username" :value="Lang::get('auth.attributes.username')" />
+                    <x-input-label for="username" :value="Lang::get('validation.attributes.username')" />
                     <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
                     <x-input-error :messages="$errors->get('username')" class="mt-2" />
                 </div>
 
                 <!-- Email Address -->
                 <div class="mt-4">
-                    <x-input-label for="email" :value="Lang::get('auth.attributes.email')" />
+                    <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-input-label for="password" :value="Lang::get('auth.attributes.password')" />
+                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-text-input id="password" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password"
-                                    required autocomplete="new-password" />
+                    <x-text-input id="password"
+                                  class="block mt-1 w-full"
+                                  type="password"
+                                  name="password"
+                                  autocomplete="new-password"
+                                  required
+                    />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <x-input-label for="password_confirmation" :value="Lang::get('auth.attributes.password-confirmation')" />
+                    <x-input-label for="password_confirmation" :value="Lang::get('validation.attributes.password_confirmation')" />
 
-                    <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                    <x-text-input id="password_confirmation"
+                                  class="block mt-1 w-full"
                                   type="password"
                                   name="password_confirmation"
                                   autocomplete="new-password"
