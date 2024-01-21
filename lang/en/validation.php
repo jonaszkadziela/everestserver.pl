@@ -187,7 +187,8 @@ return [
 
     'attributes' => [
         'current_password' => 'Current password',
-        'email' => 'Email',
+        'email' => 'Email address',
+        'login' => 'Username or email address',
         'new_password_confirmation' => 'Confirm new password',
         'new_password' => 'New password',
         'password_confirmation' => 'Confirm password',
