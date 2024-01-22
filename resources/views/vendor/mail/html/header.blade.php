@@ -2,11 +2,8 @@
 <tr>
 <td class="header">
 <a href="{{ $url }}" style="display: inline-block;">
-@if (trim($slot) === 'Laravel')
-<img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo">
-@else
-{{ $slot }}
-@endif
+<img src="{{ Vite::asset('resources/images/brand/everestserver-logo.svg') }}" alt="{{ Lang::get('home.logo-alt') }}" style="width: 64px;">
+<div>{{ $slot }}</div>
 </a>
 </td>
 </tr>
