@@ -13,10 +13,10 @@
         @endif
     </head>
     <body class="{{ $bodyClass }}">
-        {{ $slot }}
         @isset($withActionsMenu)
             <x-actions-menu />
         @endisset
+        {{ $slot }}
         @isset($withFooter)
             <x-footer encoded-links="{!! json_encode([
                 'home' => route('home'),

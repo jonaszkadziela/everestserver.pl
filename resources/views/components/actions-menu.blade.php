@@ -5,7 +5,7 @@
 <aside class="fixed flex flex-col items-end mr-4 mt-4 right-0 top-0">
     <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
         <x-slot name="trigger">
-            <button type="button" tabindex="1" class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none shadow-md transition-shadow">
+            <button type="button" class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none shadow-md transition-shadow">
                 <span class="font-bold hidden md:block mr-2">
                     @auth
                         {{ Auth::user()->username }}
