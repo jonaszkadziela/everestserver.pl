@@ -43,8 +43,6 @@ class UserFactory extends Factory
 
     /**
      * Indicate that the user is admin.
-     *
-     * @return static
      */
     public function admin(): static
     {
