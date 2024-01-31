@@ -4,6 +4,7 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = (new Finder)
+    ->exclude('bootstrap/cache')
     ->exclude('node_modules')
     ->exclude('storage')
     ->exclude('vendor')
