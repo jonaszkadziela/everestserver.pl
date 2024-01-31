@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Models\Traits\CustomCanResetPassword;
+use App\Models\Traits\CustomMustVerifyEmail;
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -60,6 +62,8 @@ class UserTest extends TestCase
 
     public function test_user_traits(): void
     {
+        $this->assertTrue(in_array(CustomCanResetPassword::class, class_uses($this->user)));
+        $this->assertTrue(in_array(CustomMustVerifyEmail::class, class_uses($this->user)));
         $this->assertTrue(in_array(HasApiTokens::class, class_uses($this->user)));
         $this->assertTrue(in_array(HasFactory::class, class_uses($this->user)));
         $this->assertTrue(in_array(Notifiable::class, class_uses($this->user)));
