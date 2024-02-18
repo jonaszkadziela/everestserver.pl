@@ -1,11 +1,14 @@
-@props(['lang'])
+@props([
+    'lang' => 'pl',
+    'emailAddress' => 'kontakt@jonaszkadziela.pl',
+])
 
 <x-markdown {{ $attributes->merge(['class' => 'markdown']) }}>
 @if ($lang === 'en')
 1. **GENERAL INFORMATION**
     1. This policy applies to the website operating at the URL address: [everestserver.pl](https://everestserver.pl).
     2. The website operator and personal data Administrator is: sole proprietorship "JONASZ KĄDZIELA" run by Jonasz Kądziela with its registered office in Lodz, Orzechowa 11, 94-205, NIP number 7272847808 and REGON number 388094664.
-    3. Operator's e-mail address for contact: [contact@jonaszkadziela.pl](mailto:contact@jonaszkadziela.pl).
+    3. Operator's e-mail address for contact: [{{ $emailAddress }}](mailto:{{ $emailAddress }}).
     4. The Operator is the Administrator of your personal data in relation to data provided voluntarily on the Website.
     5. The website uses personal data for the following purposes:
         * running a comment system,
@@ -94,7 +97,7 @@
 1. **INFORMACJE OGÓLNE**
     1. Niniejsza polityka dotyczy Serwisu www, funkcjonującego pod adresem URL: [everestserver.pl](https://everestserver.pl).
     2. Operatorem serwisu oraz Administratorem danych osobowych jest: jednoosobowa działalność gospodarcza "JONASZ KĄDZIELA" prowadzona przez Jonasza Kądzielę z siedzibą w Łodzi, ul. Orzechowa 11, 94-205, o numerze NIP 7272847808 oraz REGON 388094664.
-    3. Adres kontaktowy poczty elektronicznej operatora: [kontakt@jonaszkadziela.pl](mailto:kontakt@jonaszkadziela.pl).
+    3. Adres kontaktowy poczty elektronicznej operatora: [{{ $emailAddress }}](mailto:{{ $emailAddress }}).
     4. Operator jest Administratorem Twoich danych osobowych w odniesieniu do danych podanych dobrowolnie w Serwisie.
     5. Serwis wykorzystuje dane osobowe w następujących celach:
         * prowadzenie systemu komentarzy,

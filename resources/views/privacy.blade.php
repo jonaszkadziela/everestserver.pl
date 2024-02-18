@@ -1,3 +1,8 @@
+@php
+    $lang = App::getLocale();
+    $emailAddress = $lang === 'en' ? 'contact@jonaszkadziela.pl' : 'kontakt@jonaszkadziela.pl';
+@endphp
+
 <x-main-layout title="{{ Lang::get('main.titles.privacy') }}"
                body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
                with-actions-menu
@@ -15,10 +20,12 @@
                 </p>
                 <p>
                     {{ Lang::get('privacy.contact') }}
-                    <a href="mailto:kontakt@jonaszkadziela.pl" class="text-blue-700 hover:text-blue-900">kontakt@jonaszkadziela.pl</a>.
+                    <a href="mailto:{{ $emailAddress }}" class="text-blue-700 hover:text-blue-900">{{ $emailAddress }}</a>.
                 </p>
             </div>
-            <x-privacy-policy lang="{{ App::getLocale() }}" />
+            <x-privacy-policy :lang="$lang"
+                              :email-address="$emailAddress"
+            />
         </div>
     </main>
 </x-main-layout>
