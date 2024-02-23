@@ -1,7 +1,13 @@
 <?php
 
+use App\Providers\AppServiceProvider;
+use App\Providers\AuthServiceProvider;
+use App\Providers\EventServiceProvider;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Torann\GeoIP\Facades\GeoIP;
+use Torann\GeoIP\GeoIPServiceProvider;
 
 return [
 
@@ -170,15 +176,15 @@ return [
         /*
          * Package Service Providers...
          */
+        GeoIPServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        AppServiceProvider::class,
+        AuthServiceProvider::class,
+        EventServiceProvider::class,
+        RouteServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -193,7 +199,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'GeoIP' => GeoIP::class,
     ])->toArray(),
 
 ];
