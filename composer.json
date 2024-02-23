@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.8",
         "spatie/laravel-markdown": "^2.4",
         "symfony/http-client": "^6.4",
-        "symfony/mailgun-mailer": "^6.4"
+        "symfony/mailgun-mailer": "^6.4",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
