@@ -4,6 +4,7 @@ use App\Providers\AppServiceProvider;
 use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\RouteServiceProvider;
+use App\Providers\TelescopeServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use Torann\GeoIP\Facades\GeoIP;
@@ -185,6 +186,7 @@ return [
         AuthServiceProvider::class,
         EventServiceProvider::class,
         RouteServiceProvider::class,
+        TelescopeServiceProvider::class,
     ])->toArray(),
 
     /*
