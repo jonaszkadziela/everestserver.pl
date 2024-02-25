@@ -4,8 +4,10 @@ namespace Tests\Unit;
 
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
+use Spatie\Translatable\HasTranslations;
 use Tests\TestCase;
 
 class ServiceTest extends TestCase
@@ -21,7 +23,10 @@ class ServiceTest extends TestCase
 
         $this->attributes = [
             'name' => 'EverestService',
-            'description' => 'Sample service on EverestServer',
+            'description' => [
+                'en' => 'Sample service on EverestServer',
+                'pl' => 'Przykładowa usługa na EverestServer',
+            ],
             'icon' => 'fa-server fa-solid',
             'link' => 'https://service.everestserver.test',
             'is_public' => true,
@@ -36,7 +41,7 @@ class ServiceTest extends TestCase
     public function test_service_attributes(): void
     {
         $this->assertSame($this->attributes['name'], $this->service->name);
-        $this->assertSame($this->attributes['description'], $this->service->description);
+        $this->assertSame($this->attributes['description'], $this->service->getTranslations('description'));
         $this->assertSame($this->attributes['icon'], $this->service->icon);
         $this->assertSame($this->attributes['link'], $this->service->link);
         $this->assertSame($this->attributes['is_public'], $this->service->is_public);
@@ -56,10 +61,11 @@ class ServiceTest extends TestCase
     public function test_service_traits(): void
     {
         $this->assertTrue(in_array(HasFactory::class, class_uses($this->service)));
+        $this->assertTrue(in_array(HasTranslations::class, class_uses($this->service)));
     }
 
     public function test_service_parent_classes(): void
     {
-        $this->assertTrue($this->service instanceof \Illuminate\Database\Eloquent\Model);
+        $this->assertTrue($this->service instanceof Model);
     }
 }

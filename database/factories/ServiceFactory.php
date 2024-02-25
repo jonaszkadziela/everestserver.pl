@@ -20,7 +20,10 @@ class ServiceFactory extends Factory
     {
         return [
             'name' => 'Everest' . Str::ucfirst(fake()->unique()->word()),
-            'description' => fake()->sentence(),
+            'description' => [
+                'en' => fake('en_US')->realText(100),
+                'pl' => fake('pl_PL')->realText(100),
+            ],
             'icon' => 'fa-server fa-solid',
             'link' => fake()->url(),
             'is_public' => true,
