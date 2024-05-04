@@ -21,7 +21,7 @@
             <x-footer encoded-links="{!! json_encode([
                 'home' => route('home'),
                 'privacy' => route('privacy'),
-                'contact' => 'mailto:kontakt@jonaszkadziela.pl',
+                'contact' => 'mailto:' . Lang::get('main.contact-email'),
             ]) !!}" />
         @endisset
         <div class="fixed bottom-0 m-8 right-0 toast-container">

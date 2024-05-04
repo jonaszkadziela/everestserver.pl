@@ -1,6 +1,6 @@
 @props([
-    'lang' => 'pl',
-    'emailAddress' => 'kontakt@jonaszkadziela.pl',
+    'lang' => App::getLocale(),
+    'emailAddress' => Lang::get('main.contact-email'),
 ])
 
 <x-markdown {{ $attributes->merge(['class' => 'markdown']) }}>

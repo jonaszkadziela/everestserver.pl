@@ -11,6 +11,7 @@ return [
     |
     */
 
+    'contact-email' => 'kontakt@jonaszkadziela.pl',
     'description' => 'EverestServer - Spełniamy oczekiwania wyższe niż Everest',
     'try-again-later' => 'Proszę spróbować później',
 
