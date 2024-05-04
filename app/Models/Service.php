@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -41,4 +42,20 @@ class Service extends Model
         'is_public' => 'boolean',
         'is_enabled' => 'boolean',
     ];
+
+    /**
+     * Filter services that have the is_enabled attribute equal to the given value.
+     */
+    public function scopeEnabled(Builder $query, bool $value = true): Builder
+    {
+        return $query->where('is_enabled', '=', $value);
+    }
+
+    /**
+     * Filter services that have the is_public attribute equal to the given value.
+     */
+    public function scopePublic(Builder $query, bool $value = true): Builder
+    {
+        return $query->where('is_public', '=', $value);
+    }
 }

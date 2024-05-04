@@ -68,4 +68,38 @@ class ServiceTest extends TestCase
     {
         $this->assertTrue($this->service instanceof Model);
     }
+
+    public function test_service_enabled_scope(): void
+    {
+        Service::truncate();
+
+        $enabledService = Service::factory()->create();
+        $disabledService = Service::factory()->disabled()->create();
+
+        $firstEnabledService = Service::enabled()->first();
+        $firstDisabledService = Service::enabled(false)->first();
+
+        $this->assertTrue($enabledService->is_enabled);
+        $this->assertSame($enabledService->id, $firstEnabledService->id);
+
+        $this->assertFalse($disabledService->is_enabled);
+        $this->assertSame($disabledService->id, $firstDisabledService->id);
+    }
+
+    public function test_service_public_scope(): void
+    {
+        Service::truncate();
+
+        $publicService = Service::factory()->create();
+        $privateService = Service::factory()->private()->create();
+
+        $firstPublicService = Service::public()->first();
+        $firstPrivateService = Service::public(false)->first();
+
+        $this->assertTrue($publicService->is_public);
+        $this->assertSame($publicService->id, $firstPublicService->id);
+
+        $this->assertFalse($privateService->is_public);
+        $this->assertSame($privateService->id, $firstPrivateService->id);
+    }
 }
