@@ -30,7 +30,7 @@ return new class () extends Migration {
                 'en' => 'EverestGit is a platform for managing Git repositories. Unlike GitHub, we don\'t teach AI on someone else\'s code',
                 'pl' => 'EverestGit to platforma do zarządzania repozytoriami typu Git. W przeciwieństwie do GitHuba, nie uczymy sztucznej inteligencji na cudzym kodzie'
             ],
-            'icon' => 'fa-brands fa-git-alt text-5xl',
+            'icon' => 'fa-brands fa-git-alt text-5xl -mt-1.5',
             'link' => 'https://git.everestserver.pl',
         ],
     ];
@@ -53,7 +53,7 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Service::whereIn(collect($this->services)->pluck('name'))
+        Service::whereIn('name', collect($this->services)->pluck('name'))
             ->delete();
     }
 };
