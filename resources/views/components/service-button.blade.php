@@ -1,11 +1,15 @@
 @props(['service'])
 
 <div class="bg-blue-700 flex h-24 hover:bg-blue-800 relative rounded-lg text-white transition-colors w-36"
-     x-data
+     x-data="{ loading: false }"
+     @pageshow.window="loading = false"
 >
-    <a href="{{ $service->link }}" class="flex justify-center flex-1 flex-col p-2">
-        <i class="{{ $service->icon }} mb-1"></i>
-        <p class="font-light">
+    <a href="{{ $service->link }}"
+       class="flex justify-center flex-1 flex-col p-2"
+       @click="loading = true"
+    >
+        <i x-bind:class="loading ? 'fa-circle-notch fa-solid fa-spin text-4xl' : '{{ $service->icon }}'"></i>
+        <p class="font-light mt-1">
             {!! Lang::get('home.services.' . Str::lower($service->name)) !!}
         </p>
     </a>
