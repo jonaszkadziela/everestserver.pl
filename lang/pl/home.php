@@ -13,6 +13,7 @@ return [
 
     'choose-service' => 'Wybierz serwis, z którego chcesz skorzystać',
     'logo-alt' => 'EverestLogo',
+    'no-services' => 'Obecnie nie są dostępne żadne usługi',
     'welcome' => 'Witaj na Everest<b>Server</b>',
 
     'services' => [

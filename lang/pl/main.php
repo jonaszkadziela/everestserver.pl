@@ -12,6 +12,7 @@ return [
     */
 
     'description' => 'EverestServer - Spełniamy oczekiwania wyższe niż Everest',
+    'try-again-later' => 'Proszę spróbować później',
 
     'cookies' => [
         'description' => 'Ta strona korzysta z plików cookies, które pomagają nam świadczyć nasze usługi. Korzystając z naszych usług, wyrażasz zgodę na używanie przez nas plików cookies i akceptujesz naszą',

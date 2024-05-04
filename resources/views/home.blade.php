@@ -1,3 +1,7 @@
+@php
+    use App\Models\Service;
+@endphp
+
 <x-main-layout title="{{ Lang::get('main.titles.home') }}"
                body-class="bg-blue-700 bg-image-primary bg-image-responsive flex flex-col min-h-screen"
                with-actions-menu
@@ -18,16 +22,18 @@
                 <p class="mb-4 text-blue-700">
                     {{ Lang::get('home.choose-service') }}
                 </p>
-                <div class="flex flex-col items-center justify-evenly md:flex-row gap-4 md:gap-2">
-                    <x-service-button type="everestcloud"
-                                      link="https://cloud.everestserver.pl"
-                    />
-                    <x-service-button type="everestpass"
-                                      link="https://pass.everestserver.pl"
-                    />
-                    <x-service-button type="everestgit"
-                                      link="https://git.everestserver.pl"
-                    />
+                <div class="flex flex-col items-center justify-center md:flex-row gap-4">
+                    @forelse (Service::enabled()->public()->get() as $service)
+                        <x-service-button :service="$service" />
+                    @empty
+                        <div>
+                            <p class="font-bold">
+                                {{ Lang::get('home.no-services') }}
+                                <i class="fa-regular fa-face-frown ml-0.5"></i>
+                            </p>
+                            {{ Lang::get('main.try-again-later') }}
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>
