@@ -7,27 +7,18 @@ use Illuminate\View\View;
 
 class MainLayout extends Component
 {
-    public ?string $title;
-    public ?string $bodyClass;
-    public ?bool $withActionsMenu;
-    public ?bool $withAnalytics;
-    public ?bool $withFooter;
-
     /**
      * Create a new component instance.
      */
     public function __construct(
-        ?string $title = null,
-        ?string $bodyClass = null,
-        ?bool $withActionsMenu = null,
-        ?bool $withAnalytics = null,
-        ?bool $withFooter = null
+        public ?string $title = null,
+        public ?string $bodyClass = null,
+        public ?string $header = null,
+        public ?bool $withAnalytics = null,
+        public ?bool $withActionsMenu = null,
+        public ?bool $withNavigation = null,
+        public ?bool $withFooter = null
     ) {
-        $this->title = $title;
-        $this->bodyClass = $bodyClass;
-        $this->withActionsMenu = $withActionsMenu;
-        $this->withAnalytics = $withAnalytics;
-        $this->withFooter = $withFooter;
     }
 
     /**
