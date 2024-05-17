@@ -17,9 +17,9 @@ return [
     'welcome' => 'Witaj na Everest<b>Server</b>',
 
     'services' => [
-        'everestcloud' => 'Everest<b>Cloud</b>',
-        'everestgit' => 'Everest<b>Git</b>',
-        'everestpass' => 'Everest<b>Pass</b>',
+        'everestcloud' => 'Everest<span class="font-bold">Cloud</span>',
+        'everestgit' => 'Everest<span class="font-bold">Git</span>',
+        'everestpass' => 'Everest<span class="font-bold">Pass</span>',
     ],
 
 ];
