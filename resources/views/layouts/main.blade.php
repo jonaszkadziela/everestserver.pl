@@ -26,7 +26,9 @@
     </head>
     <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
         @isset($withActionsMenu)
-            <x-actions-menu />
+            <x-actions-menu class="fixed mr-4 mt-4 right-0 top-0"
+                            :with-navigation="Auth::check()"
+            />
         @endisset
         @isset($withNavigation)
             @include('layouts.navigation')
