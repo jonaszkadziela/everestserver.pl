@@ -13,7 +13,7 @@
             {!! Lang::get('home.services.' . Str::lower($service->name)) !!}
         </p>
     </a>
-    <button class="absolute cursor-help mx-1 my-1.5 px-1 py-0.5 right-0 top-0"
+    <button class="absolute cursor-help px-2 py-1 right-0 top-0"
             x-on:click="$dispatch('open-modal', 'info-{{ Str::lower($service->name) }}')"
     >
         <i class="fa-solid fa-info-circle"></i>
