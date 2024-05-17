@@ -38,10 +38,13 @@
                 </div>
                 <div class="border-t mb-2 mt-1"></div>
                 @auth
+                    <x-menu-link :href="route('profile.edit')">
+                        {{ Lang::get('main.titles.profile') }}
+                    </x-menu-link>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <a class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white"
+                        <a class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center mt-2 px-4 py-2 rounded-full text-white"
                            href="{{ route('logout') }}"
                            onclick="event.preventDefault(); this.closest('form').submit();"
                         >
