@@ -2,7 +2,10 @@
     use App\Http\Controllers\LanguageController;
 @endphp
 
-<aside class="fixed flex flex-col items-end mr-4 mt-4 right-0 top-0 z-50">
+<aside class="fixed flex gap-2 mr-4 mt-4 right-0 top-0 z-50">
+    <div class="bg-white border flex hover:shadow-xl items-center justify-center rounded-full select-none shadow-md transition-shadow">
+        <x-language-dropdown class="md:text-sm px-4 text-xs" />
+    </div>
     <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
         <x-slot name="trigger">
             <button type="button" class="bg-white border cursor-pointer flex hover:shadow-xl items-center justify-center px-4 py-2 rounded-full select-none shadow-md transition-shadow">
@@ -18,22 +21,8 @@
         </x-slot>
 
         <x-slot name="content">
-            <section>
-                <div class="font-medium">
-                    {{ Lang::get('main.menu.change-language') }}
-                </div>
-                <div class="border-t my-1"></div>
-                @foreach (config('app.languages') as $language)
-                    <a href="{{ action([LanguageController::class, 'change'], ['code' => $language]) }}" class="block">
-                        <i class="{{ App::getLocale() === $language ? 'fa-solid' : 'fa-regular '}} fa-flag mr-1"></i>
-                        <span>
-                            {{ Lang::get('main.languages.' . $language) }}
-                        </span>
-                    </a>
-                @endforeach
-            </section>
             @auth
-                <section class="mt-3">
+                <section class="mb-3">
                     <div class="font-medium">
                         {{ Lang::get('main.menu.navigation') }}
                     </div>
@@ -43,7 +32,7 @@
                     </x-menu-link>
                 </section>
             @endauth
-            <section class="mt-3">
+            <section>
                 <div class="font-medium">
                     {{ Lang::get('main.menu.your-account') }}
                 </div>
