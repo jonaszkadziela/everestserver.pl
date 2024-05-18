@@ -28,7 +28,7 @@
                     @empty
                         <div>
                             <p class="font-bold">
-                                {{ Lang::get('home.no-services') }}
+                                {{ Lang::get('services.not-available') }}
                                 <i class="fa-regular fa-face-frown ml-0.5"></i>
                             </p>
                             {{ Lang::get('main.try-again-later') }}

@@ -10,7 +10,7 @@
     >
         <i x-bind:class="loading ? 'fa-circle-notch fa-solid fa-spin text-4xl' : '{{ $service->icon }}'"></i>
         <p class="font-light mt-1">
-            {!! Lang::get('home.services.' . Str::lower($service->name)) !!}
+            {!! Lang::get('services.labels.' . Str::lower($service->name)) !!}
         </p>
     </a>
     <button class="absolute cursor-help px-2 py-1 right-0 top-0"
@@ -22,7 +22,8 @@
 
 <x-modal name="info-{{ Str::lower($service->name) }}">
     <div class="text-left p-6">
-        <h2 class="font-medium mb-6 text-gray-900 text-lg">
+        <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
+            <i class="text-2xl {{ $service->icon }}"></i>
             {{ $service->name }}
         </h2>
 
