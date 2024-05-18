@@ -42,6 +42,7 @@ return [
         'your-account' => 'Your account',
     ],
     'titles' => [
+        'authorization-request' => 'Authorization request',
         'confirm-password' => 'Confirm authorization',
         'contact' => 'Contact',
         'dashboard' => 'Dashboard',

@@ -42,6 +42,7 @@ return [
         'your-account' => 'Twoje konto',
     ],
     'titles' => [
+        'authorization-request' => 'Żądanie autoryzacji',
         'confirm-password' => 'Potwierdź autoryzację',
         'contact' => 'Kontakt',
         'dashboard' => 'Panel zarządzania',

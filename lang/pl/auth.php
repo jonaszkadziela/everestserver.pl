@@ -20,6 +20,13 @@ return [
     'actions' => [
         'log-out' => 'Wyloguj się',
     ],
+    'authorization-request' => [
+        'title' => 'Żądanie autoryzacji',
+        'description' => '<b>:name</b> prosi o pozwolenie na dostęp do Twojego konta',
+        'scopes' => 'Ta aplikacja będzie w stanie',
+        'authorize' => 'Upoważnij',
+        'cancel' => 'Anuluj',
+    ],
     'confirm-password' => [
         'title' => 'Potwierdź dostęp, aby kontynuować',
         'description' => 'To jest zastrzeżony obszar aplikacji. Przed kontynuowaniem potwierdź dostęp swoim hasłem',

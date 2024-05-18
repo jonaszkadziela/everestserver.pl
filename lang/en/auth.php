@@ -20,6 +20,13 @@ return [
     'actions' => [
         'log-out' => 'Log out',
     ],
+    'authorization-request' => [
+        'title' => 'Authorization request',
+        'description' => '<b>:name</b> is requesting permission to access your account',
+        'scopes' => 'This application will be able to',
+        'authorize' => 'Authorize',
+        'cancel' => 'Cancel',
+    ],
     'confirm-password' => [
         'title' => 'Confirm access to continue',
         'description' => 'This is a secure area of the application. Please confirm access with your password before continuing',
