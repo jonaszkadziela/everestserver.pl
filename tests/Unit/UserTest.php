@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Service;
 use App\Models\Traits\CustomCanResetPassword;
 use App\Models\Traits\CustomMustVerifyEmail;
 use App\Models\User;
@@ -10,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use Tests\TestCase;
@@ -77,5 +79,22 @@ class UserTest extends TestCase
     public function test_user_parent_classes(): void
     {
         $this->assertTrue($this->user instanceof \Illuminate\Foundation\Auth\User);
+    }
+
+    public function test_user_services_relation(): void
+    {
+        $service = Service::factory()->create();
+
+        DB::table('services_users')
+            ->insert([
+                'service_id' => $service->id,
+                'user_id' => $this->user->id,
+                'identifier' => $this->user->email,
+            ]);
+
+        $this->assertTrue($this->user->services() instanceof \Illuminate\Database\Eloquent\Relations\BelongsToMany);
+        $this->assertCount(1, $this->user->services()->get());
+        $this->assertSame($service->id, $this->user->services()->first()->id);
+        $this->assertSame($this->user->email, $this->user->services()->first()->pivot->identifier);
     }
 }

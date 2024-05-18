@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
@@ -57,5 +58,13 @@ class Service extends Model
     public function scopePublic(Builder $query, bool $value = true): Builder
     {
         return $query->where('is_public', '=', $value);
+    }
+
+    /**
+     * Relation to users.
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'services_users')->withPivot('identifier');
     }
 }

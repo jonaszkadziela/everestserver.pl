@@ -3,10 +3,12 @@
 namespace Tests\Unit;
 
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Spatie\Translatable\HasTranslations;
 use Tests\TestCase;
 
@@ -101,5 +103,22 @@ class ServiceTest extends TestCase
 
         $this->assertFalse($privateService->is_public);
         $this->assertSame($privateService->id, $firstPrivateService->id);
+    }
+
+    public function test_service_users_relation(): void
+    {
+        $user = User::factory()->create();
+
+        DB::table('services_users')
+            ->insert([
+                'service_id' => $this->service->id,
+                'user_id' => $user->id,
+                'identifier' => $user->email,
+            ]);
+
+        $this->assertTrue($this->service->users() instanceof \Illuminate\Database\Eloquent\Relations\BelongsToMany);
+        $this->assertCount(1, $this->service->users()->get());
+        $this->assertSame($user->id, $this->service->users()->first()->id);
+        $this->assertSame($user->email, $this->service->users()->first()->pivot->identifier);
     }
 }
