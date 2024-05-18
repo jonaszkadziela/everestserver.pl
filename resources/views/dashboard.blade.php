@@ -21,7 +21,7 @@
                     <div class="flex gap-4 items-start justify-between">
                         <div>
                             <h2 class="flex font-medium gap-2 items-center text-gray-900 text-lg">
-                                <i class="text-2xl {{ $service->icon }}"></i>
+                                <i class="!text-2xl {{ $service->icon }}"></i>
                                 {{ $service->name }}
                             </h2>
                             <p class="mt-1 text-sm text-gray-600">

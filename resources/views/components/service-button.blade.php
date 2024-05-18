@@ -23,7 +23,7 @@
 <x-modal name="info-{{ Str::lower($service->name) }}">
     <div class="text-left p-6">
         <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
-            <i class="text-2xl {{ $service->icon }}"></i>
+            <i class="!text-2xl {{ $service->icon }}"></i>
             {{ $service->name }}
         </h2>
 
