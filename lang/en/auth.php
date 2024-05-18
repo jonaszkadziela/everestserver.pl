@@ -52,6 +52,9 @@ return [
         'title' => 'Reset your password',
         'save' => 'Save',
     ],
+    'scopes' => [
+        'read-user' => 'View your account information, such as email address and username',
+    ],
     'verify-email' => [
         'title' => 'Verify your email address',
         'description' => 'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you?',

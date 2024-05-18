@@ -52,6 +52,9 @@ return [
         'title' => 'Zresetuj swoje hasło',
         'save' => 'Zapisz',
     ],
+    'scopes' => [
+        'read-user' => 'Wyświetlać informacje o Twoim koncie, takie jak adres e-mail i nazwa użytkownika',
+    ],
     'verify-email' => [
         'title' => 'Zweryfikuj swój adres e-mail',
         'description' => 'Dziękujemy za zarejestrowanie się! Zanim zaczniesz korzystać z aplikacji, czy możesz zweryfikować swój adres e-mail, klikając w link, który wysłaliśmy do Ciebie e-mailem?',
