@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Passport::tokensCan([
+            'openid' => 'OpenID',
             'read-user' => 'Read user',
         ]);
     }

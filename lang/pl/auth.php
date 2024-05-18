@@ -53,6 +53,7 @@ return [
         'save' => 'Zapisz',
     ],
     'scopes' => [
+        'openid' => 'Łączyć aplikacje OpenID z Twoim kontem',
         'read-user' => 'Wyświetlać informacje o Twoim koncie, takie jak adres e-mail i nazwa użytkownika',
     ],
     'verify-email' => [

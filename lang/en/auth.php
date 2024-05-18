@@ -53,6 +53,7 @@ return [
         'save' => 'Save',
     ],
     'scopes' => [
+        'openid' => 'Connect OpenID applications to your account',
         'read-user' => 'View your account information, such as email address and username',
     ],
     'verify-email' => [
