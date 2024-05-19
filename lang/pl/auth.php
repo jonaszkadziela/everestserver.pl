@@ -53,8 +53,10 @@ return [
         'save' => 'Zapisz',
     ],
     'scopes' => [
+        'email' => 'Wyświetlać Twój adres e-mail',
         'openid' => 'Łączyć aplikacje OpenID z Twoim kontem',
-        'read-user' => 'Wyświetlać informacje o Twoim koncie, takie jak adres e-mail i nazwa użytkownika',
+        'profile' => 'Wyświetlać informacje o Twoim profilu, takie jak nazwa użytkownika, preferowane ustawienia regionalne i inne',
+        'user' => 'Wyświetlać informacje o Twoim koncie, takie jak adres e-mail, nazwa użytkownika, rola i inne',
     ],
     'verify-email' => [
         'title' => 'Zweryfikuj swój adres e-mail',

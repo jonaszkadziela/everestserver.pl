@@ -53,8 +53,10 @@ return [
         'save' => 'Save',
     ],
     'scopes' => [
+        'email' => 'View your email address',
         'openid' => 'Connect OpenID applications to your account',
-        'read-user' => 'View your account information, such as email address and username',
+        'profile' => 'View information about your profile, such as username, preferred locale and more',
+        'user' => 'View your account information, such as email address, username, role and more',
     ],
     'verify-email' => [
         'title' => 'Verify your email address',

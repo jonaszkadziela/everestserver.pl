@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OpenIdController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    })->middleware('scopes:read-user');
+    Route::get('/userinfo', [OpenIdController::class, 'userinfo'])->middleware('scope:email,openid,profile')->name('openid.userinfo');
+    Route::get('/user', fn (Request $request) => $request->user())->middleware('scope:user');
 });

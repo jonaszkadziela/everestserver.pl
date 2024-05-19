@@ -25,7 +25,7 @@
                     </p>
                     <ul class="list-disc list-inside text-sm">
                         @foreach ($scopes as $scope)
-                            <li>{{ Lang::get('auth.scopes.' . $scope->id) }}</li>
+                            <li>{{ Lang::get($scope->description) }}</li>
                         @endforeach
                     </ul>
                 </div>

@@ -27,8 +27,10 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Passport::tokensCan([
-            'openid' => 'OpenID',
-            'read-user' => 'Read user',
+            'email' => 'auth.scopes.email',
+            'openid' => 'auth.scopes.openid',
+            'profile' => 'auth.scopes.profile',
+            'user' => 'auth.scopes.user',
         ]);
     }
 }
