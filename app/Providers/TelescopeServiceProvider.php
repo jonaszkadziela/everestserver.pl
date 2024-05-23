@@ -21,6 +21,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
         Telescope::filter(
             fn (IncomingEntry $entry) =>
+                config('telescope.filtering_enabled') === false ||
                 $isLocal ||
                 $entry->isReportableException() ||
                 $entry->isFailedRequest() ||
