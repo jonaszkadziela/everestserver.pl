@@ -5,6 +5,7 @@ use App\Providers\AuthServiceProvider;
 use App\Providers\EventServiceProvider;
 use App\Providers\RouteServiceProvider;
 use App\Providers\TelescopeServiceProvider;
+use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 use Torann\GeoIP\Facades\GeoIP;
@@ -201,6 +202,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Debugbar' => Debugbar::class,
         'GeoIP' => GeoIP::class,
     ])->toArray(),
 
