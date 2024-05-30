@@ -8,7 +8,7 @@
        class="flex justify-center flex-1 flex-col p-2"
        @click="loading = true"
     >
-        <i x-bind:class="loading ? 'fa-circle-notch fa-solid fa-spin text-4xl' : '{{ $service->icon }}'"></i>
+        <i class="{{ $service->icon }}" x-bind:class="{ '{{ $service->icon }}': !loading, 'fa-circle-notch fa-solid fa-spin text-4xl': loading }"></i>
         <p class="font-light mt-1">
             {!! Lang::get('services.labels.' . Str::lower($service->name)) !!}
         </p>
