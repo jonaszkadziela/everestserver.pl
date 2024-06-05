@@ -39,11 +39,10 @@
             <div class="mt-6">
                 <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                <x-text-input id="password"
-                              name="password"
-                              type="password"
-                              class="mt-1 block w-full"
-                              required
+                <x-password-input id="password"
+                                  name="password"
+                                  class="mt-1"
+                                  required
                 />
 
                 <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />

@@ -27,12 +27,11 @@
                 <div>
                     <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-text-input id="password"
-                                  class="block mt-1 w-full"
-                                  type="password"
-                                  name="password"
-                                  autocomplete="current-password"
-                                  required
+                    <x-password-input id="password"
+                                      class="mt-1"
+                                      name="password"
+                                      autocomplete="current-password"
+                                      required
                     />
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
