@@ -48,8 +48,16 @@
                 'contact' => 'mailto:' . Lang::get('main.contact-email'),
             ]) !!}" />
         @endisset
-        <div class="fixed bottom-0 m-8 right-0 toast-container">
+        <div class="bottom-0 fixed flex flex-col gap-2 left-0 m-8 md:left-auto right-0">
             @include('toasts.cookies')
+            @if(Session::has('notifications'))
+                @foreach (Session::pull('notifications') as $notification)
+                    <x-notification :title="$notification['title']"
+                                    :body="$notification['body']"
+                                    :type="Arr::get($notification, 'type')"
+                    />
+                @endforeach
+            @endif
         </div>
     </body>
 </html>

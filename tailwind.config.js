@@ -11,7 +11,13 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     ],
 
-    theme: {},
+    theme: {
+        extend: {
+            minWidth: {
+                '64': '16rem',
+            },
+        },
+    },
 
     plugins: [forms],
 }
