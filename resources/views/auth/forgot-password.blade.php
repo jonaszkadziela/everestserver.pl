@@ -18,10 +18,10 @@
                 <div class="mb-4 text-sm text-gray-600">
                     {{ Lang::get('auth.forgot-password.description') }}.
                 </div>
-            </div>
 
-            <!-- Session Status -->
-            <x-auth-session-status class="mb-4" :status="session('status')" />
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
+            </div>
 
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf

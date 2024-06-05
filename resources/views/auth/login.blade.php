@@ -15,10 +15,10 @@
                 <h1 class="mb-6 text-3xl">
                     {{ Lang::get('auth.login.title') }}
                 </h1>
-            </div>
 
-            <!-- Session Status -->
-            <x-auth-session-status class="mb-4" :status="session('status')" />
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4" :status="session('status')" />
+            </div>
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
