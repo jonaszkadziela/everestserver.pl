@@ -2,6 +2,7 @@
      aria-live="assertive"
      class="bg-white border-2 duration-300 hover:shadow-xl max-w-md min-w-64 p-4 relative rounded-lg shadow-md transition-all {{ $borderClass }}"
      role="alert"
+     x-cloak
      x-data="{ open: false }"
      x-show="open"
      x-transition:enter-end="opacity-100 translate-x-0"
