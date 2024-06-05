@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -17,6 +20,12 @@ class ConfirmablePasswordController extends Controller
      */
     public function show(): View
     {
+        Notification::push(
+            Lang::get('notifications.in-app.redirected-password.title'),
+            Lang::get('notifications.in-app.redirected-password.description', ['url' => Session::get('url.intended')]),
+            Notification::INFO,
+        );
+
         return view('auth.confirm-password');
     }
 

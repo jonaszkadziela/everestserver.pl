@@ -45,7 +45,7 @@ class VerifyEmailTest extends TestCase
             $response = $this->get($notification->toMail($user)->actionUrl);
 
             $response->assertSessionHasNoErrors();
-            $response->assertRedirect(RouteServiceProvider::HOME . '?verified=1');
+            $response->assertRedirect(RouteServiceProvider::HOME);
 
             $this->assertNotNull($user->email_verified_at);
 

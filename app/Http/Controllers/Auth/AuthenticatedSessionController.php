@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -29,6 +31,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        Notification::push(
+            Lang::get('notifications.in-app.logged-in.title'),
+            Lang::get('notifications.in-app.logged-in.description', ['username' => $request->user()->username]),
+            Notification::INFO,
+        );
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -41,6 +49,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        Notification::push(
+            Lang::get('notifications.in-app.logged-out.title'),
+            Lang::get('notifications.in-app.logged-out.description'),
+            Notification::INFO,
+        );
 
         return redirect('/');
     }

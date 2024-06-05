@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class EmailVerificationNotificationController extends Controller
 {
@@ -19,6 +21,12 @@ class EmailVerificationNotificationController extends Controller
         }
 
         $request->user()->sendEmailVerificationNotification();
+
+        Notification::push(
+            Lang::get('notifications.in-app.verification-link-sent.title'),
+            Lang::get('notifications.in-app.verification-link-sent.description'),
+            Notification::SUCCESS,
+        );
 
         return back()->with('status', 'verification-link-sent');
     }

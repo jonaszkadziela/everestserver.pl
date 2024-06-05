@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -34,6 +36,12 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        Notification::push(
+            Lang::get('notifications.in-app.profile-updated.title'),
+            Lang::get('notifications.in-app.profile-updated.description'),
+            Notification::SUCCESS,
+        );
+
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
@@ -54,6 +62,12 @@ class ProfileController extends Controller
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
+        Notification::push(
+            Lang::get('notifications.in-app.account-deleted.title'),
+            Lang::get('notifications.in-app.account-deleted.description'),
+            Notification::SUCCESS,
+        );
 
         return Redirect::to('/');
     }

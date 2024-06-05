@@ -2,8 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\View\Components\Notification;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Str;
 
 class Authenticate extends Middleware
 {
@@ -12,6 +15,20 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        if ($request->expectsJson()) {
+            return null;
+        }
+
+        $intendedUrl = $request->isMethod('GET') && $request->route()
+            ? redirect()->getUrlGenerator()->full()
+            : redirect()->getUrlGenerator()->previous();
+
+        Notification::push(
+            Lang::get('notifications.in-app.redirected-login.title'),
+            Lang::get('notifications.in-app.redirected-login.description', ['url' => Str::limit($intendedUrl, 50)]),
+            Notification::INFO,
+        );
+
+        return route('login');
     }
 }

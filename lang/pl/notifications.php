@@ -18,4 +18,55 @@ return [
     'signature' => 'Administrator :app',
     'whoops' => 'Upsss!',
 
+    'in-app' => [
+        'account-deleted' => [
+            'title' => 'Konto usunięte',
+            'description' => 'Twoje konto zostało pomyślnie usunięte',
+        ],
+        'email-verified' => [
+            'title' => 'E-mail zweryfikowany',
+            'description' => 'Twój adres e-mail został pomyślnie zweryfikowany',
+        ],
+        'logged-in' => [
+            'title' => 'Zalogowano',
+            'description' => 'Witaj z powrotem! Jesteś zalogowany jako :username',
+        ],
+        'logged-out' => [
+            'title' => 'Wylogowano',
+            'description' => 'Zostałeś wylogowany. Do zobaczenia wkrótce!',
+        ],
+        'password-reset' => [
+            'title' => 'Hasło zmienione',
+            'description' => 'Hasło do Twojego konta zostało pomyślnie zresetowane',
+        ],
+        'password-updated' => [
+            'title' => 'Hasło zmienione',
+            'description' => 'Hasło do Twojego konta zostało pomyślnie zaktualizowane',
+        ],
+        'profile-updated' => [
+            'title' => 'Profil zaktualizowany',
+            'description' => 'Dane Twojego profilu zostały pomyślnie zaktualizowane',
+        ],
+        'redirected-login' => [
+            'title' => 'Przekierowanie',
+            'description' => 'Po zalogowaniu zostaniesz przekierowany na stronę: :url',
+        ],
+        'redirected-password' => [
+            'title' => 'Przekierowanie',
+            'description' => 'Po potwierdzeniu hasła zostaniesz przekierowany na stronę: :url',
+        ],
+        'registered' => [
+            'title' => 'Konto utworzone',
+            'description' => 'Konto utworzone pomyślnie. Witaj na pokładzie!',
+        ],
+        'reset-link-sent' => [
+            'title' => 'Wysłano link resetujący',
+            'description' => 'Link do resetowania hasła został pomyślnie wysłany',
+        ],
+        'verification-link-sent' => [
+            'title' => 'Wysłano link weryfikacyjny',
+            'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',
+        ],
+    ],
+
 ];
