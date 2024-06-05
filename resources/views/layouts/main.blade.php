@@ -44,6 +44,7 @@
         @isset($withFooter)
             <x-footer encoded-links="{!! json_encode([
                 'home' => route('home'),
+                'dashboard' => route('dashboard'),
                 'privacy' => route('privacy'),
                 'contact' => 'mailto:' . Lang::get('main.contact-email'),
             ]) !!}" />
