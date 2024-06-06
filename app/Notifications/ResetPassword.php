@@ -10,19 +10,19 @@ use Illuminate\Support\Str;
 class ResetPassword extends BaseResetPassword
 {
     public const LANG = [
-        'pl' => [
-            'action' => 'Zresetuj hasło',
-            'line-1' => 'Otrzymujesz tego e-maila, ponieważ otrzymaliśmy prośbę o zresetowanie hasła do Twojego konta.',
-            'line-2' => 'Link do resetowania hasła wygaśnie za :count minut.',
-            'line-3' => 'Jeśli nie poprosiłeś o zresetowanie hasła, zignoruj tę wiadomość.',
-            'subject' => 'EverestServer - Zresetuj hasło',
-        ],
         'en' => [
             'action' => 'Reset password',
             'line-1' => 'You are receiving this email because we received a password reset request for your account.',
             'line-2' => 'This password reset link will expire in :count minutes.',
             'line-3' => 'If you did not request a password reset, you can ignore this message.',
             'subject' => 'EverestServer - Reset password',
+        ],
+        'pl' => [
+            'action' => 'Zresetuj hasło',
+            'line-1' => 'Otrzymujesz tego e-maila, ponieważ otrzymaliśmy prośbę o zresetowanie hasła do Twojego konta.',
+            'line-2' => 'Link do resetowania hasła wygaśnie za :count minut.',
+            'line-3' => 'Jeśli nie poprosiłeś o zresetowanie hasła, zignoruj tę wiadomość.',
+            'subject' => 'EverestServer - Zresetuj hasło',
         ],
     ];
 

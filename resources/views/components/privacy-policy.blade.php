@@ -4,96 +4,7 @@
 ])
 
 <x-markdown {{ $attributes->merge(['class' => 'markdown']) }}>
-@if ($lang === 'en')
-1. **GENERAL INFORMATION**
-    1. This policy applies to the website operating at the URL address: [everestserver.pl](https://everestserver.pl).
-    2. The website operator and personal data Administrator is: sole proprietorship "JONASZ KĄDZIELA" run by Jonasz Kądziela with its registered office in Lodz, Orzechowa 11, 94-205, NIP number 7272847808 and REGON number 388094664.
-    3. Operator's e-mail address for contact: [{{ $emailAddress }}](mailto:{{ $emailAddress }}).
-    4. The Operator is the Administrator of your personal data in relation to data provided voluntarily on the Website.
-    5. The website uses personal data for the following purposes:
-        * running a comment system,
-        * presentation of the user's profile to other users,
-        * handling inquiries via the form,
-        * implementation of ordered services.
-    6. The website performs the functions of obtaining information about users and their behavior in the following way:
-        * through data voluntarily entered in forms and entered into the Operator's systems,
-        * by saving cookies on end devices.
-
-2. **SELECTED DATA PROTECTION METHODS USED BY THE OPERATOR**
-    1. The places of logging in and entering personal data are protected in the transmission layer (SSL certificate). Thanks to this, personal data and login details entered on the website are encrypted on the user's computer and can only be read on the target server.
-    2. User passwords are stored in hashed form. The hash function works in one direction - it is impossible to reverse its operation, which is currently the modern standard for storing user passwords.
-    3. Two-factor authentication is possible on the website, which is an additional form of protection for logging in to the website.
-    4. The operator periodically changes its administrative passwords.
-    5. In order to protect data, the Operator regularly makes backup copies.
-    6. An important element of data protection is the regular updating of all software used by the Operator to process personal data, which in particular means regular updates of programming components.
-
-3. **HOSTING**
-    1. The website is hosted (technically maintained) on servers managed by the Operator.
-
-4. **YOUR RIGHTS AND ADDITIONAL INFORMATION ABOUT HOW WE USE YOUR DATA**
-    1. In some situations, the Administrator has the right to transfer your personal data to other recipients if it is necessary to perform the contract concluded with you or to fulfill the obligations imposed on the Administrator. This applies to the following target groups:
-        * authorized employees and collaborators who use data to achieve the purpose of the website.
-    2. Your personal data processed by the Administrator no longer than is necessary to perform related activities specified in separate regulations (e.g. accounting). With respect to marketing data, data will not be processed for longer than 3 years.
-    3. You have the right to request from the Administrator:
-        * access to personal data relating to you,
-        * their corrections,
-        * deletion,
-        * processing restrictions,
-        * and data transfer.
-    4. You have the right to object to the processing of personal data for the purposes of legitimate interests pursued by the Administrator, including profiling, but the right to object will not be possible if there are valid legitimate grounds for processing that override your interests, rights and freedoms, in particular establishing, pursuing or defending claims.
-    5. You may complain about the Administrator's actions to the President of the Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw.
-    6. Providing personal data is voluntary, but necessary to operate the Website.
-    7. Activities involving automated decision-making may be undertaken in relation to you, including profiling, in order to provide services under the concluded contract and for the purpose of conducting direct marketing by the Administrator.
-    8. Your personal data may be transferred to entities operating in third countries, i.e. outside the European Union. Protection in this case is ensured by the application of standard data protection clauses adopted by the European Commission.
-
-5. **INFORMATION IN THE FORMS**
-    1. The website collects information provided voluntarily by the user, including personal data, if provided.
-    2. The website may save information about connection parameters (time stamp, IP address).
-    3. In some cases, the website may save information that makes it easier to link the data in the form with the e-mail address of the user completing the form. In this case, the user's email address appears inside the URL of the page containing the form.
-    4. The data provided in the form is processed for the purpose resulting from the function of a specific form, e.g. in order to process a service request or a commercial contact, register services, etc. Each time, the context and description of the form clearly indicate what it is used for.
-
-6. **ADMIN LOGS**
-    1. Information about user behavior on the website may be subject to logging. This data is used to administer the website.
-
-7. **IMPORTANT MARKETING TECHNIQUES**
-    1. The Operator uses statistical analysis of website traffic via Google Analytics. The operator does not transfer personal data to the operator of this service, only anonymized information. The service is based on the use of cookies on the user's end device. In terms of information about user preferences collected by the Google advertising network, the user can view and edit information resulting from cookies using the tool: [Google My Ad Center](https://myadcenter.google.com).
-
-8. **INFORMATION ABOUT COOKIES**
-    1. The website uses cookies.
-    2. Cookies are IT data, in particular text files, which are stored on the Website User's end device and are intended for using the Website's websites. Cookies usually contain the name of the website they come from, their storage time on the end device and a unique number.
-    3. The entity that places cookies on the Website User's end device and obtains access to them is the Website operator.
-    4. Cookies are used for the following purposes:
-        * maintaining the Website user's session (after logging in), thanks to which the user does not have to re-enter the login and password on each subpage of the Website,
-        * achieving the objectives set out above in the "Important marketing techniques" section.
-    5. The Website uses two basic types of cookies: "session cookies" and "persistent cookies". "Session" cookies are temporary files that are stored on the User's end device until logging out, leaving the website or turning off the software (web browser). "Permanent" cookies are stored on the User's end device for the time specified in the cookie parameters or until they are deleted by the User.
-    6. Software for browsing websites (web browser) usually allows cookies to be stored on the User's end device by default. Website users may change the settings in this regard. The web browser allows you to delete cookies. It is also possible to automatically block cookies. For details, see your web browser's help or documentation.
-    7. Restrictions on the use of cookies may affect some of the functionalities available on the Website.
-    8. Cookies placed on the Website User's end device may also be used by entities cooperating with the Website operator, in particular:
-        * Google Ireland Limited - for the Google Analytics service,
-        * Meta Platforms Ireland Limited - for the Facebook Login service.
-
-9. **MANAGING COOKIES - HOW TO EXPRESS AND WITHDRAW CONSENT IN PRACTICE?**
-    1. If the user does not want to receive cookies, he can change his browser settings. We reserve that disabling cookies necessary for authentication processes, security, and maintaining user preferences may make it difficult, and in extreme cases, impossible to use the website.
-    2. To manage cookie settings, select the web browser you are using from the list below and follow the instructions:
-        * [Google Chrome](https://support.google.com/chrome/answer/95647?hl=pl)
-        * [Mozilla Firefox](https://support.mozilla.org/pl/kb/wzmocniona-ochrona-przed-sledzenie-firefox-desktop)
-        * [Microsoft Edge](https://support.microsoft.com/pl-pl/help/10607/microsoft-edge-view-delete-browser-history)
-        * [Microsoft Internet Explorer](https://support.microsoft.com/pl-pl/help/278835/how-to-delete-cookie-files-in-internet-explorer)
-        * [Apple Safari (macOS)](https://support.apple.com/kb/PH5042)
-
-        Mobile devices:
-        * [Google Chrome (Android)](https://support.google.com/chrome/answer/95647?hl=pl&co=GENIE.Platform%3DAndroid&oco=1)
-        * [Google Chrome (iOS iPhone)](https://support.google.com/chrome/answer/95647?hl=pl&co=GENIE.Platform%3DiOS&oco=1)
-        * [Mozilla Firefox Mobile (Android)](https://support.mozilla.org/pl/kb/jak-wyczyscic-ciasteczka-dane-witryny-pojedynczej-domeny-firefox-android)
-        * [Apple Safari (iOS)](https://support.apple.com/kb/HT1677?viewlocale=pl_PL)
-        * [Samsung Internet (Mobile)](https://www.samsung.com/uk/support/mobile-devices/what-are-cookies-and-how-do-i-enable-or-disable-them-on-my-samsung-galaxy-device)
-
-10. **CHANGES TO THE PRIVACY POLICY**
-    1. The Operator reserves the right to make changes to the Privacy Policy if required by law or changes introduced on the Operator's websites, as well as to improve the operation of the Website.
-    2. The date specified below is the date of validity of the Privacy Policy in the latest version.
-
-        **Last change date: January 22, 2023**
-@else
+@if ($lang === 'pl')
 1. **INFORMACJE OGÓLNE**
     1. Niniejsza polityka dotyczy Serwisu www, funkcjonującego pod adresem URL: [everestserver.pl](https://everestserver.pl).
     2. Operatorem serwisu oraz Administratorem danych osobowych jest: jednoosobowa działalność gospodarcza "JONASZ KĄDZIELA" prowadzona przez Jonasza Kądzielę z siedzibą w Łodzi, ul. Orzechowa 11, 94-205, o numerze NIP 7272847808 oraz REGON 388094664.
@@ -182,6 +93,95 @@
     2. Data określona poniżej jest datą obowiązywania Polityki Prywatności w ostatniej wersji.
 
         **Data ostatnich zmian: 22 stycznia 2023 r.**
+@else
+1. **GENERAL INFORMATION**
+    1. This policy applies to the website operating at the URL address: [everestserver.pl](https://everestserver.pl).
+    2. The website operator and personal data Administrator is: sole proprietorship "JONASZ KĄDZIELA" run by Jonasz Kądziela with its registered office in Lodz, Orzechowa 11, 94-205, NIP number 7272847808 and REGON number 388094664.
+    3. Operator's e-mail address for contact: [{{ $emailAddress }}](mailto:{{ $emailAddress }}).
+    4. The Operator is the Administrator of your personal data in relation to data provided voluntarily on the Website.
+    5. The website uses personal data for the following purposes:
+        * running a comment system,
+        * presentation of the user's profile to other users,
+        * handling inquiries via the form,
+        * implementation of ordered services.
+    6. The website performs the functions of obtaining information about users and their behavior in the following way:
+        * through data voluntarily entered in forms and entered into the Operator's systems,
+        * by saving cookies on end devices.
+
+2. **SELECTED DATA PROTECTION METHODS USED BY THE OPERATOR**
+    1. The places of logging in and entering personal data are protected in the transmission layer (SSL certificate). Thanks to this, personal data and login details entered on the website are encrypted on the user's computer and can only be read on the target server.
+    2. User passwords are stored in hashed form. The hash function works in one direction - it is impossible to reverse its operation, which is currently the modern standard for storing user passwords.
+    3. Two-factor authentication is possible on the website, which is an additional form of protection for logging in to the website.
+    4. The operator periodically changes its administrative passwords.
+    5. In order to protect data, the Operator regularly makes backup copies.
+    6. An important element of data protection is the regular updating of all software used by the Operator to process personal data, which in particular means regular updates of programming components.
+
+3. **HOSTING**
+    1. The website is hosted (technically maintained) on servers managed by the Operator.
+
+4. **YOUR RIGHTS AND ADDITIONAL INFORMATION ABOUT HOW WE USE YOUR DATA**
+    1. In some situations, the Administrator has the right to transfer your personal data to other recipients if it is necessary to perform the contract concluded with you or to fulfill the obligations imposed on the Administrator. This applies to the following target groups:
+        * authorized employees and collaborators who use data to achieve the purpose of the website.
+    2. Your personal data processed by the Administrator no longer than is necessary to perform related activities specified in separate regulations (e.g. accounting). With respect to marketing data, data will not be processed for longer than 3 years.
+    3. You have the right to request from the Administrator:
+        * access to personal data relating to you,
+        * their corrections,
+        * deletion,
+        * processing restrictions,
+        * and data transfer.
+    4. You have the right to object to the processing of personal data for the purposes of legitimate interests pursued by the Administrator, including profiling, but the right to object will not be possible if there are valid legitimate grounds for processing that override your interests, rights and freedoms, in particular establishing, pursuing or defending claims.
+    5. You may complain about the Administrator's actions to the President of the Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw.
+    6. Providing personal data is voluntary, but necessary to operate the Website.
+    7. Activities involving automated decision-making may be undertaken in relation to you, including profiling, in order to provide services under the concluded contract and for the purpose of conducting direct marketing by the Administrator.
+    8. Your personal data may be transferred to entities operating in third countries, i.e. outside the European Union. Protection in this case is ensured by the application of standard data protection clauses adopted by the European Commission.
+
+5. **INFORMATION IN THE FORMS**
+    1. The website collects information provided voluntarily by the user, including personal data, if provided.
+    2. The website may save information about connection parameters (time stamp, IP address).
+    3. In some cases, the website may save information that makes it easier to link the data in the form with the e-mail address of the user completing the form. In this case, the user's email address appears inside the URL of the page containing the form.
+    4. The data provided in the form is processed for the purpose resulting from the function of a specific form, e.g. in order to process a service request or a commercial contact, register services, etc. Each time, the context and description of the form clearly indicate what it is used for.
+
+6. **ADMIN LOGS**
+    1. Information about user behavior on the website may be subject to logging. This data is used to administer the website.
+
+7. **IMPORTANT MARKETING TECHNIQUES**
+    1. The Operator uses statistical analysis of website traffic via Google Analytics. The operator does not transfer personal data to the operator of this service, only anonymized information. The service is based on the use of cookies on the user's end device. In terms of information about user preferences collected by the Google advertising network, the user can view and edit information resulting from cookies using the tool: [Google My Ad Center](https://myadcenter.google.com).
+
+8. **INFORMATION ABOUT COOKIES**
+    1. The website uses cookies.
+    2. Cookies are IT data, in particular text files, which are stored on the Website User's end device and are intended for using the Website's websites. Cookies usually contain the name of the website they come from, their storage time on the end device and a unique number.
+    3. The entity that places cookies on the Website User's end device and obtains access to them is the Website operator.
+    4. Cookies are used for the following purposes:
+        * maintaining the Website user's session (after logging in), thanks to which the user does not have to re-enter the login and password on each subpage of the Website,
+        * achieving the objectives set out above in the "Important marketing techniques" section.
+    5. The Website uses two basic types of cookies: "session cookies" and "persistent cookies". "Session" cookies are temporary files that are stored on the User's end device until logging out, leaving the website or turning off the software (web browser). "Permanent" cookies are stored on the User's end device for the time specified in the cookie parameters or until they are deleted by the User.
+    6. Software for browsing websites (web browser) usually allows cookies to be stored on the User's end device by default. Website users may change the settings in this regard. The web browser allows you to delete cookies. It is also possible to automatically block cookies. For details, see your web browser's help or documentation.
+    7. Restrictions on the use of cookies may affect some of the functionalities available on the Website.
+    8. Cookies placed on the Website User's end device may also be used by entities cooperating with the Website operator, in particular:
+        * Google Ireland Limited - for the Google Analytics service,
+        * Meta Platforms Ireland Limited - for the Facebook Login service.
+
+9. **MANAGING COOKIES - HOW TO EXPRESS AND WITHDRAW CONSENT IN PRACTICE?**
+    1. If the user does not want to receive cookies, he can change his browser settings. We reserve that disabling cookies necessary for authentication processes, security, and maintaining user preferences may make it difficult, and in extreme cases, impossible to use the website.
+    2. To manage cookie settings, select the web browser you are using from the list below and follow the instructions:
+        * [Google Chrome](https://support.google.com/chrome/answer/95647?hl=pl)
+        * [Mozilla Firefox](https://support.mozilla.org/pl/kb/wzmocniona-ochrona-przed-sledzenie-firefox-desktop)
+        * [Microsoft Edge](https://support.microsoft.com/pl-pl/help/10607/microsoft-edge-view-delete-browser-history)
+        * [Microsoft Internet Explorer](https://support.microsoft.com/pl-pl/help/278835/how-to-delete-cookie-files-in-internet-explorer)
+        * [Apple Safari (macOS)](https://support.apple.com/kb/PH5042)
+
+        Mobile devices:
+        * [Google Chrome (Android)](https://support.google.com/chrome/answer/95647?hl=pl&co=GENIE.Platform%3DAndroid&oco=1)
+        * [Google Chrome (iOS iPhone)](https://support.google.com/chrome/answer/95647?hl=pl&co=GENIE.Platform%3DiOS&oco=1)
+        * [Mozilla Firefox Mobile (Android)](https://support.mozilla.org/pl/kb/jak-wyczyscic-ciasteczka-dane-witryny-pojedynczej-domeny-firefox-android)
+        * [Apple Safari (iOS)](https://support.apple.com/kb/HT1677?viewlocale=pl_PL)
+        * [Samsung Internet (Mobile)](https://www.samsung.com/uk/support/mobile-devices/what-are-cookies-and-how-do-i-enable-or-disable-them-on-my-samsung-galaxy-device)
+
+10. **CHANGES TO THE PRIVACY POLICY**
+    1. The Operator reserves the right to make changes to the Privacy Policy if required by law or changes introduced on the Operator's websites, as well as to improve the operation of the Website.
+    2. The date specified below is the date of validity of the Privacy Policy in the latest version.
+
+        **Last change date: January 22, 2023**
 @endif
 </x-markdown>
 
