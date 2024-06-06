@@ -60,9 +60,9 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <x-primary-button>
+                    <x-submit-button>
                         {{ Lang::get('auth.reset-password.save') }}
-                    </x-primary-button>
+                    </x-submit-button>
                 </div>
             </form>
         </div>

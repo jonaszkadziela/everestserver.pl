@@ -53,9 +53,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>
+            <x-submit-button>
                 {{ Lang::get('profile.actions.save') }}
-            </x-primary-button>
+            </x-submit-button>
 
             @if (session('status') === 'password-updated')
                 <p x-data="{ show: true }"

@@ -38,9 +38,9 @@
                 </div>
 
                 <div class="flex justify-end mt-4">
-                    <x-primary-button>
+                    <x-submit-button>
                         {{ Lang::get('auth.confirm-password.confirm') }}
-                    </x-primary-button>
+                    </x-submit-button>
                 </div>
             </form>
         </div>

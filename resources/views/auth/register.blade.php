@@ -67,9 +67,9 @@
                         {{ Lang::get('auth.register.already-registered') }}
                     </a>
 
-                    <x-primary-button class="ms-4">
+                    <x-submit-button class="ms-4">
                         {{ Lang::get('auth.register.register') }}
-                    </x-primary-button>
+                    </x-submit-button>
                 </div>
             </form>
         </div>

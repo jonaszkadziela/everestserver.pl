@@ -61,9 +61,9 @@
                         </a>
                     @endif
 
-                    <x-primary-button class="ms-3">
+                    <x-submit-button class="ms-3">
                         {{ Lang::get('auth.login.log-in') }}
-                    </x-primary-button>
+                    </x-submit-button>
                 </div>
             </form>
         </div>
