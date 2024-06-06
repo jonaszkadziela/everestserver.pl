@@ -48,7 +48,6 @@ class LinkServiceToUser
         $linkedService = $user
             ->services()
             ->where('service_id', '=', $service->id)
-            ->where('identifier', '=', $oAuthAccessToken->name)
             ->first();
 
         if ($linkedService !== null) {
