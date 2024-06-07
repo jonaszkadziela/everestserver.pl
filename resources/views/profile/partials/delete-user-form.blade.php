@@ -53,7 +53,7 @@
 
             <div class="mt-6 flex justify-end">
                 <x-modal.secondary-button x-on:click="$dispatch('close')">
-                    {{ Lang::get('profile.actions.cancel') }}
+                    {{ Lang::get('main.actions.cancel') }}
                 </x-modal.secondary-button>
 
                 <x-modal.danger-button class="ms-3">

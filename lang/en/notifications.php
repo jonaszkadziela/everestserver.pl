@@ -63,6 +63,14 @@ return [
             'title' => 'Reset link sent',
             'description' => 'Password reset link has been sent successfully',
         ],
+        'service-link-failed' => [
+            'title' => 'Service link failed',
+            'description' => 'The requested service could not be linked to your account',
+        ],
+        'service-linked' => [
+            'title' => 'Service linked',
+            'description' => ':service service has been successfully linked to your account',
+        ],
         'verification-link-sent' => [
             'title' => 'Verification link sent',
             'description' => 'Email verification link has been sent successfully',

@@ -16,6 +16,7 @@ return [
     'try-again-later' => 'Proszę spróbować później',
 
     'actions' => [
+        'cancel' => 'Anuluj',
         'close' => 'Zamknij',
     ],
     'cookies' => [

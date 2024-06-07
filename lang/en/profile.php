@@ -12,7 +12,6 @@ return [
     */
 
     'actions' => [
-        'cancel' => 'Cancel',
         'delete-account' => 'Delete account',
         'save-confirmation' => 'Saved successfully',
         'save' => 'Save',

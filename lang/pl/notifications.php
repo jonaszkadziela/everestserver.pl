@@ -63,6 +63,14 @@ return [
             'title' => 'Wysłano link resetujący',
             'description' => 'Link do resetowania hasła został pomyślnie wysłany',
         ],
+        'service-link-failed' => [
+            'title' => 'Powiązanie nie powiodło się',
+            'description' => 'Żądanej usługi nie można powiązać z Twoim kontem',
+        ],
+        'service-linked' => [
+            'title' => 'Usługa powiązana',
+            'description' => 'Usługa :service została pomyślnie powiązana z Twoim kontem',
+        ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',
             'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',

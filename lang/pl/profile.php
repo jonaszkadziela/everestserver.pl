@@ -12,7 +12,6 @@ return [
     */
 
     'actions' => [
-        'cancel' => 'Anuluj',
         'delete-account' => 'Usuń konto',
         'save-confirmation' => 'Pomyślnie zapisano',
         'save' => 'Zapisz',
