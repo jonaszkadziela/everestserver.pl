@@ -13,13 +13,16 @@
         </p>
     </header>
 
-    <x-danger-button x-data=""
-                     x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+    <x-modal.danger-button x-data
+                           @click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
     >
-        {{ Lang::get('profile.actions.delete-account') }}
-    </x-danger-button>
+        <span class="mr-2">
+            {{ Lang::get('profile.actions.delete-account') }}
+        </span>
+        <i class="fa-solid fa-square-arrow-up-right"></i>
+    </x-modal.danger-button>
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+    <x-modal.main name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf
             @method('delete')
@@ -49,14 +52,14 @@
             </div>
 
             <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
+                <x-modal.secondary-button x-on:click="$dispatch('close')">
                     {{ Lang::get('profile.actions.cancel') }}
-                </x-secondary-button>
+                </x-modal.secondary-button>
 
-                <x-danger-button class="ms-3">
+                <x-modal.danger-button class="ms-3">
                     {{ Lang::get('profile.actions.delete-account') }}
-                </x-danger-button>
+                </x-modal.danger-button>
             </div>
         </form>
-    </x-modal>
+    </x-modal.main>
 </section>

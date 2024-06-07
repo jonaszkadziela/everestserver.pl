@@ -20,7 +20,7 @@
     </button>
 </div>
 
-<x-modal name="info-{{ Str::lower($service->name) }}">
+<x-modal.main name="info-{{ Str::lower($service->name) }}">
     <div class="text-left p-6">
         <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
             <i class="!text-2xl {{ $service->icon }}"></i>
@@ -32,9 +32,9 @@
         </p>
 
         <div class="mt-6 flex justify-end">
-            <x-secondary-button x-on:click="$dispatch('close')">
+            <x-modal.secondary-button x-on:click="$dispatch('close')">
                 {{ Lang::get('main.actions.close') }}
-            </x-secondary-button>
+            </x-modal.secondary-button>
         </div>
     </div>
-</x-modal>
+</x-modal.main>
