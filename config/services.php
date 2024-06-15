@@ -14,6 +14,14 @@ return [
     |
     */
 
+    'everestpass' => [
+        'session_max_lifetime' => env('EVERESTPASS_SESSION_MAX_LIFETIME'),
+        'private_key' => [
+            'passphrase' => env('EVERESTPASS_PRIVATE_KEY_PASSPHRASE'),
+            'path' => env('EVERESTPASS_PRIVATE_KEY_PATH') ?: storage_path('everestpass-private.key'),
+        ],
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
