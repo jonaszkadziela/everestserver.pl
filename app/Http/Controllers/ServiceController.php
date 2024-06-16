@@ -79,7 +79,7 @@ class ServiceController extends Controller
             );
 
             Log::info(
-                get_class($this) . ': ' . $service->name . ' service could not be linked to user ' . $user->username,
+                get_class($this) . ': ' . ($service?->name ?? 'The requested') . ' service could not be linked to user ' . $user->username,
                 [$e->getMessage()],
             );
         }
