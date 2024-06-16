@@ -32,12 +32,24 @@
                                 {{ $service->description }}.
                             </p>
                         </div>
-                        <div class="flex flex-col gap-2 items-end">
-                            <a href="{{ $service->link }}" class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white">
-                                <span class="mr-2">
-                                    {{ Lang::get('services.navigate') }}
+                        <div class="flex flex-col gap-2 items-end shrink-0">
+                            <a href="{{ $service->link }}"
+                               class="bg-blue-700 border hover:bg-blue-800 px-4 py-2 relative rounded-full text-white"
+                               x-bind:class="loading ? 'pointer-events-none' : ''"
+                               x-data="{ loading: false }"
+                               @click="loading = true"
+                               @pageshow.window="loading = false"
+                            >
+                                <span x-show="loading"
+                                      x-cloak
+                                      class="absolute flex inset-0 items-center justify-center"
+                                >
+                                    <i class="fa-circle-notch fa-solid fa-spin"></i>
                                 </span>
-                                <i class="fa-solid fa-arrow-right"></i>
+                                <span class="flex gap-1 items-center justify-center" x-bind:class="loading ? 'opacity-0' : ''">
+                                    {{ Lang::get('services.navigate') }}
+                                    <i class="fa-arrow-right fa-fw fa-solid"></i>
+                                </span>
                             </a>
                             @if ($service->pivot->identifier !== null)
                                 <p class="text-xs text-right">
