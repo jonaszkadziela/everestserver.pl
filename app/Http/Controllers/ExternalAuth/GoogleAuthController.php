@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Notifications\AccountCreatedViaProvider;
 use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
-use Exception;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
@@ -16,6 +15,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use Throwable;
 
 class GoogleAuthController extends Controller
 {
@@ -81,17 +81,19 @@ class GoogleAuthController extends Controller
             );
 
             return redirect(RouteServiceProvider::HOME);
-        } catch (Exception $e) {
+        } catch (Throwable $t) {
             Notification::push(
                 Lang::get('notifications.in-app.external-auth-failed.title'),
                 Lang::get('notifications.in-app.external-auth-failed.description', ['provider' => self::PROVIDER]),
                 Notification::DANGER,
             );
 
-            Log::info(
-                get_class($this) . ': Authentication failed for ' . self::PROVIDER . ' user ' . $googleUser?->getEmail() ?? request()->ip(),
-                [$e->getMessage()],
-            );
+            Log::info(class_basename($this) . ': Authentication failed for ' . self::PROVIDER . ' user ' . $googleUser?->getEmail() ?? request()->ip(), [
+                'code' => $t->getCode(),
+                'message' => $t->getMessage(),
+                'file' => $t->getFile(),
+                'line' => $t->getLine(),
+            ]);
         }
 
         return redirect('/');

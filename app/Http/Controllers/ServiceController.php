@@ -6,7 +6,6 @@ use App\Models\Service;
 use App\Models\User;
 use App\Services\EverestPass\EverestPassClient;
 use App\View\Components\Notification;
-use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Client\RequestException;
 use Illuminate\Http\RedirectResponse;
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Throwable;
 
 class ServiceController extends Controller
 {
@@ -58,7 +58,7 @@ class ServiceController extends Controller
                 ];
 
                 Log::info(
-                    get_class($this) . (Str::startsWith($response['header']['message'], 'The user was successfully added')
+                    class_basename($this) . (Str::startsWith($response['header']['message'], 'The user was successfully added')
                         ? ': EverestPass account created' : ': EverestPass account found'),
                     $response['header'],
                 );
@@ -71,17 +71,19 @@ class ServiceController extends Controller
                 Lang::get('notifications.in-app.service-linked.description', ['service' => $service->name]),
                 Notification::SUCCESS,
             );
-        } catch (Exception $e) {
+        } catch (Throwable $t) {
             Notification::push(
                 Lang::get('notifications.in-app.service-link-failed.title'),
                 Lang::get('notifications.in-app.service-link-failed.description'),
                 Notification::DANGER,
             );
 
-            Log::info(
-                get_class($this) . ': ' . ($service?->name ?? 'The requested') . ' service could not be linked to user ' . $user->username,
-                [$e->getMessage()],
-            );
+            Log::info(class_basename($this) . ': ' . ($service?->name ?? 'The requested') . ' service could not be linked to user ' . $user->username, [
+                'code' => $t->getCode(),
+                'message' => $t->getMessage(),
+                'file' => $t->getFile(),
+                'line' => $t->getLine(),
+            ]);
         }
 
         return redirect()->back();

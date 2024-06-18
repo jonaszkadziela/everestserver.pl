@@ -27,21 +27,21 @@ class LinkServiceToUser
         $user = User::find($event->userId);
 
         if ($oAuthClient === null || $user === null) {
-            Log::info(get_class($this) . ': ' . ($user === null ? 'User' : 'OAuth Client') . ' not found', $eventArray);
+            Log::info(class_basename($this) . ': ' . ($user === null ? 'User' : 'OAuth Client') . ' not found', $eventArray);
             return;
         }
 
         $service = Service::where('name', '=', $oAuthClient->name)->first();
 
         if ($service === null) {
-            Log::info(get_class($this) . ': Service not found', $eventArray);
+            Log::info(class_basename($this) . ': Service not found', $eventArray);
             return;
         }
 
         $oAuthAccessToken = Token::find($event->tokenId);
 
         if ($oAuthAccessToken === null) {
-            Log::info(get_class($this) . ': OAuth Access Token not found', $eventArray);
+            Log::info(class_basename($this) . ': OAuth Access Token not found', $eventArray);
             return;
         }
 
@@ -51,7 +51,7 @@ class LinkServiceToUser
             ->first();
 
         if ($linkedService !== null) {
-            Log::debug(get_class($this) . ': Service already linked', $eventArray);
+            Log::debug(class_basename($this) . ': Service already linked', $eventArray);
             return;
         }
 
