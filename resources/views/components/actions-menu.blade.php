@@ -68,6 +68,16 @@
                         </span>
                         <i class="fa-solid fa-user-plus"></i>
                     </a>
+                    <div class="flex items-center my-3">
+                        <div class="border-gray-300 border-t w-full"></div>
+                        <span class="lowercase px-2 text-gray-600">
+                            {{ Lang::get('main.menu.or') }}
+                        </span>
+                        <div class="border-gray-300 border-t w-full"></div>
+                    </div>
+                    <x-google-button>
+                        {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
+                    </x-google-button>
                 @endauth
             </section>
         </x-slot>

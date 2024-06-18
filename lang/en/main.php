@@ -36,8 +36,11 @@ return [
     ],
     'menu' => [
         'change-language' => 'Change language',
+        'log-in-with-provider' => 'Log in with :provider',
         'log-in' => 'Log in',
         'navigation' => 'Navigation',
+        'or' => 'Or',
+        'register-with-provider' => 'Register with :provider',
         'register' => 'Register',
         'title' => 'Menu',
         'your-account' => 'Your account',

@@ -36,8 +36,11 @@ return [
     ],
     'menu' => [
         'change-language' => 'Zmień język',
+        'log-in-with-provider' => 'Zaloguj się z :provider',
         'log-in' => 'Zaloguj się',
         'navigation' => 'Nawigacja',
+        'or' => 'Lub',
+        'register-with-provider' => 'Zarejestruj się z :provider',
         'register' => 'Zarejestruj się',
         'title' => 'Menu',
         'your-account' => 'Twoje konto',
