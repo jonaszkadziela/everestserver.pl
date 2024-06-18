@@ -7,7 +7,7 @@
 <aside {{ $attributes->merge(['class' => 'flex gap-2 items-center z-50']) }}>
     <x-language-dropdown class="bg-white border hover:shadow-lg md:text-sm px-4 rounded-full md:py-2.5 text-xs" />
 
-    <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
+    <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-72">
         <x-slot name="trigger">
             <button type="button" class="bg-white border cursor-pointer flex hover:shadow-lg items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                 <span class="font-bold hidden md:block mr-2">
@@ -75,9 +75,14 @@
                         </span>
                         <div class="border-gray-300 border-t w-full"></div>
                     </div>
-                    <x-google-button>
-                        {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
-                    </x-google-button>
+                    <div class="flex flex-col gap-1">
+                        <x-facebook-button>
+                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
+                        </x-facebook-button>
+                        <x-google-button>
+                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
+                        </x-google-button>
+                    </div>
                 @endauth
             </section>
         </x-slot>

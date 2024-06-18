@@ -76,8 +76,11 @@
             </div>
 
             <!-- External Auth Providers -->
-            <div class="flex gap-2 justify-center">
-                <x-google-button>
+            <div class="flex flex-col gap-2 justify-center md:flex-row">
+                <x-facebook-button class="md:w-56 w-full">
+                    {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
+                </x-facebook-button>
+                <x-google-button class="md:w-56 w-full">
                     {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
                 </x-google-button>
             </div>

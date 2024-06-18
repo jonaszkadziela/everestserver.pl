@@ -1,5 +1,5 @@
-<a {{ $attributes->merge(['class' => 'bg-red-600 border flex hover:bg-red-700 items-center justify-center px-4 py-2 relative rounded-full text-white']) }}
-   href="{{ route('external-auth.google') }}"
+<a {{ $attributes->merge(['class' => 'bg-sky-600 border flex hover:bg-sky-700 items-center justify-center px-4 py-2 relative rounded-full text-white']) }}
+   href="{{ route('external-auth.facebook') }}"
    x-bind:class="loading ? 'pointer-events-none' : ''"
    x-data="{ loading: false }"
    @click="loading = true"
@@ -15,6 +15,6 @@
           x-bind:class="loading ? 'opacity-0' : ''"
     >
         {{ $slot }}
-        <i class="fa-brands fa-google"></i>
+        <i class="fa-brands fa-facebook"></i>
     </span>
 </a>
