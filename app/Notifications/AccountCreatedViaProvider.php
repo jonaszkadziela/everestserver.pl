@@ -2,43 +2,42 @@
 
 namespace App\Notifications;
 
+use App\Notifications\Traits\HasTranslations;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Str;
 
 class AccountCreatedViaProvider extends Notification
 {
-    public const LANG = [
+    use HasTranslations;
+
+    protected array $lang = [
         'en' => [
             'action' => 'Log in your account',
-            'line-1' => 'Welcome to EverestServer! An account has been created for you via **{{ $provider }}**.',
-            'line-2' => 'We automatically generated the **{{ $password }}** password for you. For safety reasons, please change it as soon as possible.',
-            'line-3' => 'You can access your account via **{{ $provider }}** or with **{{ $email }}** e-mail address and the password mentioned above.',
+            'line-1' => 'Welcome to EverestServer! An account has been created for you via **:provider**.',
+            'line-2' => 'We automatically generated the **:password** password for you. For safety reasons, please change it as soon as possible.',
+            'line-3' => 'You can access your account via **:provider** or with **:email** e-mail address and the password mentioned above.',
             'line-4' => 'If you did not create an account, you can ignore this message.',
             'subject' => 'EverestServer - Account created',
         ],
         'pl' => [
             'action' => 'Zaloguj się na swoje konto',
-            'line-1' => 'Witamy w EverestServer! Utworzono dla Ciebie konto za pośrednictwem **{{ $provider }}**.',
-            'line-2' => 'Automatycznie wygenerowaliśmy dla Ciebie hasło **{{ $password }}**. Ze względów bezpieczeństwa prosimy o jak najszybszą zmianę.',
-            'line-3' => 'Możesz uzyskać dostęp do swojego konta poprzez **{{ $provider }}** lub za pomocą adresu e-mail **{{ $email }}** i hasła wymienionego powyżej.',
+            'line-1' => 'Witamy w EverestServer! Utworzono dla Ciebie konto za pośrednictwem **:provider**.',
+            'line-2' => 'Automatycznie wygenerowaliśmy dla Ciebie hasło **:password**. Ze względów bezpieczeństwa prosimy o jak najszybszą zmianę.',
+            'line-3' => 'Możesz uzyskać dostęp do swojego konta poprzez **:provider** lub za pomocą adresu e-mail **:email** i hasła wymienionego powyżej.',
             'line-4' => 'Jeśli nie utworzyłeś konta, zignoruj tę wiadomość.',
             'subject' => 'EverestServer - Utworzono konto',
         ],
     ];
 
-    private array $placeholdersMap = [];
-
     /**
      * Create a notification instance.
      */
-    public function __construct(public string $provider, public string $email, public string $password)
+    public function __construct(private string $provider, private string $email, private string $password)
     {
         $this->placeholdersMap = [
-            '{{ $provider }}' => $provider,
-            '{{ $email }}' => $email,
-            '{{ $password }}' => $password,
+            ':provider' => $provider,
+            ':email' => $email,
+            ':password' => $password,
         ];
     }
 
@@ -62,13 +61,5 @@ class AccountCreatedViaProvider extends Notification
             ->line($this->lang('line-3'))
             ->line($this->lang('line-4'))
             ->action($this->lang('action'), route('login'));
-    }
-
-    /**
-     * Get translated text and replace placeholders with actual content.
-     */
-    private function lang(string $key): string
-    {
-        return Str::swap($this->placeholdersMap, self::LANG[Lang::getLocale()][$key]);
     }
 }

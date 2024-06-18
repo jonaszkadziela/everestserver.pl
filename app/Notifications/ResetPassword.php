@@ -2,14 +2,15 @@
 
 namespace App\Notifications;
 
+use App\Notifications\Traits\HasTranslations;
 use Illuminate\Auth\Notifications\ResetPassword as BaseResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Str;
 
 class ResetPassword extends BaseResetPassword
 {
-    public const LANG = [
+    use HasTranslations;
+
+    protected array $lang = [
         'en' => [
             'action' => 'Reset password',
             'line-1' => 'You are receiving this email because we received a password reset request for your account.',
@@ -27,18 +28,29 @@ class ResetPassword extends BaseResetPassword
     ];
 
     /**
-     * Get the verify email notification mail message for the given URL.
+     * Create a notification instance.
+     */
+    public function __construct(string $token)
+    {
+        parent::__construct($token);
+
+        $this->placeholdersMap = [
+            ':count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire'),
+        ];
+    }
+
+    /**
+     * Get the reset password notification mail message for the given URL.
      *
      * @param string $url
-     * @return MailMessage
      */
-    protected function buildMailMessage($url)
+    protected function buildMailMessage($url): MailMessage
     {
         return (new MailMessage())
-            ->subject(self::LANG[Lang::getLocale()]['subject'])
-            ->line(self::LANG[Lang::getLocale()]['line-1'])
-            ->action(self::LANG[Lang::getLocale()]['action'], $url)
-            ->line(Str::replace(':count', config('auth.passwords.' . config('auth.defaults.passwords') . '.expire'), self::LANG[Lang::getLocale()]['line-2']))
-            ->line(self::LANG[Lang::getLocale()]['line-3']);
+            ->subject($this->lang('subject'))
+            ->line($this->lang('line-1'))
+            ->action($this->lang('action'), $url)
+            ->line($this->lang('line-2'))
+            ->line($this->lang('line-3'));
     }
 }

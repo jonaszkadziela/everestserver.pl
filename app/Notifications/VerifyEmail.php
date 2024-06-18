@@ -2,13 +2,15 @@
 
 namespace App\Notifications;
 
+use App\Notifications\Traits\HasTranslations;
 use Illuminate\Auth\Notifications\VerifyEmail as BaseVerifyEmail;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Lang;
 
 class VerifyEmail extends BaseVerifyEmail
 {
-    public const LANG = [
+    use HasTranslations;
+
+    protected array $lang = [
         'en' => [
             'action' => 'Verify email address',
             'line-1' => 'Please click the button below to verify your email address.',
@@ -27,13 +29,12 @@ class VerifyEmail extends BaseVerifyEmail
      * Get the verify email notification mail message for the given URL.
      *
      * @param string $url
-     * @return MailMessage
      */
-    protected function buildMailMessage($url)
+    protected function buildMailMessage($url): MailMessage
     {
         return (new MailMessage())
-            ->subject(self::LANG[Lang::getLocale()]['subject'])
-            ->line(self::LANG[Lang::getLocale()]['line-1'] . ' ' . self::LANG[Lang::getLocale()]['line-2'])
-            ->action(self::LANG[Lang::getLocale()]['action'], $url);
+            ->subject($this->lang('subject'))
+            ->line($this->lang('line-1') . ' ' . $this->lang('line-2'))
+            ->action($this->lang('action'), $url);
     }
 }
