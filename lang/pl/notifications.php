@@ -27,6 +27,10 @@ return [
             'title' => 'E-mail zweryfikowany',
             'description' => 'Twój adres e-mail został pomyślnie zweryfikowany',
         ],
+        'external-auth-failed' => [
+            'title' => 'Logowanie nieudane',
+            'description' => 'Wystąpił problem podczas logowania z :provider',
+        ],
         'logged-in' => [
             'title' => 'Zalogowano',
             'description' => 'Witaj z powrotem! Jesteś zalogowany jako :username',

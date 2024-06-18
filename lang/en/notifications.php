@@ -27,6 +27,10 @@ return [
             'title' => 'Email verified',
             'description' => 'Your email address has been verified successfully',
         ],
+        'external-auth-failed' => [
+            'title' => 'Login failed',
+            'description' => 'There was a problem while logging you in with :provider',
+        ],
         'logged-in' => [
             'title' => 'Logged in',
             'description' => 'Welcome back! You are logged in as :username',

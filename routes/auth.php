@@ -9,11 +9,17 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\ExternalAuth\GoogleAuthController;
 use App\Http\Controllers\OpenIdController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/.well-known/openid-configuration', [OpenIdController::class, 'discovery'])->name('openid.discovery');
 Route::get('/oauth/jwks', [OpenIdController::class, 'jwks'])->name('openid.jwks');
+
+Route::prefix('external-auth')->group(function () {
+    Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('external-auth.google');
+    Route::get('/google/callback', [GoogleAuthController::class, 'callback']);
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
