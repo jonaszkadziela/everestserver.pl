@@ -67,23 +67,29 @@
                 </div>
             </form>
 
-            <div class="flex items-center my-3">
-                <div class="border-gray-300 border-t w-full"></div>
-                <span class="lowercase px-2 text-gray-600">
-                    {{ Lang::get('main.menu.or') }}
-                </span>
-                <div class="border-gray-300 border-t w-full"></div>
-            </div>
+            @if(config('services.facebook.enabled') || config('services.google.enabled'))
+                <div class="flex items-center my-3">
+                    <div class="border-gray-300 border-t w-full"></div>
+                    <span class="lowercase px-2 text-gray-600">
+                        {{ Lang::get('main.menu.or') }}
+                    </span>
+                    <div class="border-gray-300 border-t w-full"></div>
+                </div>
 
-            <!-- External Auth Providers -->
-            <div class="flex flex-col gap-2 justify-center md:flex-row">
-                <x-facebook-button class="md:w-56 w-full">
-                    {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
-                </x-facebook-button>
-                <x-google-button class="md:w-56 w-full">
-                    {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
-                </x-google-button>
-            </div>
+                <!-- External Auth Providers -->
+                <div class="flex flex-col gap-2 justify-center md:flex-row">
+                    @if(config('services.facebook.enabled'))
+                        <x-facebook-button class="md:w-56 w-full">
+                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
+                        </x-facebook-button>
+                    @endif
+                    @if(config('services.google.enabled'))
+                        <x-google-button class="md:w-56 w-full">
+                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
+                        </x-google-button>
+                    @endif
+                </div>
+            @endif
         </div>
     </main>
 </x-main-layout>

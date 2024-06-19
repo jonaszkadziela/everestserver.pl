@@ -23,12 +23,14 @@ return [
     ],
 
     'facebook' => [
+        'enabled' => !empty(env('FACEBOOK_CLIENT_ID')) && !empty(env('FACEBOOK_CLIENT_SECRET')),
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => '/external-auth/facebook/callback',
     ],
 
     'google' => [
+        'enabled' => !empty(env('GOOGLE_CLIENT_ID')) && !empty(env('GOOGLE_CLIENT_SECRET')),
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => '/external-auth/google/callback',

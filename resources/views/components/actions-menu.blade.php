@@ -68,21 +68,28 @@
                         </span>
                         <i class="fa-solid fa-user-plus"></i>
                     </a>
-                    <div class="flex items-center my-3">
-                        <div class="border-gray-300 border-t w-full"></div>
-                        <span class="lowercase px-2 text-gray-600">
-                            {{ Lang::get('main.menu.or') }}
-                        </span>
-                        <div class="border-gray-300 border-t w-full"></div>
-                    </div>
-                    <div class="flex flex-col gap-1">
-                        <x-facebook-button>
-                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
-                        </x-facebook-button>
-                        <x-google-button>
-                            {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
-                        </x-google-button>
-                    </div>
+
+                    @if(config('services.facebook.enabled') || config('services.google.enabled'))
+                        <div class="flex items-center my-3">
+                            <div class="border-gray-300 border-t w-full"></div>
+                            <span class="lowercase px-2 text-gray-600">
+                                {{ Lang::get('main.menu.or') }}
+                            </span>
+                            <div class="border-gray-300 border-t w-full"></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            @if(config('services.facebook.enabled'))
+                                <x-facebook-button>
+                                    {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
+                                </x-facebook-button>
+                            @endif
+                            @if(config('services.google.enabled'))
+                                <x-google-button>
+                                    {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
+                                </x-google-button>
+                            @endif
+                        </div>
+                    @endif
                 @endauth
             </section>
         </x-slot>

@@ -26,7 +26,7 @@ class FacebookAuthController extends Controller
      */
     public function redirect(): RedirectResponse
     {
-        if (empty(config('services.facebook.client_id')) || empty(config('services.facebook.client_secret'))) {
+        if (!config('services.facebook.enabled')) {
             Notification::push(
                 Lang::get('notifications.in-app.external-auth-failed.title'),
                 Lang::get('notifications.in-app.external-auth-failed.description', ['provider' => self::PROVIDER]),

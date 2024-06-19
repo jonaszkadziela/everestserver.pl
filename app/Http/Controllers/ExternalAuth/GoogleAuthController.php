@@ -26,7 +26,7 @@ class GoogleAuthController extends Controller
      */
     public function redirect(): RedirectResponse
     {
-        if (empty(config('services.google.client_id')) || empty(config('services.google.client_secret'))) {
+        if (!config('services.google.enabled')) {
             Notification::push(
                 Lang::get('notifications.in-app.external-auth-failed.title'),
                 Lang::get('notifications.in-app.external-auth-failed.description', ['provider' => self::PROVIDER]),
