@@ -17,14 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/.well-known/openid-configuration', [OpenIdController::class, 'discovery'])->name('openid.discovery');
 Route::get('/oauth/jwks', [OpenIdController::class, 'jwks'])->name('openid.jwks');
 
-Route::prefix('external-auth')->group(function () {
-    Route::get('/facebook', [FacebookAuthController::class, 'redirect'])->name('external-auth.facebook');
-    Route::get('/facebook/callback', [FacebookAuthController::class, 'callback']);
-
-    Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('external-auth.google');
-    Route::get('/google/callback', [GoogleAuthController::class, 'callback']);
-});
-
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
@@ -37,6 +29,14 @@ Route::middleware('guest')->group(function () {
 
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
     Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
+
+    Route::prefix('external-auth')->group(function () {
+        Route::get('/facebook', [FacebookAuthController::class, 'redirect'])->name('external-auth.facebook');
+        Route::get('/facebook/callback', [FacebookAuthController::class, 'callback'])->name('external-auth.facebook-callback');
+
+        Route::get('/google', [GoogleAuthController::class, 'redirect'])->name('external-auth.google');
+        Route::get('/google/callback', [GoogleAuthController::class, 'callback'])->name('external-auth.google-callback');
+    });
 });
 
 Route::middleware('auth')->group(function () {
