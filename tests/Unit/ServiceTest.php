@@ -73,36 +73,32 @@ class ServiceTest extends TestCase
 
     public function test_service_enabled_scope(): void
     {
-        Service::truncate();
-
         $enabledService = Service::factory()->create();
         $disabledService = Service::factory()->disabled()->create();
 
-        $firstEnabledService = Service::enabled()->first();
-        $firstDisabledService = Service::enabled(false)->first();
+        $foundEnabledService = Service::enabled()->find($enabledService->id);
+        $foundDisabledService = Service::enabled(false)->find($disabledService->id);
 
         $this->assertTrue($enabledService->is_enabled);
-        $this->assertSame($enabledService->id, $firstEnabledService->id);
+        $this->assertSame($enabledService->id, $foundEnabledService->id);
 
         $this->assertFalse($disabledService->is_enabled);
-        $this->assertSame($disabledService->id, $firstDisabledService->id);
+        $this->assertSame($disabledService->id, $foundDisabledService->id);
     }
 
     public function test_service_public_scope(): void
     {
-        Service::truncate();
-
         $publicService = Service::factory()->create();
         $privateService = Service::factory()->private()->create();
 
-        $firstPublicService = Service::public()->first();
-        $firstPrivateService = Service::public(false)->first();
+        $foundPublicService = Service::public()->find($publicService->id);
+        $foundPrivateService = Service::public(false)->find($privateService->id);
 
         $this->assertTrue($publicService->is_public);
-        $this->assertSame($publicService->id, $firstPublicService->id);
+        $this->assertSame($publicService->id, $foundPublicService->id);
 
         $this->assertFalse($privateService->is_public);
-        $this->assertSame($privateService->id, $firstPrivateService->id);
+        $this->assertSame($privateService->id, $foundPrivateService->id);
     }
 
     public function test_service_users_relation(): void
