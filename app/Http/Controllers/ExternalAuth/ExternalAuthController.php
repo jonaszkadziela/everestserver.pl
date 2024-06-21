@@ -58,6 +58,7 @@ abstract class ExternalAuthController extends Controller
                     'password' => $password,
                 ]);
 
+                $user->is_enabled = (bool)config('auth.new_users_enabled');
                 $user->email_verified_at = Carbon::now();
                 $user->save();
 

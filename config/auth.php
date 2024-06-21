@@ -117,4 +117,16 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+    |--------------------------------------------------------------------------
+    | New Users Enabled
+    |--------------------------------------------------------------------------
+    |
+    | Define whether newly registered users should be enabled by default.
+    | Please note that "everestserver:create-user" command is exempted from this policy.
+    |
+    */
+
+    'new_users_enabled' => env('AUTH_NEW_USERS_ENABLED', true),
+
 ];
