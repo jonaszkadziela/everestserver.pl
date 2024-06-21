@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -70,5 +71,17 @@ class ProfileController extends Controller
         );
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Display the account disabled page.
+     */
+    public function disabled(): RedirectResponse|View
+    {
+        if (Auth::user()->is_enabled) {
+            return redirect()->to(RouteServiceProvider::HOME);
+        }
+
+        return view('profile.disabled');
     }
 }

@@ -27,6 +27,11 @@ return [
             'title' => 'Czy na pewno chcesz usunąć swoje konto?',
         ],
     ],
+    'disabled' => [
+        'description-2' => 'Jeśli uważasz, że Twoje konto powinno być ponownie aktywowane, wyślij wiadomość e-mail na adres',
+        'description' => 'Twoje konto zostało dezaktywowane przez administratora',
+        'title' => 'Konto zdezaktywowane',
+    ],
     'update-profile-information' => [
         'description' => 'Zaktualizuj swoje dane. Po zmianie adresu e-mail należy go ponownie zweryfikować',
         'email-unverified' => 'Twój adres e-mail nie został jeszcze zweryfikowany',

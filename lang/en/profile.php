@@ -27,6 +27,11 @@ return [
             'title' => 'Are you sure you want to delete your account?',
         ],
     ],
+    'disabled' => [
+        'description-2' => 'If you believe your account should be reactivated, please send an email to',
+        'description' => 'Your account has been deactivated by the administrator',
+        'title' => 'Account deactivated',
+    ],
     'update-profile-information' => [
         'description' => 'Update your details. After changing your email address, you must verify it again',
         'email-unverified' => 'Your email address is unverified',

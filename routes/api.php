@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware(['auth:api', 'enabled'])->group(function () {
     Route::get('/userinfo', [OpenIdController::class, 'userinfo'])->middleware('scope:email,openid,profile')->name('openid.userinfo');
     Route::get('/user', fn (Request $request) => $request->user())->middleware('scope:user');
 });
