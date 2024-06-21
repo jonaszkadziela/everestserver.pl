@@ -81,6 +81,36 @@ class UserTest extends TestCase
         $this->assertTrue($this->user instanceof \Illuminate\Foundation\Auth\User);
     }
 
+    public function test_user_admin_scope(): void
+    {
+        $adminUser = User::factory()->admin()->create();
+        $regularUser = User::factory()->create();
+
+        $foundAdminUser = User::admin()->find($adminUser->id);
+        $foundRegularUser = User::admin(false)->find($regularUser->id);
+
+        $this->assertTrue($adminUser->is_admin);
+        $this->assertSame($adminUser->id, $foundAdminUser->id);
+
+        $this->assertFalse($regularUser->is_admin);
+        $this->assertSame($regularUser->id, $foundRegularUser->id);
+    }
+
+    public function test_user_enabled_scope(): void
+    {
+        $enabledUser = User::factory()->create();
+        $disabledUser = User::factory()->disabled()->create();
+
+        $foundEnabledUser = User::enabled()->find($enabledUser->id);
+        $foundDisabledUser = User::enabled(false)->find($disabledUser->id);
+
+        $this->assertTrue($enabledUser->is_enabled);
+        $this->assertSame($enabledUser->id, $foundEnabledUser->id);
+
+        $this->assertFalse($disabledUser->is_enabled);
+        $this->assertSame($disabledUser->id, $foundDisabledUser->id);
+    }
+
     public function test_user_services_relation(): void
     {
         $service = Service::factory()->create();

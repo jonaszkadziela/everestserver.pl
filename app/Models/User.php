@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\CustomCanResetPassword;
 use App\Models\Traits\CustomMustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -51,6 +52,22 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_enabled' => 'boolean',
         'password' => 'hashed',
     ];
+
+    /**
+     * Filter users that have the is_admin attribute equal to the given value.
+     */
+    public function scopeAdmin(Builder $query, bool $value = true): Builder
+    {
+        return $query->where('is_admin', '=', $value);
+    }
+
+    /**
+     * Filter users that have the is_enabled attribute equal to the given value.
+     */
+    public function scopeEnabled(Builder $query, bool $value = true): Builder
+    {
+        return $query->where('is_enabled', '=', $value);
+    }
 
     /**
      * Relation to services.
