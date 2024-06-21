@@ -5,6 +5,7 @@ namespace Tests\Feature\ExternalAuth;
 use App\Models\User;
 use App\Notifications\AccountCreatedViaProvider;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Notifications\Events\NotificationSent;
@@ -131,6 +132,11 @@ class FacebookAuthTest extends TestCase
         Event::assertDispatched(
             NotificationSent::class,
             fn (NotificationSent $event) => $event->notification instanceof AccountCreatedViaProvider,
+        );
+
+        Event::assertDispatched(
+            Registered::class,
+            fn (Registered $event) => $event->user->id === $user->id,
         );
 
         $this->assertAuthenticatedAs($user);
