@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Notifications\AccountCreatedViaCommand;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -18,7 +19,7 @@ class CreateUser extends Command
      *
      * @var string
      */
-    protected $signature = 'everestserver:create-user {username?} {email?} {isAdmin?} {isEnabled?} {language?}';
+    protected $signature = 'everestserver:create-user {username?} {email?} {isAdmin?} {isEnabled?} {isVerified?} {language?}';
 
     /**
      * The console command description.
@@ -38,6 +39,7 @@ class CreateUser extends Command
             'password' => $this->secret('What is the password?'),
             'isAdmin' => $this->argument('isAdmin') ?? $this->choice('Should the user be admin?', ['No', 'Yes'], 0),
             'isEnabled' => $this->argument('isEnabled') ?? $this->choice('Should the user be enabled?', ['No', 'Yes'], 1),
+            'isVerified' => $this->argument('isVerified') ?? $this->choice('Should the email address be marked as verified?', ['No', 'Yes'], 1),
             'language' => $this->argument('language') ?? $this->choice('What is the preferred language?', ['en', 'pl'], 0),
         ];
 
@@ -50,6 +52,7 @@ class CreateUser extends Command
 
         $data['isAdmin'] = filter_var($data['isAdmin'], FILTER_VALIDATE_BOOLEAN);
         $data['isEnabled'] = filter_var($data['isEnabled'], FILTER_VALIDATE_BOOLEAN);
+        $data['isVerified'] = filter_var($data['isVerified'], FILTER_VALIDATE_BOOLEAN);
 
         try {
             $data = Validator::validate($data, [
@@ -58,6 +61,7 @@ class CreateUser extends Command
                 'password' => 'required',
                 'isAdmin' => 'required|boolean',
                 'isEnabled' => 'required|boolean',
+                'isVerified' => 'required|boolean',
                 'language' => 'required|in:' . join(',', config('app.languages')),
             ]);
         } catch (ValidationException $e) {
@@ -72,6 +76,7 @@ class CreateUser extends Command
             'password' => $data['password'],
         ]);
 
+        $user->email_verified_at = $data['isVerified'] ? Carbon::now() : null;
         $user->is_admin = $data['isAdmin'];
         $user->is_enabled = $data['isEnabled'];
 
