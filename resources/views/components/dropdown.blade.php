@@ -31,7 +31,6 @@ $alignmentClasses = implode(' ', [$alignmentClasses, $defaultAlignmentClasses]);
          x-transition:leave-end="opacity-0 scale-95"
          class="absolute hover:shadow-xl mt-2 rounded-md shadow-lg transition z-50 {{ $width }} {{ $alignmentClasses }}"
          style="display: none;"
-         @click="open = false"
     >
         <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
             {{ $content }}
