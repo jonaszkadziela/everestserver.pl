@@ -45,15 +45,12 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <a class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center mt-2 px-4 py-2 rounded-full text-white"
-                           href="{{ route('logout') }}"
-                           onclick="event.preventDefault(); this.closest('form').submit();"
-                        >
+                        <x-submit-button class="mt-2 w-full">
                             <span class="mr-2">
                                 {{ Lang::get('auth.actions.log-out') }}
                             </span>
                             <i class="fa-solid fa-right-from-bracket"></i>
-                        </a>
+                        </x-submit-button>
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white mb-1">
