@@ -75,6 +75,10 @@ return [
             'title' => 'Usługa powiązana',
             'description' => 'Usługa :service została pomyślnie powiązana z Twoim kontem',
         ],
+        'unauthorized' => [
+            'title' => 'Niedozwolone działanie',
+            'description' => 'Nie masz uprawnień do wykonania tej czynności',
+        ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',
             'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',

@@ -75,6 +75,10 @@ return [
             'title' => 'Service linked',
             'description' => ':service service has been successfully linked to your account',
         ],
+        'unauthorized' => [
+            'title' => 'Unauthorized action',
+            'description' => 'You are not allowed to perform this action',
+        ],
         'verification-link-sent' => [
             'title' => 'Verification link sent',
             'description' => 'Email verification link has been sent successfully',
