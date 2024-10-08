@@ -85,12 +85,12 @@
                 <!-- External Auth Providers -->
                 <div class="flex flex-col gap-2 justify-center md:flex-row">
                     @if(config('services.facebook.enabled'))
-                        <x-facebook-button class="md:w-62 w-full">
+                        <x-facebook-button class="w-full">
                             {{ Lang::get('main.menu.register-with-provider', ['provider' => 'Facebook']) }}
                         </x-facebook-button>
                     @endif
                     @if(config('services.google.enabled'))
-                        <x-google-button class="md:w-62 w-full">
+                        <x-google-button class="w-full">
                             {{ Lang::get('main.menu.register-with-provider', ['provider' => 'Google']) }}
                         </x-google-button>
                     @endif
