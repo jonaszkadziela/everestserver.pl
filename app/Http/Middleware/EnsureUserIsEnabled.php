@@ -5,11 +5,14 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class EnsureUserIsEnabled
 {
     /**
      * Handle an incoming request.
+     *
+     * @throws HttpException
      */
     public function handle(Request $request, Closure $next): Response
     {
