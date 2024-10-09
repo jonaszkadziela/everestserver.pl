@@ -2,8 +2,12 @@
 
 namespace App\Exceptions;
 
+use App\View\Components\Notification;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Throwable;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Validation\UnauthorizedException;
 
 class Handler extends ExceptionHandler
 {
@@ -23,8 +27,20 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (UnauthorizedException $e, Request $request) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'error' => $e->getMessage() ?: Lang::get('notifications.in-app.unauthorized.description'),
+                ], Response::HTTP_UNAUTHORIZED);
+            }
+
+            Notification::push(
+                Lang::get('notifications.in-app.unauthorized.title'),
+                $e->getMessage() ?: Lang::get('notifications.in-app.unauthorized.description'),
+                Notification::DANGER,
+            );
+
+            return redirect()->back();
         });
     }
 }
