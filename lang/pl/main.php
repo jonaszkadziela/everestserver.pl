@@ -13,7 +13,9 @@ return [
 
     'contact-email' => 'kontakt@jonaszkadziela.pl',
     'description' => 'EverestServer - Spełniamy oczekiwania wyższe niż Everest',
+    'no' => 'Nie',
     'try-again-later' => 'Proszę spróbować później',
+    'yes' => 'Tak',
 
     'actions' => [
         'cancel' => 'Anuluj',
@@ -58,6 +60,10 @@ return [
         'register' => 'Rejestracja',
         'reset-password' => 'Resetowanie hasła',
         'verify-email' => 'Weryfikacja e-mail',
+
+        'admin' => [
+            'panel' => 'Panel administracyjny',
+        ],
     ],
 
 ];

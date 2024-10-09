@@ -20,6 +20,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ Lang::get('main.titles.dashboard') }}
                     </x-nav-link>
+
+                    <!-- Admin Links -->
+                    @if (Auth::user()?->is_admin)
+                        <x-nav-link :href="route('admin.panel')" :active="request()->routeIs('admin.panel')">
+                            {{ Lang::get('main.titles.admin.panel') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -49,6 +56,13 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ Lang::get('main.titles.dashboard') }}
             </x-responsive-nav-link>
+
+            <!-- Admin Links -->
+            @if (Auth::user()?->is_admin)
+                <x-responsive-nav-link :href="route('admin.panel')" :active="request()->routeIs('admin.panel')">
+                    {{ Lang::get('main.titles.admin.panel') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Account Links -->

@@ -31,6 +31,13 @@
                     <x-menu-link :href="route('dashboard')">
                         {{ Lang::get('main.titles.dashboard') }}
                     </x-menu-link>
+
+                    <!-- Admin Links -->
+                    @if (Auth::user()?->is_admin)
+                        <x-menu-link :href="route('admin.panel')">
+                            {{ Lang::get('main.titles.admin.panel') }}
+                        </x-menu-link>
+                    @endif
                 </nav>
             @endif
             <section>

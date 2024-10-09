@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -26,6 +27,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'enabled'])->group(function () {
+    Route::middleware('admin')->prefix('admin')->group(function () {
+        Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
+    });
+
     Route::middleware('verified')->group(function () {
         Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
         Route::post('/services/link', [ServiceController::class, 'link'])->name('services.link');

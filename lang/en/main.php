@@ -13,7 +13,9 @@ return [
 
     'contact-email' => 'contact@jonaszkadziela.pl',
     'description' => 'EverestServer - Meeting expectations higher than Everest',
+    'no' => 'No',
     'try-again-later' => 'Please try again later',
+    'yes' => 'Yes',
 
     'actions' => [
         'cancel' => 'Cancel',
@@ -58,6 +60,10 @@ return [
         'register' => 'Registration',
         'reset-password' => 'Reset password',
         'verify-email' => 'Verify email',
+
+        'admin' => [
+            'panel' => 'Administration panel',
+        ],
     ],
 
 ];
