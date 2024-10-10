@@ -79,6 +79,10 @@ return [
             'title' => 'Unauthorized action',
             'description' => 'You are not allowed to perform this action',
         ],
+        'user-added' => [
+            'title' => 'User added',
+            'description' => 'User :user has been added successfully',
+        ],
         'verification-link-sent' => [
             'title' => 'Verification link sent',
             'description' => 'Email verification link has been sent successfully',

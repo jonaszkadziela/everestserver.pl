@@ -15,9 +15,18 @@ return [
         'users' => [
             'title' => 'Users',
             'description' => 'List all users, edit existing user or add a new one',
-            'add-user' => 'Add user',
             'edit' => 'Edit',
             'no-results' => 'No results found',
+
+            'add-user' => [
+                'title' => 'Add user',
+                'description' => 'Create a new user by filling in this form',
+                'description-2' => 'The user will be notified about their new account and credentials via email',
+                'toggles' => 'Toggles',
+                'is_admin' => 'Admin',
+                'is_enabled' => 'Enabled',
+                'is_verified' => 'Verified',
+            ],
 
             'columns' => [
                 'id' => '#',

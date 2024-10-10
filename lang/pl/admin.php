@@ -15,9 +15,18 @@ return [
         'users' => [
             'title' => 'Użytkownicy',
             'description' => 'Wyświetl listę wszystkich użytkowników, edytuj istniejącego użytkownika lub dodaj nowego',
-            'add-user' => 'Dodaj użytkownika',
             'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych wyników',
+
+            'add-user' => [
+                'title' => 'Dodaj użytkownika',
+                'description' => 'Utwórz nowego użytkownika wypełniając ten formularz',
+                'description-2' => 'Użytkownik zostanie powiadomiony o nowym koncie i danych uwierzytelniających za pośrednictwem poczty e-mail',
+                'toggles' => 'Przełączniki',
+                'is_admin' => 'Administrator',
+                'is_enabled' => 'Włączony',
+                'is_verified' => 'Zweryfikowany',
+            ],
 
             'columns' => [
                 'id' => '#',

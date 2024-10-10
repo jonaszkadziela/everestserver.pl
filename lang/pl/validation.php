@@ -188,6 +188,7 @@ return [
     'attributes' => [
         'current_password' => 'Obecne hasło',
         'email' => 'Adres e-mail',
+        'language' => 'Język',
         'login' => 'Nazwa użytkownika lub adres e-mail',
         'new_password_confirmation' => 'Powtórz nowe hasło',
         'new_password' => 'Nowe hasło',

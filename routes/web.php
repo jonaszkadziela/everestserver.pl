@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PanelController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -29,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'enabled'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
+
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
     });
 
     Route::middleware('verified')->group(function () {

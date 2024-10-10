@@ -188,6 +188,7 @@ return [
     'attributes' => [
         'current_password' => 'Current password',
         'email' => 'Email address',
+        'language' => 'Language',
         'login' => 'Username or email address',
         'new_password_confirmation' => 'Confirm new password',
         'new_password' => 'New password',

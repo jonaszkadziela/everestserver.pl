@@ -14,6 +14,7 @@ return [
     'contact-email' => 'kontakt@jonaszkadziela.pl',
     'description' => 'EverestServer - Spełniamy oczekiwania wyższe niż Everest',
     'no' => 'Nie',
+    'optional' => 'Opcjonalne',
     'try-again-later' => 'Proszę spróbować później',
     'yes' => 'Tak',
 

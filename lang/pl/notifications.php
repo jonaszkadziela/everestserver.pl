@@ -79,6 +79,10 @@ return [
             'title' => 'Niedozwolone działanie',
             'description' => 'Nie masz uprawnień do wykonania tej czynności',
         ],
+        'user-added' => [
+            'title' => 'Użytkownik dodany',
+            'description' => 'Użytkownik :user został pomyślnie dodany',
+        ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',
             'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',

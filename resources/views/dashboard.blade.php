@@ -106,16 +106,11 @@
                 </p>
                 <div>
                     <x-input-label for="serviceId" value="{{ Lang::get('services.link-modal.choose-service') }}" />
-                    <select id="serviceId"
-                            name="serviceId"
-                            class="block border-gray-300 focus:border-blue-700 focus:ring-blue-700 mt-1 rounded-md shadow-sm w-full"
-                    >
-                        @foreach ($unlinkedServices as $service)
-                            <option value="{{ $service->id }}">
-                                {{ $service->name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <x-select-input id="serviceId"
+                                    name="serviceId"
+                                    class="mt-1"
+                                    :options="$unlinkedServices->mapWithKeys(fn (Service $service) => [$service->id => $service->name])"
+                    />
                 </div>
                 <div class="mt-6 flex justify-end">
                     <x-modal.secondary-button @click="$dispatch('close')">
