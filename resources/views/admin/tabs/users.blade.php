@@ -115,39 +115,21 @@
         <div class="mt-4">
             <x-input-label :value="Lang::get('admin.panel.users.add-user.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <label for="is_admin" class="cursor-pointer inline-flex items-center">
-                    <input id="is_admin"
-                           name="is_admin"
-                           type="checkbox"
-                           class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded shadow-sm text-blue-600"
-                           @checked(old('is_admin'))
-                    >
-                    <span class="ms-2 text-sm text-gray-600">
-                        {{ Lang::get('admin.panel.users.add-user.is_admin') }}
-                    </span>
-                </label>
-                <label for="is_enabled" class="cursor-pointer inline-flex items-center">
-                    <input id="is_enabled"
-                           name="is_enabled"
-                           type="checkbox"
-                           class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded shadow-sm text-blue-600"
-                           @checked(old('is_enabled'))
-                    >
-                    <span class="ms-2 text-sm text-gray-600">
-                        {{ Lang::get('admin.panel.users.add-user.is_enabled') }}
-                    </span>
-                </label>
-                <label for="is_verified" class="cursor-pointer inline-flex items-center">
-                    <input id="is_verified"
-                           name="is_verified"
-                           type="checkbox"
-                           class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded shadow-sm text-blue-600"
-                           @checked(old('is_verified'))
-                    >
-                    <span class="ms-2 text-sm text-gray-600">
-                        {{ Lang::get('admin.panel.users.add-user.is_verified') }}
-                    </span>
-                </label>
+                <x-checkbox-input id="is_admin"
+                                  :checked="old('is_admin')"
+                >
+                    {{ Lang::get('admin.panel.users.add-user.is_admin') }}
+                </x-checkbox-input>
+                <x-checkbox-input id="is_enabled"
+                                  :checked="old('is_enabled')"
+                >
+                    {{ Lang::get('admin.panel.users.add-user.is_enabled') }}
+                </x-checkbox-input>
+                <x-checkbox-input id="is_verified"
+                                  :checked="old('is_verified')"
+                >
+                    {{ Lang::get('admin.panel.users.add-user.is_verified') }}
+                </x-checkbox-input>
             </div>
             <x-input-error :messages="$errors->get('is_admin')" class="mt-2" />
             <x-input-error :messages="$errors->get('is_enabled')" class="mt-2" />

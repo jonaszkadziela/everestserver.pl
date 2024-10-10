@@ -46,12 +46,11 @@
 
                 <!-- Remember Me -->
                 <div class="block mt-4">
-                    <label for="remember_me" class="cursor-pointer inline-flex items-center">
-                        <input id="remember_me" type="checkbox" class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded shadow-sm text-blue-600" name="remember">
-                        <span class="ms-2 text-sm text-gray-600">
-                            {{ Lang::get('auth.login.remember-me') }}
-                        </span>
-                    </label>
+                    <x-checkbox-input id="remember"
+                                      :checked="old('remember')"
+                    >
+                        {{ Lang::get('auth.login.remember-me') }}
+                    </x-checkbox-input>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
