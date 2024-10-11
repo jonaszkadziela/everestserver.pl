@@ -28,6 +28,15 @@ return [
                 'is_verified' => 'Verified',
             ],
 
+            'edit-user' => [
+                'title' => 'Edit user',
+                'description' => 'If credentials are changed, the user will be notified about it via email',
+                'toggles' => 'Toggles',
+                'is_admin' => 'Admin',
+                'is_enabled' => 'Enabled',
+                'is_verified' => 'Verified',
+            ],
+
             'columns' => [
                 'id' => '#',
                 'username' => 'Username',

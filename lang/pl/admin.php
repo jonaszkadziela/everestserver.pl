@@ -28,6 +28,15 @@ return [
                 'is_verified' => 'Zweryfikowany',
             ],
 
+            'edit-user' => [
+                'title' => 'Edytuj użytkownika',
+                'description' => 'W przypadku zmiany danych uwierzytelniających użytkownik zostanie o tym powiadomiony za pośrednictwem poczty e-mail',
+                'toggles' => 'Przełączniki',
+                'is_admin' => 'Administrator',
+                'is_enabled' => 'Włączony',
+                'is_verified' => 'Zweryfikowany',
+            ],
+
             'columns' => [
                 'id' => '#',
                 'username' => 'Nazwa użytkownika',

@@ -83,6 +83,10 @@ return [
             'title' => 'Użytkownik dodany',
             'description' => 'Użytkownik :user został pomyślnie dodany',
         ],
+        'user-updated' => [
+            'title' => 'Użytkownik zaktualizowany',
+            'description' => 'Użytkownik :user został pomyślnie zaktualizowany',
+        ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',
             'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',

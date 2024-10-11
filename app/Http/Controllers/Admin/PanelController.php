@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -39,7 +41,20 @@ class PanelController extends Controller
     private function getData(string $tab): array
     {
         return match ($tab) {
-            'users' => (new UserController())->index(),
+            'users' => [
+                'raw' => (new UserController())->index()->toArray(),
+                'transformed' => (new UserController())
+                    ->index()
+                    ->transform(function (User $user) {
+                        return [
+                            ...$user->getAttributes(),
+                            'email_verified_at' => $user->email_verified_at?->toDateTimeString() ?? '-',
+                            'is_admin' => $user->is_admin ? Lang::get('main.yes') : Lang::get('main.no'),
+                            'is_enabled' => $user->is_enabled ? Lang::get('main.yes') : Lang::get('main.no'),
+                        ];
+                    })
+                    ->toArray(),
+            ],
             default => [],
         };
     }

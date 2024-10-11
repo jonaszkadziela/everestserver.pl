@@ -7,14 +7,14 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
-class CreateUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * The key to be used for the view error bag.
      *
      * @var string
      */
-    protected $errorBag = 'addUser';
+    protected $errorBag = 'editUser';
 
     /**
      * Get the validation rules that apply to the request.
@@ -29,7 +29,7 @@ class CreateUserRequest extends FormRequest
                 'alpha_dash:ascii',
                 'min:3',
                 'max:20',
-                Rule::unique(User::class),
+                Rule::unique(User::class)->ignore($this->route('user')->id),
             ],
             'email' => [
                 'required',
@@ -37,7 +37,7 @@ class CreateUserRequest extends FormRequest
                 'lowercase',
                 'email',
                 'max:255',
-                Rule::unique(User::class),
+                Rule::unique(User::class)->ignore($this->route('user')->id),
             ],
             'password' => [
                 'nullable',

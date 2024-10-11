@@ -47,6 +47,7 @@
                 <!-- Remember Me -->
                 <div class="block mt-4">
                     <x-checkbox-input id="remember"
+                                      name="remember"
                                       :checked="old('remember')"
                     >
                         {{ Lang::get('auth.login.remember-me') }}

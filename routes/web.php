@@ -32,6 +32,7 @@ Route::middleware(['auth', 'enabled'])->group(function () {
         Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
 
         Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
     });
 
     Route::middleware('verified')->group(function () {

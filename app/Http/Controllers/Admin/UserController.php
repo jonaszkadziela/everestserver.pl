@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use App\Notifications\AccountCreatedViaCommand;
 use App\View\Components\Notification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
 
@@ -18,7 +21,7 @@ class UserController extends Controller
     /**
      * Get all users.
      */
-    public function index(): array
+    public function index(): Collection
     {
         return User::select([
             'id',
@@ -28,16 +31,7 @@ class UserController extends Controller
             'is_admin',
             'is_enabled',
         ])
-        ->get()
-        ->map(function (User $user) {
-            return [
-                ...$user->getAttributes(),
-                'email_verified_at' => $user->email_verified_at?->toDateTimeString() ?? '-',
-                'is_admin' => $user->is_admin ? Lang::get('main.yes') : Lang::get('main.no'),
-                'is_enabled' => $user->is_enabled ? Lang::get('main.yes') : Lang::get('main.no'),
-            ];
-        })
-        ->toArray();
+        ->get();
     }
 
     /**
@@ -58,14 +52,57 @@ class UserController extends Controller
         $user->save();
 
         Lang::setLocale($request->language ?: config('app.locale'));
-        $user->notify(new AccountCreatedViaCommand($user->email, $password));
-        Lang::setLocale($previousLanguage);
 
+        $user->notify(new AccountCreatedViaCommand($user->email, $password));
         event(new Registered($user));
+
+        Lang::setLocale($previousLanguage);
 
         Notification::push(
             Lang::get('notifications.in-app.user-added.title'),
             Lang::get('notifications.in-app.user-added.description', ['user' => $user->username]),
+            Notification::SUCCESS,
+        );
+
+        return redirect()->back();
+    }
+
+    /**
+     * Update an existing user.
+     */
+    public function update(User $user, UpdateUserRequest $request): RedirectResponse
+    {
+        $previousLanguage = Lang::getLocale();
+        $validated = $request->validated();
+
+        if ($validated['password'] === null) {
+            $validated = Arr::except($validated, 'password');
+        }
+
+        $user->fill($validated);
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->is_admin = Arr::get($validated, 'is_admin') === 'on';
+        $user->is_enabled = Arr::get($validated, 'is_enabled') === 'on';
+        $user->email_verified_at = Arr::get($validated, 'is_verified') === 'on' ? ($user->email_verified_at ?? Carbon::now()) : null;
+
+        $user->save();
+
+        Lang::setLocale($request->language ?: config('app.locale'));
+
+        if (Arr::has($validated, 'password')) {
+            $user->notify(new AccountCreatedViaCommand($user->email, $validated['password']));
+        }
+        event(new Registered($user));
+
+        Lang::setLocale($previousLanguage);
+
+        Notification::push(
+            Lang::get('notifications.in-app.user-updated.title'),
+            Lang::get('notifications.in-app.user-updated.description', ['user' => $user->username]),
             Notification::SUCCESS,
         );
 
