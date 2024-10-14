@@ -22,40 +22,40 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => [
+            'new_username' => [
                 'required',
                 'string',
                 'lowercase',
                 'alpha_dash:ascii',
                 'min:3',
                 'max:20',
-                Rule::unique(User::class)->ignore($this->route('user')->id),
+                Rule::unique(User::class, 'username')->ignore($this->route('user')->id),
             ],
-            'email' => [
+            'new_email' => [
                 'required',
                 'string',
                 'lowercase',
                 'email',
                 'max:255',
-                Rule::unique(User::class)->ignore($this->route('user')->id),
+                Rule::unique(User::class, 'email')->ignore($this->route('user')->id),
             ],
-            'password' => [
+            'new_password' => [
                 'nullable',
                 Password::defaults(),
             ],
-            'is_admin' => [
+            'new_is_admin' => [
                 'nullable',
                 'in:on',
             ],
-            'is_enabled' => [
+            'new_is_enabled' => [
                 'nullable',
                 'in:on',
             ],
-            'is_verified' => [
+            'new_is_verified' => [
                 'nullable',
                 'in:on',
             ],
-            'language' => [
+            'new_language' => [
                 'required',
                 'in:' . join(',', config('app.languages')),
             ],

@@ -70,31 +70,29 @@ class UserController extends Controller
     /**
      * Update an existing user.
      */
-    public function update(User $user, UpdateUserRequest $request): RedirectResponse
+    public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $previousLanguage = Lang::getLocale();
         $validated = $request->validated();
 
-        if ($validated['password'] === null) {
-            $validated = Arr::except($validated, 'password');
+        if ($validated['new_password'] === null) {
+            $validated = Arr::except($validated, 'new_password');
+        } else {
+            $user->password = $validated['new_password'];
         }
 
-        $user->fill($validated);
-
-        if ($user->isDirty('email')) {
-            $user->email_verified_at = null;
-        }
-
-        $user->is_admin = Arr::get($validated, 'is_admin') === 'on';
-        $user->is_enabled = Arr::get($validated, 'is_enabled') === 'on';
-        $user->email_verified_at = Arr::get($validated, 'is_verified') === 'on' ? ($user->email_verified_at ?? Carbon::now()) : null;
+        $user->username = $request->new_username;
+        $user->email = $request->new_email;
+        $user->email_verified_at = Arr::get($validated, 'new_is_verified') === 'on' ? ($user->email_verified_at ?? Carbon::now()) : null;
+        $user->is_admin = Arr::get($validated, 'new_is_admin') === 'on';
+        $user->is_enabled = Arr::get($validated, 'new_is_enabled') === 'on';
 
         $user->save();
 
-        Lang::setLocale($request->language ?: config('app.locale'));
+        Lang::setLocale($request->new_language ?: config('app.locale'));
 
-        if (Arr::has($validated, 'password')) {
-            $user->notify(new AccountCreatedViaCommand($user->email, $validated['password']));
+        if (Arr::has($validated, 'new_password')) {
+            $user->notify(new AccountCreatedViaCommand($user->email, $validated['new_password']));
         }
         event(new Registered($user));
 

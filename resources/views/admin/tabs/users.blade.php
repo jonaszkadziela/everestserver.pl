@@ -170,70 +170,70 @@
         </p>
         <input type="hidden" name="id" x-bind:value="form.id || '{{ old('id') }}'">
         <div class="mt-6">
-            <x-input-label for="edit_username" :value="Lang::get('validation.attributes.username')" />
-            <x-text-input id="edit_username"
-                          name="username"
+            <x-input-label for="new_username" :value="Lang::get('validation.attributes.username')" />
+            <x-text-input id="new_username"
+                          name="new_username"
                           class="block mt-1 w-full"
                           required
-                          x-bind:value="form.username || '{{ old('username') }}'"
+                          x-bind:value="form.username || '{{ old('new_username') }}'"
             />
-            <x-input-error :messages="$errors->editUser->get('username')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_username')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="edit_email" :value="Lang::get('validation.attributes.email')" />
-            <x-text-input id="edit_email"
-                          name="email"
+            <x-input-label for="new_email" :value="Lang::get('validation.attributes.email')" />
+            <x-text-input id="new_email"
+                          name="new_email"
                           class="block mt-1 w-full"
                           type="email"
                           required
-                          x-bind:value="form.email || '{{ old('email') }}'"
+                          x-bind:value="form.email || '{{ old('new_email') }}'"
             />
-            <x-input-error :messages="$errors->editUser->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_email')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="edit_password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
-            <x-password-input id="edit_password"
-                              name="password"
+            <x-input-label for="new_password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
+            <x-password-input id="new_password"
+                              name="new_password"
                               class="mt-1"
             />
-            <x-input-error :messages="$errors->editUser->get('password')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_password')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="edit_language" :value="Lang::get('validation.attributes.language')" />
-            <x-select-input id="edit_language"
-                            name="language"
+            <x-input-label for="new_language" :value="Lang::get('validation.attributes.language')" />
+            <x-select-input id="new_language"
+                            name="new_language"
                             class="mt-1"
                             required
-                            :value="old('language')"
+                            :value="old('new_language')"
                             :options="collect(config('app.languages'))->mapWithKeys(fn (string $code) => [$code => Lang::get('main.languages.' . $code)])"
             />
-            <x-input-error :messages="$errors->editUser->get('language')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_language')" class="mt-2" />
         </div>
         <div class="mt-4">
             <x-input-label :value="Lang::get('admin.panel.users.edit-user.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <x-checkbox-input id="edit_is_admin"
-                                  name="is_admin"
-                                  x-bind:value="form.is_admin === true || '{{ old('is_admin') }}' === 'on'"
+                <x-checkbox-input id="new_is_admin"
+                                  name="new_is_admin"
+                                  x-bind:value="form.is_admin === true || '{{ old('new_is_admin') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.edit-user.is_admin') }}
                 </x-checkbox-input>
-                <x-checkbox-input id="edit_is_enabled"
-                                  name="is_enabled"
-                                  x-bind:value="form.is_enabled === true || '{{ old('is_enabled') }}' === 'on'"
+                <x-checkbox-input id="new_is_enabled"
+                                  name="new_is_enabled"
+                                  x-bind:value="form.is_enabled === true || '{{ old('new_is_enabled') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.edit-user.is_enabled') }}
                 </x-checkbox-input>
-                <x-checkbox-input id="edit_is_verified"
-                                  name="is_verified"
-                                  x-bind:value="form.email_verified_at !== null || '{{ old('is_verified') }}' === 'on'"
+                <x-checkbox-input id="new_is_verified"
+                                  name="new_is_verified"
+                                  x-bind:value="form.email_verified_at !== null || '{{ old('new_is_verified') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.edit-user.is_verified') }}
                 </x-checkbox-input>
             </div>
-            <x-input-error :messages="$errors->editUser->get('is_admin')" class="mt-2" />
-            <x-input-error :messages="$errors->editUser->get('is_enabled')" class="mt-2" />
-            <x-input-error :messages="$errors->editUser->get('is_verified')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_is_admin')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_is_enabled')" class="mt-2" />
+            <x-input-error :messages="$errors->editUser->get('new_is_verified')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">
