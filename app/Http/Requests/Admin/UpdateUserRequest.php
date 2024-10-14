@@ -14,7 +14,7 @@ class UpdateUserRequest extends FormRequest
      *
      * @var string
      */
-    protected $errorBag = 'editUser';
+    protected $errorBag = 'updateUser';
 
     /**
      * Get the validation rules that apply to the request.

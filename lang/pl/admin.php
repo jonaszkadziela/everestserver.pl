@@ -18,7 +18,7 @@ return [
             'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych wyników',
 
-            'add-user' => [
+            'create-user' => [
                 'title' => 'Dodaj użytkownika',
                 'description' => 'Utwórz nowego użytkownika wypełniając ten formularz',
                 'description-2' => 'Użytkownik zostanie powiadomiony o nowym koncie i danych uwierzytelniających za pośrednictwem poczty e-mail',
@@ -28,7 +28,7 @@ return [
                 'is_verified' => 'Zweryfikowany',
             ],
 
-            'edit-user' => [
+            'update-user' => [
                 'title' => 'Edytuj użytkownika',
                 'description' => 'W przypadku zmiany danych uwierzytelniających użytkownik zostanie o tym powiadomiony za pośrednictwem poczty e-mail',
                 'toggles' => 'Przełączniki',

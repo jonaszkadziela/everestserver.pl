@@ -18,7 +18,7 @@ return [
             'edit' => 'Edit',
             'no-results' => 'No results found',
 
-            'add-user' => [
+            'create-user' => [
                 'title' => 'Add user',
                 'description' => 'Create a new user by filling in this form',
                 'description-2' => 'The user will be notified about their new account and credentials via email',
@@ -28,7 +28,7 @@ return [
                 'is_verified' => 'Verified',
             ],
 
-            'edit-user' => [
+            'update-user' => [
                 'title' => 'Edit user',
                 'description' => 'If credentials are changed, the user will be notified about it via email',
                 'toggles' => 'Toggles',

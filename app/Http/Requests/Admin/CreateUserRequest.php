@@ -14,7 +14,7 @@ class CreateUserRequest extends FormRequest
      *
      * @var string
      */
-    protected $errorBag = 'addUser';
+    protected $errorBag = 'createUser';
 
     /**
      * Get the validation rules that apply to the request.
