@@ -14,7 +14,7 @@ return [
     'panel' => [
         'users' => [
             'title' => 'Użytkownicy',
-            'description' => 'Wyświetl listę wszystkich użytkowników, edytuj istniejącego użytkownika lub dodaj nowego',
+            'description' => 'Wyświetlaj, edytuj i usuwaj istniejących użytkowników lub dodaj nowego',
             'delete' => 'Usuń',
             'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych wyników',

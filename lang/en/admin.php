@@ -14,7 +14,7 @@ return [
     'panel' => [
         'users' => [
             'title' => 'Users',
-            'description' => 'List all users, edit existing user or add a new one',
+            'description' => 'List, edit and delete existing users or add a new one',
             'delete' => 'Delete',
             'edit' => 'Edit',
             'no-results' => 'No results found',
