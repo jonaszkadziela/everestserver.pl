@@ -7,10 +7,10 @@ use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use App\Notifications\AccountCreatedByAdmin;
+use App\Notifications\AccountUpdatedByAdmin;
 use App\View\Components\Notification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Lang;
@@ -73,26 +73,25 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
         $previousLanguage = Lang::getLocale();
-        $validated = $request->validated();
 
-        if ($validated['new_password'] === null) {
-            $validated = Arr::except($validated, 'new_password');
-        } else {
-            $user->password = $validated['new_password'];
+        if ($request->new_password !== null) {
+            $user->password = $request->new_password;
         }
 
         $user->username = $request->new_username;
         $user->email = $request->new_email;
-        $user->email_verified_at = Arr::get($validated, 'new_is_verified') === 'on' ? ($user->email_verified_at ?? Carbon::now()) : null;
-        $user->is_admin = Arr::get($validated, 'new_is_admin') === 'on';
-        $user->is_enabled = Arr::get($validated, 'new_is_enabled') === 'on';
+        $user->email_verified_at = $request->new_is_verified === 'on' ? ($user->email_verified_at ?? Carbon::now()) : null;
+        $user->is_admin = $request->new_is_admin === 'on';
+        $user->is_enabled = $request->new_is_enabled === 'on';
+
+        $shouldNotify = $user->isDirty(['username', 'email', 'password']);
 
         $user->save();
 
         Lang::setLocale($request->new_language ?: config('app.locale'));
 
-        if (Arr::has($validated, 'new_password')) {
-            $user->notify(new AccountCreatedByAdmin($user->email, $validated['new_password']));
+        if ($shouldNotify) {
+            $user->notify(new AccountUpdatedByAdmin($user->username, $user->email, $request->new_password));
         }
         event(new Registered($user));
 
