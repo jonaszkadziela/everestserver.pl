@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
-use App\Notifications\AccountCreatedViaCommand;
+use App\Notifications\AccountCreatedByAdmin;
 use App\View\Components\Notification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -53,7 +53,7 @@ class UserController extends Controller
 
         Lang::setLocale($request->language ?: config('app.locale'));
 
-        $user->notify(new AccountCreatedViaCommand($user->email, $password));
+        $user->notify(new AccountCreatedByAdmin($user->email, $password));
         event(new Registered($user));
 
         Lang::setLocale($previousLanguage);
@@ -92,7 +92,7 @@ class UserController extends Controller
         Lang::setLocale($request->new_language ?: config('app.locale'));
 
         if (Arr::has($validated, 'new_password')) {
-            $user->notify(new AccountCreatedViaCommand($user->email, $validated['new_password']));
+            $user->notify(new AccountCreatedByAdmin($user->email, $validated['new_password']));
         }
         event(new Registered($user));
 

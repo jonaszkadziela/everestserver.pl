@@ -6,7 +6,7 @@ use App\Notifications\Traits\HasTranslations;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AccountCreatedViaCommand extends Notification
+class AccountCreatedByAdmin extends Notification
 {
     use HasTranslations;
 

@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
-use App\Notifications\AccountCreatedViaCommand;
+use App\Notifications\AccountCreatedByAdmin;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
@@ -84,7 +84,7 @@ class CreateUser extends Command
 
         Lang::setLocale($data['language']);
 
-        $user->notify(new AccountCreatedViaCommand($user->email, $data['password']));
+        $user->notify(new AccountCreatedByAdmin($user->email, $data['password']));
 
         event(new Registered($user));
 
