@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\UserCreated;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
         $user->is_enabled = (bool)config('auth.new_users_enabled');
         $user->save();
 
-        event(new Registered($user));
+        event(new UserCreated($user));
 
         Auth::login($user);
 

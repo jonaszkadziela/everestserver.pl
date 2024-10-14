@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\ExternalAuth;
 
+use App\Events\UserCreated;
 use App\Models\User;
 use App\Notifications\AccountCreatedViaProvider;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Notifications\Events\NotificationSent;
@@ -133,8 +133,8 @@ class GoogleAuthTest extends TestCase
         );
 
         Event::assertDispatched(
-            Registered::class,
-            fn (Registered $event) => $event->user->id === $user->id,
+            UserCreated::class,
+            fn (UserCreated $event) => $event->user->id === $user->id,
         );
 
         $this->assertAuthenticatedAs($user);

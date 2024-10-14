@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Events\UserCreated;
 use App\Models\User;
 use App\Notifications\AccountCreatedByAdmin;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
@@ -86,7 +86,7 @@ class CreateUser extends Command
 
         $user->notify(new AccountCreatedByAdmin($user->email, $data['password']));
 
-        event(new Registered($user));
+        event(new UserCreated($user));
 
         $this->info('The "' . $data['username'] . '" user has been created successfully!');
     }

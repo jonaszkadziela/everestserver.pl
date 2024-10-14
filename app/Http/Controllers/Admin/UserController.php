@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\UserCreated;
+use App\Events\UserUpdated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
@@ -9,7 +11,6 @@ use App\Models\User;
 use App\Notifications\AccountCreatedByAdmin;
 use App\Notifications\AccountUpdatedByAdmin;
 use App\View\Components\Notification;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -54,7 +55,7 @@ class UserController extends Controller
         Lang::setLocale($request->language ?: config('app.locale'));
 
         $user->notify(new AccountCreatedByAdmin($user->email, $password));
-        event(new Registered($user));
+        event(new UserCreated($user));
 
         Lang::setLocale($previousLanguage);
 
@@ -93,7 +94,7 @@ class UserController extends Controller
         if ($shouldNotify) {
             $user->notify(new AccountUpdatedByAdmin($user->username, $user->email, $request->new_password));
         }
-        event(new Registered($user));
+        event(new UserUpdated($user));
 
         Lang::setLocale($previousLanguage);
 

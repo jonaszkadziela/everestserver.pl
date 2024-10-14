@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\ExternalAuth;
 
+use App\Events\UserCreated;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Notifications\AccountCreatedViaProvider;
 use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -64,7 +64,7 @@ abstract class ExternalAuthController extends Controller
 
                 $user->notify(new AccountCreatedViaProvider($this->getProviderName(), $user->email, $password));
 
-                event(new Registered($user));
+                event(new UserCreated($user));
             }
 
             Auth::login($user, true);

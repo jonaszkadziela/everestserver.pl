@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\UserCreated;
+use App\Events\UserUpdated;
 use App\Listeners\LinkServiceToUser;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -19,8 +21,13 @@ class EventServiceProvider extends ServiceProvider
         AccessTokenCreated::class => [
             LinkServiceToUser::class,
         ],
-
         Registered::class => [
+            SendEmailVerificationNotification::class,
+        ],
+        UserCreated::class => [
+            SendEmailVerificationNotification::class,
+        ],
+        UserUpdated::class => [
             SendEmailVerificationNotification::class,
         ],
     ];
