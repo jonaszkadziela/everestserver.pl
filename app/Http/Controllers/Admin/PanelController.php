@@ -42,9 +42,10 @@ class PanelController extends Controller
     {
         return match ($tab) {
             'users' => [
-                'raw' => (new UserController())->index()->toArray(),
+                'raw' => (new UserController())->index(),
                 'transformed' => (new UserController())
                     ->index()
+                    ->getCollection()
                     ->transform(function (User $user) {
                         return [
                             ...$user->getAttributes(),

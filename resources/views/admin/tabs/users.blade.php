@@ -72,6 +72,10 @@
     @endif
 </div>
 
+<div class="mt-4">
+    {{ $data['raw']->links() }}
+</div>
+
 <x-modal.main name="create-user" :show="$errors->createUser->isNotEmpty()" focusable>
     <form method="post" action="{{ route('users.store') }}" class="p-6">
         @csrf

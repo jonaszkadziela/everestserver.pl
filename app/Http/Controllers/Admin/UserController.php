@@ -13,8 +13,8 @@ use App\Notifications\AccountCreatedByAdmin;
 use App\Notifications\AccountUpdatedByAdmin;
 use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
     /**
      * Get all users.
      */
-    public function index(): Collection
+    public function index(): LengthAwarePaginator
     {
         return User::select([
             'id',
@@ -33,7 +33,7 @@ class UserController extends Controller
             'is_admin',
             'is_enabled',
         ])
-        ->get();
+        ->paginate(config('pagination.admin.users'));
     }
 
     /**
