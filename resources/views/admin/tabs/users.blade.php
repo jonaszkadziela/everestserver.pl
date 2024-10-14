@@ -25,7 +25,17 @@
                 <tr>
                     @foreach ($data['transformed'][0] as $key => $value)
                         <th class="bg-slate-50 border-b p-4 @if($loop->first) rounded-tl-lg @endif">
-                            {{ Lang::get('admin.panel.users.columns.' . $key) }}
+                            <a href="{{ url()->current() . '?' . http_build_query([
+                                    'tab' => request()->get('tab'),
+                                    'column' => $key,
+                                    'direction' => request()->get('direction') === 'asc' ? 'desc' : 'asc',
+                                ]) }}"
+                            >
+                                {{ Lang::get('admin.panel.users.columns.' . $key) }}
+                                @if (request()->get('column') === $key)
+                                    <i class="fa @if(request()->get('direction') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
+                                @endif
+                            </a>
                         </th>
                     @endforeach
                     <th class="bg-slate-50 border-b p-4 rounded-tr-lg">

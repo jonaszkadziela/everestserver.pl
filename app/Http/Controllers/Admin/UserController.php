@@ -12,7 +12,9 @@ use App\Models\User;
 use App\Notifications\AccountCreatedByAdmin;
 use App\Notifications\AccountUpdatedByAdmin;
 use App\View\Components\Notification;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
@@ -23,8 +25,13 @@ class UserController extends Controller
     /**
      * Get all users.
      */
-    public function index(): LengthAwarePaginator
+    public function index(Request $request): LengthAwarePaginator
     {
+        $request->validate([
+            'column' => 'sometimes|required',
+            'direction' => 'sometimes|required|in:asc,desc',
+        ]);
+
         return User::select([
             'id',
             'username',
@@ -33,6 +40,10 @@ class UserController extends Controller
             'is_admin',
             'is_enabled',
         ])
+        ->when(
+            $request->column !== null,
+            fn (Builder $query) => $query->orderBy($request->column, $request->direction),
+        )
         ->paginate(config('pagination.admin.users'));
     }
 

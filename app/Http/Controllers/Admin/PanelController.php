@@ -30,7 +30,7 @@ class PanelController extends Controller
 
         return view('admin.panel', [
             'activeTab' => $activeTab,
-            'data' => $this->getData($activeTab),
+            'data' => $this->getData($request, $activeTab),
             'tabs' => self::ALLOWED_TABS,
         ]);
     }
@@ -38,13 +38,13 @@ class PanelController extends Controller
     /**
      * Get data for the given tab.
      */
-    private function getData(string $tab): array
+    private function getData(Request $request, string $tab): array
     {
         return match ($tab) {
             'users' => [
-                'raw' => (new UserController())->index(),
+                'raw' => (new UserController())->index($request),
                 'transformed' => (new UserController())
-                    ->index()
+                    ->index($request)
                     ->getCollection()
                     ->transform(function (User $user) {
                         return [
