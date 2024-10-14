@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Events\UserCreated;
+use App\Events\UserDeleted;
 use App\Events\UserUpdated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
@@ -101,6 +102,24 @@ class UserController extends Controller
         Notification::push(
             Lang::get('notifications.in-app.user-updated.title'),
             Lang::get('notifications.in-app.user-updated.description', ['user' => $user->username]),
+            Notification::SUCCESS,
+        );
+
+        return redirect()->back();
+    }
+
+    /**
+     * Delete an existing user.
+     */
+    public function destroy(User $user): RedirectResponse
+    {
+        $user->delete();
+
+        event(new UserDeleted($user));
+
+        Notification::push(
+            Lang::get('notifications.in-app.user-deleted.title'),
+            Lang::get('notifications.in-app.user-deleted.description', ['user' => $user->username]),
             Notification::SUCCESS,
         );
 

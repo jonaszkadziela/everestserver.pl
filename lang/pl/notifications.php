@@ -87,6 +87,10 @@ return [
             'title' => 'Użytkownik zaktualizowany',
             'description' => 'Użytkownik :user został pomyślnie zaktualizowany',
         ],
+        'user-deleted' => [
+            'title' => 'Użytkownik usunięty',
+            'description' => 'Użytkownik :user został pomyślnie usunięty',
+        ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',
             'description' => 'Link weryfikujący e-mail został pomyślnie wysłany',

@@ -15,6 +15,7 @@ return [
         'users' => [
             'title' => 'Użytkownicy',
             'description' => 'Wyświetl listę wszystkich użytkowników, edytuj istniejącego użytkownika lub dodaj nowego',
+            'delete' => 'Usuń',
             'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych wyników',
 
@@ -35,6 +36,11 @@ return [
                 'is_admin' => 'Administrator',
                 'is_enabled' => 'Włączony',
                 'is_verified' => 'Zweryfikowany',
+            ],
+
+            'delete-user' => [
+                'title' => 'Usuń użytkownika',
+                'description' => 'Czy chcesz trwale usunąć użytkownika',
             ],
 
             'columns' => [

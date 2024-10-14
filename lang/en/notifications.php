@@ -87,6 +87,10 @@ return [
             'title' => 'User updated',
             'description' => 'User :user has been updated successfully',
         ],
+        'user-deleted' => [
+            'title' => 'User deleted',
+            'description' => 'User :user has been deleted successfully',
+        ],
         'verification-link-sent' => [
             'title' => 'Verification link sent',
             'description' => 'Email verification link has been sent successfully',

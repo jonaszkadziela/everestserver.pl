@@ -50,6 +50,14 @@
                                     >
                                         {{ Lang::get('admin.panel.users.edit') }}
                                     </button>
+                                    <span>|</span>
+                                    <button x-data
+                                            @click.prevent="$dispatch('delete-user', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'delete-user')"
+                                            class="text-blue-700 hover:text-blue-900"
+                                            type="button"
+                                    >
+                                        {{ Lang::get('admin.panel.users.delete') }}
+                                    </button>
                                 </td>
                             @endif
                         @endforeach
@@ -241,6 +249,32 @@
             </x-modal.secondary-button>
             <x-modal.primary-button class="ms-3">
                 {{ Lang::get('admin.panel.users.update-user.title') }}
+            </x-modal.primary-button>
+        </div>
+    </form>
+</x-modal.main>
+
+<x-modal.main name="delete-user" :show="$errors->deleteUser->isNotEmpty()">
+    <form method="post"
+          class="p-6"
+          x-bind:action="action.slice(0, -2).concat(form.id)"
+          x-data="{ action: '{{ route('users.destroy', ['user' => -1]) }}', form: {} }"
+          x-on:delete-user.window="form = $event.detail"
+    >
+        @csrf
+        @method('delete')
+        <h2 class="font-medium mb-6 text-gray-900 text-lg">
+            {{ Lang::get('admin.panel.users.delete-user.title') }}
+        </h2>
+        <p class="text-sm text-gray-600">
+            {{ Lang::get('admin.panel.users.delete-user.description') }} <strong x-text="form.username"></strong>?
+        </p>
+        <div class="mt-6 flex justify-end">
+            <x-modal.secondary-button x-on:click="$dispatch('close')">
+                {{ Lang::get('main.actions.cancel') }}
+            </x-modal.secondary-button>
+            <x-modal.primary-button class="ms-3">
+                {{ Lang::get('admin.panel.users.delete-user.title') }}
             </x-modal.primary-button>
         </div>
     </form>
