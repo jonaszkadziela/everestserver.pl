@@ -67,6 +67,14 @@ return [
             'title' => 'Reset link sent',
             'description' => 'Password reset link has been sent successfully',
         ],
+        'service-added' => [
+            'title' => 'Service added',
+            'description' => 'Service :service has been added successfully',
+        ],
+        'service-deleted' => [
+            'title' => 'Service deleted',
+            'description' => 'Service :service has been deleted successfully',
+        ],
         'service-link-failed' => [
             'title' => 'Service link failed',
             'description' => 'The requested service could not be linked to your account',
@@ -74,6 +82,10 @@ return [
         'service-linked' => [
             'title' => 'Service linked',
             'description' => ':service service has been successfully linked to your account',
+        ],
+        'service-updated' => [
+            'title' => 'Service updated',
+            'description' => 'Service :service has been updated successfully',
         ],
         'unauthorized' => [
             'title' => 'Unauthorized action',
@@ -83,13 +95,13 @@ return [
             'title' => 'User added',
             'description' => 'User :user has been added successfully',
         ],
-        'user-updated' => [
-            'title' => 'User updated',
-            'description' => 'User :user has been updated successfully',
-        ],
         'user-deleted' => [
             'title' => 'User deleted',
             'description' => 'User :user has been deleted successfully',
+        ],
+        'user-updated' => [
+            'title' => 'User updated',
+            'description' => 'User :user has been updated successfully',
         ],
         'verification-link-sent' => [
             'title' => 'Verification link sent',

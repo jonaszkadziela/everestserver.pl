@@ -67,6 +67,14 @@ return [
             'title' => 'Wysłano link resetujący',
             'description' => 'Link do resetowania hasła został pomyślnie wysłany',
         ],
+        'service-added' => [
+            'title' => 'Usługa dodana',
+            'description' => 'Usługa :service została pomyślnie dodana',
+        ],
+        'service-deleted' => [
+            'title' => 'Usługa usunięta',
+            'description' => 'Usługa :service została pomyślnie usunięta',
+        ],
         'service-link-failed' => [
             'title' => 'Powiązanie nie powiodło się',
             'description' => 'Żądanej usługi nie można powiązać z Twoim kontem',
@@ -74,6 +82,10 @@ return [
         'service-linked' => [
             'title' => 'Usługa powiązana',
             'description' => 'Usługa :service została pomyślnie powiązana z Twoim kontem',
+        ],
+        'service-updated' => [
+            'title' => 'Usługa zaktualizowana',
+            'description' => 'Usługa :service została pomyślnie zaktualizowana',
         ],
         'unauthorized' => [
             'title' => 'Niedozwolone działanie',
@@ -83,13 +95,13 @@ return [
             'title' => 'Użytkownik dodany',
             'description' => 'Użytkownik :user został pomyślnie dodany',
         ],
-        'user-updated' => [
-            'title' => 'Użytkownik zaktualizowany',
-            'description' => 'Użytkownik :user został pomyślnie zaktualizowany',
-        ],
         'user-deleted' => [
             'title' => 'Użytkownik usunięty',
             'description' => 'Użytkownik :user został pomyślnie usunięty',
+        ],
+        'user-updated' => [
+            'title' => 'Użytkownik zaktualizowany',
+            'description' => 'Użytkownik :user został pomyślnie zaktualizowany',
         ],
         'verification-link-sent' => [
             'title' => 'Wysłano link weryfikacyjny',

@@ -12,12 +12,52 @@ return [
     */
 
     'panel' => [
+        'services' => [
+            'title' => 'Services',
+            'description' => 'List, edit and delete existing services or add a new one',
+            'delete' => 'Delete',
+            'edit' => 'Edit',
+            'no-results' => 'No services found',
+
+            'create-service' => [
+                'title' => 'Add service',
+                'description' => 'Create a new service by filling in this form',
+                'toggles' => 'Toggles',
+                'is_public' => 'Public',
+                'is_enabled' => 'Enabled',
+            ],
+
+            'update-service' => [
+                'title' => 'Edit service',
+                'description' => 'Update an existing service by filling in this form',
+                'toggles' => 'Toggles',
+                'is_public' => 'Public',
+                'is_enabled' => 'Enabled',
+            ],
+
+            'delete-service' => [
+                'title' => 'Delete service',
+                'description' => 'Do you want to permanently delete service',
+            ],
+
+            'columns' => [
+                'id' => '#',
+                'name' => 'Name',
+                'description' => 'Description',
+                'icon' => 'Icon',
+                'link' => 'Link',
+                'is_public' => 'Public',
+                'is_enabled' => 'Enabled',
+                'actions' => 'Actions',
+            ],
+        ],
+
         'users' => [
             'title' => 'Users',
             'description' => 'List, edit and delete existing users or add a new one',
             'delete' => 'Delete',
             'edit' => 'Edit',
-            'no-results' => 'No results found',
+            'no-results' => 'No users found',
 
             'create-user' => [
                 'title' => 'Add user',

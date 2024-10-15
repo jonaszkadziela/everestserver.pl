@@ -12,12 +12,52 @@ return [
     */
 
     'panel' => [
+        'services' => [
+            'title' => 'Usługi',
+            'description' => 'Wyświetlaj, edytuj i usuwaj istniejące usługi lub dodaj nową',
+            'delete' => 'Usuń',
+            'edit' => 'Edytuj',
+            'no-results' => 'Nie znaleziono żadnych usług',
+
+            'create-service' => [
+                'title' => 'Dodaj usługę',
+                'description' => 'Utwórz nową usługę, wypełniając ten formularz',
+                'toggles' => 'Przełączniki',
+                'is_public' => 'Publiczna',
+                'is_enabled' => 'Włączona',
+            ],
+
+            'update-service' => [
+                'title' => 'Edytuj usługę',
+                'description' => 'Zaktualizuj istniejącą usługę, wypełniając ten formularz',
+                'toggles' => 'Przełączniki',
+                'is_public' => 'Publiczna',
+                'is_enabled' => 'Włączona',
+            ],
+
+            'delete-service' => [
+                'title' => 'Usuń usługę',
+                'description' => 'Czy chcesz trwale usunąć usługę',
+            ],
+
+            'columns' => [
+                'id' => '#',
+                'name' => 'Nazwa',
+                'description' => 'Opis',
+                'icon' => 'Ikona',
+                'link' => 'Link',
+                'is_public' => 'Publiczna',
+                'is_enabled' => 'Włączona',
+                'actions' => 'Akcje',
+            ],
+        ],
+
         'users' => [
             'title' => 'Użytkownicy',
             'description' => 'Wyświetlaj, edytuj i usuwaj istniejących użytkowników lub dodaj nowego',
             'delete' => 'Usuń',
             'edit' => 'Edytuj',
-            'no-results' => 'Nie znaleziono żadnych wyników',
+            'no-results' => 'Nie znaleziono żadnych użytkowników',
 
             'create-user' => [
                 'title' => 'Dodaj użytkownika',

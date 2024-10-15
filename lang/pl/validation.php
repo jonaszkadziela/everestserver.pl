@@ -187,9 +187,13 @@ return [
 
     'attributes' => [
         'current_password' => 'Obecne hasło',
+        'description' => 'Opis',
         'email' => 'Adres e-mail',
+        'icon' => 'Ikona',
         'language' => 'Język',
+        'link' => 'Link',
         'login' => 'Nazwa użytkownika lub adres e-mail',
+        'name' => 'Nazwa',
         'new_password_confirmation' => 'Powtórz nowe hasło',
         'new_password' => 'Nowe hasło',
         'password_confirmation' => 'Powtórz hasło',

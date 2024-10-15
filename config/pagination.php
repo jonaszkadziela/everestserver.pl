@@ -12,6 +12,7 @@ return [
     */
 
     'admin' => [
+        'services' => env('PAGINATION_ADMIN_SERVICES', 20),
         'users' => env('PAGINATION_ADMIN_USERS', 20),
     ]
 

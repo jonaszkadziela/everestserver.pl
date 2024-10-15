@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -12,6 +13,7 @@ use Illuminate\View\View;
 class PanelController extends Controller
 {
     public const ALLOWED_TABS = [
+        'services',
         'users',
     ];
 
@@ -41,6 +43,21 @@ class PanelController extends Controller
     private function getData(Request $request, string $tab): array
     {
         return match ($tab) {
+            'services' => [
+                'raw' => (new ServiceController())->index($request),
+                'transformed' => (new ServiceController())
+                    ->index($request)
+                    ->getCollection()
+                    ->transform(function (Service $service) {
+                        return [
+                            ...$service->getAttributes(),
+                            'description' => $service->description,
+                            'is_public' => $service->is_public ? Lang::get('main.yes') : Lang::get('main.no'),
+                            'is_enabled' => $service->is_enabled ? Lang::get('main.yes') : Lang::get('main.no'),
+                        ];
+                    })
+                    ->toArray(),
+            ],
             'users' => [
                 'raw' => (new UserController())->index($request),
                 'transformed' => (new UserController())
