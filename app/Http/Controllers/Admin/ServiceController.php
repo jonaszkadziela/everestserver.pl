@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateServiceRequest;
+use App\Http\Requests\Admin\IndexRequest;
 use App\Http\Requests\Admin\UpdateServiceRequest;
 use App\Models\Service;
 use App\View\Components\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Lang;
 
@@ -18,13 +18,8 @@ class ServiceController extends Controller
     /**
      * Get all services.
      */
-    public function index(Request $request): LengthAwarePaginator
+    public function index(IndexRequest $request): LengthAwarePaginator
     {
-        $request->validate([
-            'column' => 'sometimes|required',
-            'direction' => 'sometimes|required|in:asc,desc',
-        ]);
-
         return Service::select([
             'id',
             'name',
@@ -34,6 +29,17 @@ class ServiceController extends Controller
             'is_public',
             'is_enabled',
         ])
+        ->when(
+            $request->search !== null,
+            fn (Builder $query) => $query->where(
+                fn (Builder $query) => $query
+                    ->where('id', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('name', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('description', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('icon', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('link', 'LIKE', '%' . $request->search . '%')
+            ),
+        )
         ->when(
             $request->column !== null,
             fn (Builder $query) => $query->orderBy($request->column, $request->direction),

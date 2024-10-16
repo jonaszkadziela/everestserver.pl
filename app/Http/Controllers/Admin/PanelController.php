@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\IndexRequest;
 use App\Models\Service;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class PanelController extends Controller
@@ -19,15 +18,9 @@ class PanelController extends Controller
 
     /**
      * Display the administration panel view.
-     *
-     * @throws ValidationException
      */
-    public function index(Request $request): View
+    public function index(IndexRequest $request): View
     {
-        $request->validate([
-            'tab' => 'sometimes|required|in:' . implode(',', self::ALLOWED_TABS),
-        ]);
-
         $activeTab = $request->tab ?? 'users';
 
         return view('admin.panel', [
@@ -40,7 +33,7 @@ class PanelController extends Controller
     /**
      * Get data for the given tab.
      */
-    private function getData(Request $request, string $tab): array
+    private function getData(IndexRequest $request, string $tab): array
     {
         $raw = match ($tab) {
             'services' => (new ServiceController())->index($request),

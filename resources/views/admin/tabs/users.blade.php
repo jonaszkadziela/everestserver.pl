@@ -7,15 +7,26 @@
             {{ Lang::get('admin.panel.users.description') }}.
         </p>
     </div>
-    <x-primary-button x-data
-                      @click.prevent="$dispatch('open-modal', 'create-user')"
-                      class="flex-shrink-0"
-    >
-        <span class="mr-2">
-            {{ Lang::get('admin.panel.users.create-user.title') }}
-        </span>
-        <i class="fa-solid fa-user-plus"></i>
-    </x-primary-button>
+    <div class="flex gap-2">
+        <form method="get" action="{{ url()->current() }}">
+            <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
+            <x-text-input id="search"
+                          name="search"
+                          class="w-48"
+                          placeholder="Search..."
+                          :value="request()->get('search')"
+            />
+        </form>
+        <x-primary-button x-data
+                          @click.prevent="$dispatch('open-modal', 'create-user')"
+                          class="flex-shrink-0"
+        >
+            <span class="mr-2">
+                {{ Lang::get('admin.panel.users.create-user.title') }}
+            </span>
+            <i class="fa-solid fa-user-plus"></i>
+        </x-primary-button>
+    </div>
 </div>
 
 <div class="bg-white overflow-x-auto rounded-lg shadow text-left">
@@ -54,7 +65,7 @@
                             @if ($loop->last)
                                 <td class="p-4">
                                     <button x-data
-                                            @click.prevent="$dispatch('update-user', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'update-user')"
+                                            @click.prevent="$dispatch('update-user', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'update-user')"
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >
@@ -62,7 +73,7 @@
                                     </button>
                                     <span>|</span>
                                     <button x-data
-                                            @click.prevent="$dispatch('delete-user', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'delete-user')"
+                                            @click.prevent="$dispatch('delete-user', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'delete-user')"
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >

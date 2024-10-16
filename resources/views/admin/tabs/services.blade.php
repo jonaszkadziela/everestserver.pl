@@ -7,15 +7,26 @@
             {{ Lang::get('admin.panel.services.description') }}.
         </p>
     </div>
-    <x-primary-button x-data
-                      @click.prevent="$dispatch('open-modal', 'create-service')"
-                      class="flex-shrink-0"
-    >
-        <span class="mr-2">
-            {{ Lang::get('admin.panel.services.create-service.title') }}
-        </span>
-        <i class="fa-solid fa-plus"></i>
-    </x-primary-button>
+    <div class="flex gap-2">
+        <form method="get" action="{{ url()->current() }}">
+            <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
+            <x-text-input id="search"
+                          name="search"
+                          class="w-48"
+                          placeholder="Search..."
+                          :value="request()->get('search')"
+            />
+        </form>
+        <x-primary-button x-data
+                          @click.prevent="$dispatch('open-modal', 'create-service')"
+                          class="flex-shrink-0"
+        >
+            <span class="mr-2">
+                {{ Lang::get('admin.panel.services.create-service.title') }}
+            </span>
+            <i class="fa-solid fa-plus"></i>
+        </x-primary-button>
+    </div>
 </div>
 
 <div class="bg-white overflow-x-auto rounded-lg shadow text-left">
@@ -54,7 +65,7 @@
                             @if ($loop->last)
                                 <td class="p-4">
                                     <button x-data
-                                            @click.prevent="$dispatch('update-service', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'update-service')"
+                                            @click.prevent="$dispatch('update-service', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'update-service')"
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >
@@ -62,7 +73,7 @@
                                     </button>
                                     <span>|</span>
                                     <button x-data
-                                            @click.prevent="$dispatch('delete-service', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'delete-service')"
+                                            @click.prevent="$dispatch('delete-service', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'delete-service')"
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >

@@ -7,6 +7,7 @@ use App\Events\UserDeleted;
 use App\Events\UserUpdated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Requests\Admin\IndexRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use App\Notifications\AccountCreatedByAdmin;
@@ -14,7 +15,6 @@ use App\Notifications\AccountUpdatedByAdmin;
 use App\View\Components\Notification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
@@ -25,13 +25,8 @@ class UserController extends Controller
     /**
      * Get all users.
      */
-    public function index(Request $request): LengthAwarePaginator
+    public function index(IndexRequest $request): LengthAwarePaginator
     {
-        $request->validate([
-            'column' => 'sometimes|required',
-            'direction' => 'sometimes|required|in:asc,desc',
-        ]);
-
         return User::select([
             'id',
             'username',
@@ -40,6 +35,15 @@ class UserController extends Controller
             'is_admin',
             'is_enabled',
         ])
+        ->when(
+            $request->search !== null,
+            fn (Builder $query) => $query->where(
+                fn (Builder $query) => $query
+                    ->where('id', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('username', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('email', 'LIKE', '%' . $request->search . '%')
+            ),
+        )
         ->when(
             $request->column !== null,
             fn (Builder $query) => $query->orderBy($request->column, $request->direction),
