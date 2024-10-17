@@ -93,9 +93,11 @@
     @endif
 </div>
 
-<div class="mt-4">
-    {{ $data['raw']->links() }}
-</div>
+@if ($data['raw'] instanceof \Illuminate\Pagination\LengthAwarePaginator)
+    <div class="mt-4">
+        {{ $data['raw']->links() }}
+    </div>
+@endif
 
 <x-modal.main name="create-user" :show="$errors->createUser->isNotEmpty()" focusable>
     <form method="post" action="{{ route('users.store') }}" class="p-6">

@@ -90,9 +90,11 @@
     @endif
 </div>
 
-<div class="mt-4">
-    {{ $data['raw']->links() }}
-</div>
+@if ($data['raw'] instanceof \Illuminate\Pagination\LengthAwarePaginator)
+    <div class="mt-4">
+        {{ $data['raw']->links() }}
+    </div>
+@endif
 
 <x-modal.main name="link-service" :show="$errors->linkService->isNotEmpty()" focusable>
     <form method="post" action="{{ route('linked-services.link') }}" class="p-6">
