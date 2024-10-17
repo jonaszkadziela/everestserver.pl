@@ -48,7 +48,7 @@
                                class="flex gap-1 items-center"
                             >
                                 {{ Lang::get('admin.panel.linked-services.columns.' . $key) }}
-                                @if (request()->get('column', 'service_id') === $key)
+                                @if (request()->get('column', 'service') === $key)
                                     <i class="fa @if(request()->get('direction', 'asc') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
                                 @endif
                             </a>
