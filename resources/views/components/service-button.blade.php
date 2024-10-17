@@ -10,7 +10,11 @@
     >
         <i class="{{ $service->icon }}" x-bind:class="{ '{{ $service->icon }}': !loading, 'fa-circle-notch fa-solid fa-spin text-4xl': loading }"></i>
         <p class="font-light mt-1">
-            {!! Lang::get('services.labels.' . Str::lower($service->name)) !!}
+            {!!
+                Lang::has('services.labels.' . Str::lower($service->name)) ?
+                    Lang::get('services.labels.' . Str::lower($service->name)) :
+                    $service->name
+            !!}
         </p>
     </a>
     <button class="absolute cursor-help px-2 py-1 right-0 top-0"

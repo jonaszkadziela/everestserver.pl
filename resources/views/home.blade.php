@@ -22,7 +22,7 @@
                 <p class="mb-4 text-blue-700">
                     {{ Lang::get('home.choose-service') }}
                 </p>
-                <div class="flex flex-col items-center justify-center md:flex-row gap-4">
+                <div class="flex flex-col flex-wrap gap-4 items-center justify-center md:flex-row">
                     @forelse (Service::enabled()->public()->get() as $service)
                         <x-service-button :service="$service" />
                     @empty
