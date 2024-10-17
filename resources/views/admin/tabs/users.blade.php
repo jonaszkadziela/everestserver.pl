@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
-            <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
+            <input type="hidden" name="tab" value="{{ request()->get('tab', 'users') }}">
             <x-text-input id="search"
                           name="search"
                           class="w-48"
@@ -36,14 +36,15 @@
                     @foreach ($data['transformed'][0] as $key => $value)
                         <th class="bg-slate-50 border-b p-4 @if($loop->first) rounded-tl-lg @endif">
                             <a href="{{ url()->current() . '?' . http_build_query([
-                                    'tab' => request()->get('tab'),
+                                    'tab' => request()->get('tab', 'users'),
                                     'column' => $key,
-                                    'direction' => request()->get('direction') === 'asc' ? 'desc' : 'asc',
+                                    'direction' => request()->get('direction', 'asc') === 'asc' ? 'desc' : 'asc',
                                 ]) }}"
+                               class="flex gap-1 items-center"
                             >
                                 {{ Lang::get('admin.panel.users.columns.' . $key) }}
-                                @if (request()->get('column') === $key)
-                                    <i class="fa @if(request()->get('direction') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
+                                @if (request()->get('column', 'id') === $key)
+                                    <i class="fa @if(request()->get('direction', 'asc') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
                                 @endif
                             </a>
                         </th>

@@ -38,12 +38,13 @@
                             <a href="{{ url()->current() . '?' . http_build_query([
                                     'tab' => request()->get('tab'),
                                     'column' => $key,
-                                    'direction' => request()->get('direction') === 'asc' ? 'desc' : 'asc',
+                                    'direction' => request()->get('direction', 'asc') === 'asc' ? 'desc' : 'asc',
                                 ]) }}"
+                               class="flex gap-1 items-center"
                             >
                                 {{ Lang::get('admin.panel.services.columns.' . $key) }}
-                                @if (request()->get('column') === $key)
-                                    <i class="fa @if(request()->get('direction') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
+                                @if (request()->get('column', 'id') === $key)
+                                    <i class="fa @if(request()->get('direction', 'asc') === 'asc') fa-angle-up @else fa-angle-down @endif"></i>
                                 @endif
                             </a>
                         </th>

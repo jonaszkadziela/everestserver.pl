@@ -16,9 +16,9 @@
                 <nav class="flex flex-col gap-2 md:w-1/5 w-full">
                     @foreach ($tabs as $tab)
                         <a href="{{ route('admin.panel', ['tab' => $tab]) }}"
-                           class="border rounded px-4 py-2 bg-gray-200 hover:cursor-pointer"
+                           class="border rounded px-4 py-2 bg-gray-200 {{ $tab === $activeTab ? 'bg-blue-200 border-blue-300' : '' }}"
                         >
-                            <span class="text-gray-800 font-medium">
+                            <span class="font-medium {{ $tab === $activeTab ? 'text-blue-800' : 'text-gray-800' }}">
                                 {{ Lang::get('admin.panel.' . $tab . '.title') }}
                             </span>
                         </a>
