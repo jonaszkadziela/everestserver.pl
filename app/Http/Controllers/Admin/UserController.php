@@ -48,7 +48,8 @@ class UserController extends Controller
             $request->column !== null,
             fn (Builder $query) => $query->orderBy($request->column, $request->direction),
         )
-        ->paginate(config('pagination.admin.users'));
+        ->paginate(config('pagination.admin.users'))
+        ->withQueryString();
     }
 
     /**

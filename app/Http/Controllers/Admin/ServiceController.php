@@ -44,7 +44,8 @@ class ServiceController extends Controller
             $request->column !== null,
             fn (Builder $query) => $query->orderBy($request->column, $request->direction),
         )
-        ->paginate(config('pagination.admin.services'));
+        ->paginate(config('pagination.admin.services'))
+        ->withQueryString();
     }
 
     /**
