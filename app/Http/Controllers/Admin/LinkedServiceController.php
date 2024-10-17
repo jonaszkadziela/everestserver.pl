@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\LinkServiceRequest;
 use App\Models\Service;
 use App\Models\User;
 use App\View\Components\Notification;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -63,7 +64,7 @@ class LinkedServiceController extends Controller
             $user = User::findOrFail($request->user_id);
             $service = Service::enabled()
                 ->where('id', '=', $request->service_id)
-                ->when(!$user?->is_admin, fn (Builder $query) => $query->where('is_public', '=', true))
+                ->when(!$user?->is_admin, fn (EloquentBuilder $query) => $query->where('is_public', '=', true))
                 ->firstOrFail();
 
             $linkedService = $user
@@ -109,9 +110,7 @@ class LinkedServiceController extends Controller
             $user = User::findOrFail($request->user_id);
             $service = Service::findOrFail($request->service_id);
 
-            $user->services()
-                ->where('service_id', '=', $request->service_id)
-                ->detach();
+            $user->services()->detach($service);
 
             Notification::push(
                 Lang::get('notifications.in-app.service-unlinked.title'),
