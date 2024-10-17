@@ -13,7 +13,13 @@ return [
     |
     */
 
+    'pagination-navigation' => 'Nawigacja paginacji',
     'previous' => '&laquo; Wstecz',
     'next' => 'Dalej &raquo;',
+    'go-to-page' => 'Przejdź do strony :page',
+    'showing' => 'Wyświetlanie od',
+    'to' => 'do',
+    'of' => 'z',
+    'results' => 'wyników',
 
 ];
