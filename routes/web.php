@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LinkedServiceController;
 use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\UserController;
@@ -31,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'enabled'])->group(function () {
     Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/panel', [PanelController::class, 'index'])->name('admin.panel');
+
+        Route::post('/linked-services/link', [LinkedServiceController::class, 'link'])->name('linked-services.link');
+        Route::post('/linked-services/unlink', [LinkedServiceController::class, 'unlink'])->name('linked-services.unlink');
 
         Route::post('/services', [AdminServiceController::class, 'store'])->name('services.store');
         Route::patch('/services/{service}', [AdminServiceController::class, 'update'])->name('services.update');

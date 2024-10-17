@@ -77,11 +77,19 @@ return [
         ],
         'service-link-failed' => [
             'title' => 'Powiązanie nie powiodło się',
-            'description' => 'Żądanej usługi nie można powiązać z Twoim kontem',
+            'description' => 'Żądanej usługi nie można powiązać',
         ],
         'service-linked' => [
             'title' => 'Usługa powiązana',
-            'description' => 'Usługa :service została pomyślnie powiązana z Twoim kontem',
+            'description' => 'Usługa :service została pomyślnie powiązana',
+        ],
+        'service-unlink-failed' => [
+            'title' => 'Odłączenie nie powiodło się',
+            'description' => 'Żądanej usługi nie można odłączyć',
+        ],
+        'service-unlinked' => [
+            'title' => 'Usługa odłączona',
+            'description' => 'Usługa :service została pomyślnie odłączona',
         ],
         'service-updated' => [
             'title' => 'Usługa zaktualizowana',

@@ -77,11 +77,19 @@ return [
         ],
         'service-link-failed' => [
             'title' => 'Service link failed',
-            'description' => 'The requested service could not be linked to your account',
+            'description' => 'The requested service could not be linked',
         ],
         'service-linked' => [
             'title' => 'Service linked',
-            'description' => ':service service has been successfully linked to your account',
+            'description' => 'Service :service has been linked successfully',
+        ],
+        'service-unlink-failed' => [
+            'title' => 'Service unlink failed',
+            'description' => 'The requested service could not be unlinked',
+        ],
+        'service-unlinked' => [
+            'title' => 'Service unlinked',
+            'description' => 'Service :service has been unlinked successfully',
         ],
         'service-updated' => [
             'title' => 'Service updated',

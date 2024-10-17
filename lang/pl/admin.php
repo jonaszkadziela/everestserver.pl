@@ -15,6 +15,34 @@ return [
         'delete' => 'Usuń',
         'edit' => 'Edytuj',
         'search' => 'Wyszukaj',
+        'unlink' => 'Odłącz',
+
+        'linked-services' => [
+            'title' => 'Powiązane usługi',
+            'description' => 'Wyświetlaj powiązane usługi i zarządzaj połączeniami',
+            'no-results' => 'Nie znaleziono powiązanych usług',
+
+            'link-service' => [
+                'title' => 'Powiąż usługę',
+                'description' => 'Połącz usługę z użytkownikiem, wypełniając ten formularz',
+                'service_id' => 'Usługa',
+                'user_id' => 'Użytkownik',
+                'identifier' => 'Identyfikator',
+            ],
+
+            'unlink-service' => [
+                'title' => 'Odłącz usługę',
+                'description' => 'Czy chcesz odłączyć usługę',
+                'description-2' => 'od użytkownika'
+            ],
+
+            'columns' => [
+                'service' => 'Usługa',
+                'user' => 'Użytkownik',
+                'identifier' => 'Identyfikator',
+                'actions' => 'Akcje',
+            ],
+        ],
 
         'services' => [
             'title' => 'Usługi',

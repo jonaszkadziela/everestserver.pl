@@ -15,6 +15,34 @@ return [
         'delete' => 'Delete',
         'edit' => 'Edit',
         'search' => 'Search',
+        'unlink' => 'Unlink',
+
+        'linked-services' => [
+            'title' => 'Linked services',
+            'description' => 'List linked services and manage connections',
+            'no-results' => 'No linked services found',
+
+            'link-service' => [
+                'title' => 'Link service',
+                'description' => 'Connect service to a user by filling in this form',
+                'service_id' => 'Service',
+                'user_id' => 'User',
+                'identifier' => 'Identifier',
+            ],
+
+            'unlink-service' => [
+                'title' => 'Unlink service',
+                'description' => 'Do you want to disconnect service',
+                'description-2' => 'from user'
+            ],
+
+            'columns' => [
+                'service' => 'Service',
+                'user' => 'User',
+                'identifier' => 'Identifier',
+                'actions' => 'Actions',
+            ],
+        ],
 
         'services' => [
             'title' => 'Services',

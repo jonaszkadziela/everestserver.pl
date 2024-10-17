@@ -8,10 +8,12 @@ use App\Models\Service;
 use App\Models\User;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\View\View;
+use stdClass;
 
 class PanelController extends Controller
 {
     public const ALLOWED_TABS = [
+        'linked-services',
         'services',
         'users',
     ];
@@ -36,12 +38,23 @@ class PanelController extends Controller
     private function getData(IndexRequest $request, string $tab): array
     {
         $raw = match ($tab) {
+            'linked-services' => (new LinkedServiceController())->index($request),
             'services' => (new ServiceController())->index($request),
             'users' => (new UserController())->index($request),
             default => [],
         };
 
         $transformed = match ($tab) {
+            'linked-services' => $raw
+                ->getCollection()
+                ->map(function (stdClass $object) {
+                    return [
+                        'service' => $object->service,
+                        'user' => $object->user,
+                        'identifier' => $object->identifier,
+                    ];
+                })
+                ->toArray(),
             'services' => $raw
                 ->getCollection()
                 ->map(function (Service $service) {
