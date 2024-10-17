@@ -143,8 +143,8 @@
                             name="language"
                             class="mt-1"
                             required
-                            :value="old('language')"
                             :options="collect(config('app.languages'))->mapWithKeys(fn (string $code) => [$code => Lang::get('main.languages.' . $code)])"
+                            :selected="old('language')"
             />
             <x-input-error :messages="$errors->createUser->get('language')" class="mt-2" />
         </div>
@@ -236,8 +236,8 @@
                             name="new_language"
                             class="mt-1"
                             required
-                            :value="old('new_language')"
                             :options="collect(config('app.languages'))->mapWithKeys(fn (string $code) => [$code => Lang::get('main.languages.' . $code)])"
+                            :selected="old('new_language')"
             />
             <x-input-error :messages="$errors->updateUser->get('new_language')" class="mt-2" />
         </div>

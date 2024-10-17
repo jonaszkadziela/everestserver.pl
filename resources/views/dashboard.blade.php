@@ -110,6 +110,7 @@
                                     name="serviceId"
                                     class="mt-1"
                                     :options="$unlinkedServices->mapWithKeys(fn (Service $service) => [$service->id => $service->name])"
+                                    :selected="old('serviceId')"
                     />
                 </div>
                 <div class="mt-6 flex justify-end">
