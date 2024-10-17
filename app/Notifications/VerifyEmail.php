@@ -14,13 +14,13 @@ class VerifyEmail extends BaseVerifyEmail
         'en' => [
             'action' => 'Verify email address',
             'line-1' => 'Please click the button below to verify your email address.',
-            'line-2' => 'If you did not create an account, you can ignore this message.',
+            'line-2' => 'If you do not verify your email address, you cannot access any services.',
             'subject' => 'EverestServer - Verify email address',
         ],
         'pl' => [
             'action' => 'Zweryfikuj adres e-mail',
             'line-1' => 'Aby zweryfikować swój adres e-mail, kliknij przycisk poniżej.',
-            'line-2' => 'Jeśli nie utworzyłeś konta, zignoruj tę wiadomość.',
+            'line-2' => 'Jeśli nie zweryfikujesz swojego adresu e-mail, nie będziesz mieć dostępu do żadnych usług.',
             'subject' => 'EverestServer - Zweryfikuj adres e-mail',
         ],
     ];

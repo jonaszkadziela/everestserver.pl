@@ -16,7 +16,7 @@ class AccountCreatedByAdmin extends Notification
             'line-1' => 'Welcome to EverestServer! An account has been created for you by the administrator.',
             'line-2' => 'We generated the **:password** password for you. For safety reasons, please change it as soon as possible.',
             'line-3' => 'You can access your account using the **:email** email address and the password mentioned above.',
-            'line-4' => 'If you did not create an account, you can ignore this message.',
+            'line-4' => 'If you did not want an account, you can ignore this message.',
             'subject' => 'EverestServer - Account created',
         ],
         'pl' => [
@@ -24,7 +24,7 @@ class AccountCreatedByAdmin extends Notification
             'line-1' => 'Witamy w EverestServer! Twoje konto zostało utworzone przez administratora.',
             'line-2' => 'Wygenerowaliśmy dla Ciebie hasło **:password**. Ze względów bezpieczeństwa prosimy o jak najszybszą zmianę.',
             'line-3' => 'Możesz uzyskać dostęp do swojego konta za pomocą adresu e-mail **:email** i hasła wymienionego powyżej.',
-            'line-4' => 'Jeśli nie utworzyłeś konta, zignoruj tę wiadomość.',
+            'line-4' => 'Jeśli nie chcesz mieć konta, możesz zignorować tę wiadomość.',
             'subject' => 'EverestServer - Utworzono konto',
         ],
     ];

@@ -51,7 +51,7 @@ class PanelController extends Controller
                     return [
                         'service' => $object->service,
                         'user' => $object->user,
-                        'identifier' => $object->identifier,
+                        'identifier' => $object->identifier ?? '-',
                     ];
                 })
                 ->toArray(),
