@@ -12,11 +12,13 @@ return [
     */
 
     'panel' => [
+        'delete' => 'Usuń',
+        'edit' => 'Edytuj',
+        'search' => 'Wyszukaj',
+
         'services' => [
             'title' => 'Usługi',
             'description' => 'Wyświetlaj, edytuj i usuwaj istniejące usługi lub dodaj nową',
-            'delete' => 'Usuń',
-            'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych usług',
 
             'create-service' => [
@@ -55,8 +57,6 @@ return [
         'users' => [
             'title' => 'Użytkownicy',
             'description' => 'Wyświetlaj, edytuj i usuwaj istniejących użytkowników lub dodaj nowego',
-            'delete' => 'Usuń',
-            'edit' => 'Edytuj',
             'no-results' => 'Nie znaleziono żadnych użytkowników',
 
             'create-user' => [

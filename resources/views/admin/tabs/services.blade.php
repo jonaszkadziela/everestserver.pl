@@ -13,7 +13,7 @@
             <x-text-input id="search"
                           name="search"
                           class="w-48"
-                          placeholder="Search..."
+                          placeholder="{{ Lang::get('admin.panel.search') }}..."
                           :value="request()->get('search')"
             />
         </form>
@@ -69,7 +69,7 @@
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >
-                                        {{ Lang::get('admin.panel.services.edit') }}
+                                        {{ Lang::get('admin.panel.edit') }}
                                     </button>
                                     <span>|</span>
                                     <button x-data
@@ -77,7 +77,7 @@
                                             class="text-blue-700 hover:text-blue-900"
                                             type="button"
                                     >
-                                        {{ Lang::get('admin.panel.services.delete') }}
+                                        {{ Lang::get('admin.panel.delete') }}
                                     </button>
                                 </td>
                             @endif

@@ -12,11 +12,13 @@ return [
     */
 
     'panel' => [
+        'delete' => 'Delete',
+        'edit' => 'Edit',
+        'search' => 'Search',
+
         'services' => [
             'title' => 'Services',
             'description' => 'List, edit and delete existing services or add a new one',
-            'delete' => 'Delete',
-            'edit' => 'Edit',
             'no-results' => 'No services found',
 
             'create-service' => [
@@ -55,8 +57,6 @@ return [
         'users' => [
             'title' => 'Users',
             'description' => 'List, edit and delete existing users or add a new one',
-            'delete' => 'Delete',
-            'edit' => 'Edit',
             'no-results' => 'No users found',
 
             'create-user' => [
