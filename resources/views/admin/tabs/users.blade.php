@@ -7,7 +7,7 @@
             {{ Lang::get('admin.panel.users.description') }}.
         </p>
     </div>
-    <div class="flex gap-2">
+    <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
             <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
             <x-text-input id="search"
@@ -19,7 +19,6 @@
         </form>
         <x-primary-button x-data
                           @click.prevent="$dispatch('open-modal', 'create-user')"
-                          class="flex-shrink-0"
         >
             <span class="mr-2">
                 {{ Lang::get('admin.panel.users.create-user.title') }}
