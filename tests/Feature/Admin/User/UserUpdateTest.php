@@ -69,6 +69,9 @@ class UserUpdateTest extends BaseUserTestCase
         $this->assertDatabaseHas('users', [
             'username' => 'new-username',
             'email' => 'new-email@test.com',
+            'email_verified_at' => null,
+            'is_admin' => false,
+            'is_enabled' => false,
         ]);
 
         Event::assertDispatched(
@@ -88,10 +91,10 @@ class UserUpdateTest extends BaseUserTestCase
             ->actingAs($this->user)
             ->patchUsersUpdate($this->user, [
                 ...$this->data,
-                'password' => 'zaq1@WSX',
-                'is_admin' => null,
-                'is_enabled' => null,
-                'is_verified' => null,
+                'new_password' => 'zaq1@WSX',
+                'new_is_admin' => 'on',
+                'new_is_enabled' => 'on',
+                'new_is_verified' => 'on',
             ]);
 
         $response->assertRedirect();
@@ -100,9 +103,9 @@ class UserUpdateTest extends BaseUserTestCase
         $this->assertDatabaseHas('users', [
             'username' => 'new-username',
             'email' => 'new-email@test.com',
-            'email_verified_at' => null,
-            'is_admin' => false,
-            'is_enabled' => false,
+            'email_verified_at' => $this->user->email_verified_at,
+            'is_admin' => true,
+            'is_enabled' => true,
         ]);
 
         Event::assertDispatched(
