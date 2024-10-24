@@ -5,7 +5,6 @@ namespace Tests\Feature\Auth;
 use App\Listeners\LinkServiceToUser;
 use App\Models\Service;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Illuminate\Testing\TestResponse;
@@ -15,8 +14,6 @@ use Tests\TestCase;
 
 class OAuthAccessTokenTest extends TestCase
 {
-    use RefreshDatabase;
-
     private Client $oAuthClient;
     private string $state;
 

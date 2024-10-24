@@ -4,14 +4,11 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Auth\Middleware\RequirePassword;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class ProfileTest extends TestCase
 {
-    use RefreshDatabase;
-
     private User $user;
 
     protected function setUp(): void

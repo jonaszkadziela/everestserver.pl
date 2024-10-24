@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Service;
 use App\Models\User;
 use App\Services\EverestPass\EverestPassClient;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Support\Facades\Cache;
@@ -18,8 +17,6 @@ use Tests\TestCase;
 
 class ServiceTest extends TestCase
 {
-    use RefreshDatabase;
-
     private User $user;
     private Service $service;
 

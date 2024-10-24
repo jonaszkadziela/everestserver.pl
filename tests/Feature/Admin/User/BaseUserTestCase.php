@@ -3,7 +3,6 @@
 namespace Tests\Feature\Admin\User;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Testing\TestResponse;
@@ -11,8 +10,6 @@ use Tests\TestCase;
 
 class BaseUserTestCase extends TestCase
 {
-    use RefreshDatabase;
-
     protected User $user;
 
     protected function setUp(): void

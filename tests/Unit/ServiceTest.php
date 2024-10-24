@@ -6,7 +6,6 @@ use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Spatie\Translatable\HasTranslations;
@@ -14,8 +13,6 @@ use Tests\TestCase;
 
 class ServiceTest extends TestCase
 {
-    use RefreshDatabase;
-
     private array $attributes;
     private Service $service;
 

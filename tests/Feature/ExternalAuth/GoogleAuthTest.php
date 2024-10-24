@@ -6,7 +6,6 @@ use App\Events\UserCreated;
 use App\Models\User;
 use App\Notifications\AccountCreatedViaProvider;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Notifications\Events\NotificationSent;
 use Illuminate\Support\Facades\Config;
@@ -20,8 +19,6 @@ use Tests\TestCase;
 
 class GoogleAuthTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected function setUp(): void
     {
         parent::setUp();
