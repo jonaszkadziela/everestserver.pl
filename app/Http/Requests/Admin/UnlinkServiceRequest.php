@@ -4,14 +4,14 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LinkServiceRequest extends FormRequest
+class UnlinkServiceRequest extends FormRequest
 {
     /**
      * The key to be used for the view error bag.
      *
      * @var string
      */
-    protected $errorBag = 'linkService';
+    protected $errorBag = 'unlinkService';
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,11 +26,6 @@ class LinkServiceRequest extends FormRequest
             'user_id' => [
                 'required',
                 'exists:users,id',
-            ],
-            'identifier' => [
-                'nullable',
-                'string',
-                'max:255',
             ],
         ];
     }

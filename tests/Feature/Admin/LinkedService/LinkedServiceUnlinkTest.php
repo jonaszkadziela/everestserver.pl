@@ -21,7 +21,6 @@ class LinkedServiceUnlinkTest extends BaseLinkedServiceTestCase
         $response = $this->postLinkedServicesUnlink([
             'user_id' => $this->user->id,
             'service_id' => $this->service->id,
-            'identifier' => 'testing',
         ]);
 
         $response->assertRedirect('/login');
@@ -40,7 +39,6 @@ class LinkedServiceUnlinkTest extends BaseLinkedServiceTestCase
             ->postLinkedServicesUnlink([
                 'user_id' => $this->user->id,
                 'service_id' => $this->service->id,
-                'identifier' => 'testing',
             ]);
 
         $response->assertRedirect('/');
@@ -59,11 +57,10 @@ class LinkedServiceUnlinkTest extends BaseLinkedServiceTestCase
             ->postLinkedServicesUnlink([
                 'user_id' => $this->user->id,
                 'service_id' => -1,
-                'identifier' => 'testing',
             ]);
 
         $response->assertRedirect();
-        $response->assertSessionHasErrors('service_id');
+        $response->assertSessionHasErrorsIn('unlinkService', 'service_id');
     }
 
     public function test_admin_user_can_unlink_a_service_from_a_user(): void
@@ -73,7 +70,6 @@ class LinkedServiceUnlinkTest extends BaseLinkedServiceTestCase
             ->postLinkedServicesUnlink([
                 'user_id' => $this->user->id,
                 'service_id' => $this->service->id,
-                'identifier' => 'testing',
             ]);
 
         $response->assertRedirect();

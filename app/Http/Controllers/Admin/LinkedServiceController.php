@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\IndexRequest;
 use App\Http\Requests\Admin\LinkServiceRequest;
+use App\Http\Requests\Admin\UnlinkServiceRequest;
 use App\Models\Service;
 use App\Models\User;
 use App\View\Components\Notification;
@@ -108,7 +109,7 @@ class LinkedServiceController extends Controller
     /**
      * Unlink service from a user.
      */
-    public function unlink(LinkServiceRequest $request): RedirectResponse
+    public function unlink(UnlinkServiceRequest $request): RedirectResponse
     {
         try {
             $user = User::findOrFail($request->user_id);

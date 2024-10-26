@@ -66,7 +66,7 @@ class LinkedServiceLinkTest extends BaseLinkedServiceTestCase
             ]);
 
         $response->assertRedirect();
-        $response->assertSessionHasErrors('service_id');
+        $response->assertSessionHasErrorsIn('linkService', 'service_id');
     }
 
     public function test_admin_user_cannot_link_a_service_to_a_user_twice(): void
