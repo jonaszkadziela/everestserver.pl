@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\Profile\DeleteProfileRequest;
+use App\Http\Requests\Profile\UpdateProfileRequest;
 use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
@@ -27,7 +28,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(UpdateProfileRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
 
@@ -47,14 +48,10 @@ class ProfileController extends Controller
     }
 
     /**
-     * Delete the user's account.
+     * Delete the user's profile.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(DeleteProfileRequest $request): RedirectResponse
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => 'required|current_password',
-        ]);
-
         $user = $request->user();
 
         Auth::logout();
@@ -74,7 +71,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Display the account disabled page.
+     * Display the profile disabled page.
      */
     public function disabled(): RedirectResponse|View
     {
