@@ -28,8 +28,12 @@ class LinkedServiceController extends Controller
     {
         return DB::table('services_users')
             ->select([
-                DB::raw('CONCAT(services.name, " (#", service_id, ")") AS service'),
-                DB::raw('CONCAT(users.username, " (#", user_id, ")") AS user'),
+                DB::getDriverName() === 'sqlite' ?
+                    DB::raw('services.name || " (#" || service_id || ")" AS service') :
+                    DB::raw('CONCAT(services.name, " (#", service_id, ")") AS service'),
+                DB::getDriverName() === 'sqlite' ?
+                    DB::raw('users.username || " (#" || user_id || ")" AS user') :
+                    DB::raw('CONCAT(users.username, " (#", user_id, ")") AS user'),
                 'service_id',
                 'user_id',
                 'identifier',
