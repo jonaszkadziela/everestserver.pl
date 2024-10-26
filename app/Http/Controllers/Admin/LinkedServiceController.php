@@ -124,7 +124,7 @@ class LinkedServiceController extends Controller
                 Notification::DANGER,
             );
 
-            Log::info(class_basename($this) . ': ' . ($service?->name ?? 'The requested') . ' service could not be linked to user ' . $user->username, [
+            Log::info(class_basename($this) . ': ' . ($service?->name ?? 'The requested') . ' service could not be unlinked from user ' . $user->username, [
                 'code' => $t->getCode(),
                 'message' => $t->getMessage(),
                 'file' => $t->getFile(),
