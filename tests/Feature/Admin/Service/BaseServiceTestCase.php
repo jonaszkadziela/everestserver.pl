@@ -37,10 +37,10 @@ class BaseServiceTestCase extends TestCase
         return $this->post(route('services.store'), $data);
     }
 
-    protected function patchServicesUpdate(Service $service, array $data): TestResponse
+    protected function patchServicesUpdate(int $serviceId, array $data): TestResponse
     {
         return $this->patch(route('services.update', [
-            'service' => $service,
+            'service' => $serviceId,
         ]), $data);
     }
 

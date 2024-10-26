@@ -18,7 +18,7 @@ class UserUpdateTest extends BaseUserTestCase
 
     public function test_guest_user_redirected_to_login_screen(): void
     {
-        $response = $this->patchUsersUpdate($this->user, $this->data);
+        $response = $this->patchUsersUpdate($this->user->id, $this->data);
 
         $response->assertRedirect('/login');
 
@@ -30,7 +30,7 @@ class UserUpdateTest extends BaseUserTestCase
     {
         $response = $this
             ->actingAs(User::factory()->create())
-            ->patchUsersUpdate($this->user, $this->data);
+            ->patchUsersUpdate($this->user->id, $this->data);
 
         $response->assertRedirect('/');
 
@@ -42,7 +42,7 @@ class UserUpdateTest extends BaseUserTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchUsersUpdate($this->user, [
+            ->patchUsersUpdate($this->user->id, [
                 'new_username' => 'new-username',
             ]);
 
@@ -61,7 +61,7 @@ class UserUpdateTest extends BaseUserTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchUsersUpdate($this->user, $this->data);
+            ->patchUsersUpdate($this->user->id, $this->data);
 
         $response->assertRedirect();
         $response->assertSessionHasNoErrors();
@@ -89,7 +89,7 @@ class UserUpdateTest extends BaseUserTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchUsersUpdate($this->user, [
+            ->patchUsersUpdate($this->user->id, [
                 ...$this->data,
                 'new_password' => 'zaq1@WSX',
                 'new_is_admin' => 'on',

@@ -24,7 +24,7 @@ class ServiceUpdateTest extends BaseServiceTestCase
 
     public function test_guest_user_redirected_to_login_screen(): void
     {
-        $response = $this->patchServicesUpdate($this->service, $this->data);
+        $response = $this->patchServicesUpdate($this->service->id, $this->data);
 
         $response->assertRedirect('/login');
     }
@@ -33,7 +33,7 @@ class ServiceUpdateTest extends BaseServiceTestCase
     {
         $response = $this
             ->actingAs(User::factory()->create())
-            ->patchServicesUpdate($this->service, $this->data);
+            ->patchServicesUpdate($this->service->id, $this->data);
 
         $response->assertRedirect('/');
     }
@@ -42,7 +42,7 @@ class ServiceUpdateTest extends BaseServiceTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchServicesUpdate($this->service, [
+            ->patchServicesUpdate($this->service->id, [
                 'new_name' => 'new-name',
             ]);
 
@@ -58,7 +58,7 @@ class ServiceUpdateTest extends BaseServiceTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchServicesUpdate($this->service, $this->data);
+            ->patchServicesUpdate($this->service->id, $this->data);
 
         $response->assertRedirect();
         $response->assertSessionHasNoErrors();
@@ -77,7 +77,7 @@ class ServiceUpdateTest extends BaseServiceTestCase
     {
         $response = $this
             ->actingAs($this->user)
-            ->patchServicesUpdate($this->service, [
+            ->patchServicesUpdate($this->service->id, [
                 ...$this->data,
                 'new_is_public' => 'on',
                 'new_is_enabled' => 'on',

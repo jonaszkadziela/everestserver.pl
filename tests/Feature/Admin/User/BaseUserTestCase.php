@@ -36,10 +36,10 @@ class BaseUserTestCase extends TestCase
         return $this->post(route('users.store'), $data);
     }
 
-    protected function patchUsersUpdate(User $user, array $data): TestResponse
+    protected function patchUsersUpdate(int $userId, array $data): TestResponse
     {
         return $this->patch(route('users.update', [
-            'user' => $user,
+            'user' => $userId,
         ]), $data);
     }
 
