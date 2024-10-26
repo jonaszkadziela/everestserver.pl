@@ -26,8 +26,14 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login' => 'required|string',
-            'password' => 'required|string',
+            'login' => [
+                'required',
+                'string',
+            ],
+            'password' => [
+                'required',
+                'string',
+            ],
         ];
     }
 
@@ -108,8 +114,12 @@ class LoginRequest extends FormRequest
     private function isEmail(mixed $input): bool
     {
         return Validator::make(['email' => $input], [
-                'email' => 'required|string|email',
-            ])
-            ->passes();
+            'email' => [
+                'required',
+                'string',
+                'email',
+            ],
+        ])
+        ->passes();
     }
 }
