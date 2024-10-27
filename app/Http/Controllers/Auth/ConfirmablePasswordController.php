@@ -41,7 +41,7 @@ class ConfirmablePasswordController extends Controller
 
         if (!$validCredentials) {
             throw ValidationException::withMessages([
-                'password' => __('auth.password'),
+                'password' => Lang::get('auth.password'),
             ]);
         }
 

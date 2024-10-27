@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\PasswordResetLinkRequest;
 use App\View\Components\Notification;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 use Illuminate\View\View;
@@ -32,7 +31,7 @@ class PasswordResetLinkController extends Controller
         $status = Password::sendResetLink($request->only('email'));
 
         if ($status !== Password::RESET_LINK_SENT) {
-            return back()->withInput($request->only('email'))->withErrors(['email' => __($status)]);
+            return back()->withInput($request->only('email'))->withErrors(['email' => Lang::get($status)]);
         }
 
         Notification::push(
@@ -41,6 +40,6 @@ class PasswordResetLinkController extends Controller
             Notification::SUCCESS,
         );
 
-        return back()->with('status', __($status));
+        return back()->with('status', Lang::get($status));
     }
 }

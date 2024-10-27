@@ -45,7 +45,7 @@ class NewPasswordController extends Controller
         );
 
         if ($status !== Password::PASSWORD_RESET) {
-            return back()->withInput($request->only('email'))->withErrors(['email' => __($status)]);
+            return back()->withInput($request->only('email'))->withErrors(['email' => Lang::get($status)]);
         }
 
         Notification::push(
