@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\UserCreated;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegisterUserRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\View\Components\Notification;
@@ -11,8 +12,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -27,22 +26,10 @@ class RegisteredUserController extends Controller
 
     /**
      * Handle an incoming registration request.
-     *
-     * @throws ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RegisterUserRequest $request): RedirectResponse
     {
-        $request->validate([
-            'username' => 'required|string|lowercase|alpha_dash:ascii|min:3|max:20|unique:' . User::class,
-            'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
-
-        $user = new User([
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        $user = new User($request->validated());
 
         $user->is_enabled = (bool)config('auth.new_users_enabled');
         $user->save();
