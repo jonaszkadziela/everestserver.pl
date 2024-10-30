@@ -7,6 +7,8 @@ use Illuminate\View\View;
 
 class MainLayout extends Component
 {
+    public Navigation $navigation;
+
     /**
      * Create a new component instance.
      */
@@ -19,6 +21,7 @@ class MainLayout extends Component
         public ?bool $withNavigation = null,
         public ?bool $withFooter = null
     ) {
+        $this->navigation = new Navigation();
     }
 
     /**

@@ -14,24 +14,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ Lang::get('main.titles.home') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ Lang::get('main.titles.dashboard') }}
-                    </x-nav-link>
-
-                    <!-- Admin Links -->
-                    @if (Auth::user()?->is_admin)
-                        <x-nav-link :href="route('admin.panel')" :active="request()->routeIs('admin.panel')">
-                            {{ Lang::get('main.titles.admin.panel') }}
+                    @foreach ($navigation->links() as $key => $value)
+                        <x-nav-link :href="$value" :active="request()->routeIs($key)">
+                            {{ Lang::get('main.titles.' . $key) }}
                         </x-nav-link>
-                    @endif
+                    @endforeach
                 </div>
             </div>
 
             <!-- Account Links -->
-            <x-actions-menu class="hidden sm:flex" />
+            <x-actions-menu class="hidden sm:flex"
+                            :navigation="false"
+            />
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -50,19 +44,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                {{ Lang::get('main.titles.home') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ Lang::get('main.titles.dashboard') }}
-            </x-responsive-nav-link>
-
-            <!-- Admin Links -->
-            @if (Auth::user()?->is_admin)
-                <x-responsive-nav-link :href="route('admin.panel')" :active="request()->routeIs('admin.panel')">
-                    {{ Lang::get('main.titles.admin.panel') }}
+            @foreach ($navigation->links() as $key => $value)
+                <x-responsive-nav-link :href="$value" :active="request()->routeIs($key)">
+                    {{ Lang::get('main.titles.' . $key) }}
                 </x-responsive-nav-link>
-            @endif
+            @endforeach
         </div>
 
         <!-- Responsive Account Links -->

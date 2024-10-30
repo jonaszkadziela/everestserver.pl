@@ -27,7 +27,7 @@
     <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
         @isset($withActionsMenu)
             <x-actions-menu class="fixed mr-4 mt-4 right-0 top-0"
-                            :with-navigation="Auth::check()"
+                            :navigation="$navigation"
             />
         @endisset
         @isset($withNavigation)
@@ -43,8 +43,7 @@
         {{ $slot }}
         @isset($withFooter)
             <x-footer encoded-links="{!! json_encode([
-                'home' => route('home'),
-                'dashboard' => route('dashboard'),
+                ...$navigation->links(),
                 'privacy' => route('privacy'),
                 'contact' => 'mailto:' . Lang::get('main.contact-email'),
             ]) !!}" />

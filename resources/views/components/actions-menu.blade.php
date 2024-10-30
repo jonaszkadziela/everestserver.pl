@@ -2,7 +2,7 @@
     use App\Http\Controllers\LanguageController;
 @endphp
 
-@props(['withNavigation' => false])
+@props(['navigation'])
 
 <aside {{ $attributes->merge(['class' => 'flex gap-2 items-center z-50']) }}>
     <x-language-dropdown class="bg-white border hover:shadow-lg md:text-sm px-4 rounded-full md:py-2.5 text-xs" />
@@ -22,22 +22,18 @@
         </x-slot>
 
         <x-slot name="content">
-            @if($withNavigation)
+            @if ($navigation)
                 <nav class="mb-3">
                     <div class="font-medium">
                         {{ Lang::get('main.menu.navigation') }}
                     </div>
                     <div class="border-t mb-2 mt-1"></div>
-                    <x-menu-link :href="route('dashboard')">
-                        {{ Lang::get('main.titles.dashboard') }}
-                    </x-menu-link>
-
-                    <!-- Admin Links -->
-                    @if (Auth::user()?->is_admin)
-                        <x-menu-link :href="route('admin.panel')">
-                            {{ Lang::get('main.titles.admin.panel') }}
+                    @foreach ($navigation->links() as $key => $value)
+                        @continue(request()->routeIs($key))
+                        <x-menu-link :href="$value">
+                            {{ Lang::get('main.titles.' . $key) }}
                         </x-menu-link>
-                    @endif
+                    @endforeach
                 </nav>
             @endif
             <section>
