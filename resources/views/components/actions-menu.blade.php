@@ -5,9 +5,9 @@
 @props(['navigation'])
 
 <aside {{ $attributes->merge(['class' => 'flex gap-2 items-center z-50']) }}>
-    <x-language-dropdown class="bg-white border hover:shadow-lg md:text-sm px-4 rounded-full md:py-2.5 text-xs" />
+    <x-dropdown.language class="bg-white border hover:shadow-lg md:text-sm px-4 rounded-full md:py-2.5 text-xs" />
 
-    <x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-72">
+    <x-dropdown.main align="right" content-classes="bg-white px-6 py-4" width="w-72">
         <x-slot name="trigger">
             <button type="button" class="bg-white border cursor-pointer flex hover:shadow-lg items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                 <span class="font-bold hidden md:block mr-2">
@@ -30,9 +30,9 @@
                     <div class="border-t mb-2 mt-1"></div>
                     @foreach ($navigation->links() as $key => $value)
                         @continue(request()->routeIs($key))
-                        <x-menu-link :href="$value">
+                        <x-link.menu :href="$value">
                             {{ Lang::get('main.titles.' . $key) }}
-                        </x-menu-link>
+                        </x-link.menu>
                     @endforeach
                 </nav>
             @endif
@@ -42,18 +42,18 @@
                 </div>
                 <div class="border-t mb-2 mt-1"></div>
                 @auth
-                    <x-menu-link :href="route('profile.edit')">
+                    <x-link.menu :href="route('profile.edit')">
                         {{ Lang::get('main.titles.profile') }}
-                    </x-menu-link>
+                    </x-link.menu>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-submit-button class="mt-2 w-full">
+                        <x-button.submit class="mt-2 w-full">
                             <span class="mr-2">
                                 {{ Lang::get('auth.actions.log-out') }}
                             </span>
                             <i class="fa-solid fa-right-from-bracket"></i>
-                        </x-submit-button>
+                        </x-button.submit>
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-700 border flex hover:bg-blue-800 items-center justify-center px-4 py-2 rounded-full text-white mb-1">
@@ -79,19 +79,19 @@
                         </div>
                         <div class="flex flex-col gap-1">
                             @if(config('services.facebook.enabled'))
-                                <x-facebook-button>
+                                <x-button.facebook>
                                     {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
-                                </x-facebook-button>
+                                </x-button.facebook>
                             @endif
                             @if(config('services.google.enabled'))
-                                <x-google-button>
+                                <x-button.google>
                                     {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
-                                </x-google-button>
+                                </x-button.google>
                             @endif
                         </div>
                     @endif
                 @endauth
             </section>
         </x-slot>
-    </x-dropdown>
+    </x-dropdown.main>
 </aside>

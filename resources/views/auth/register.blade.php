@@ -22,44 +22,44 @@
 
                 <!-- Username -->
                 <div>
-                    <x-input-label for="username" :value="Lang::get('validation.attributes.username')" />
-                    <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
-                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                    <x-input.label for="username" :value="Lang::get('validation.attributes.username')" />
+                    <x-input.text id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+                    <x-input.error :messages="$errors->get('username')" class="mt-2" />
                 </div>
 
                 <!-- Email Address -->
                 <div class="mt-4">
-                    <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    <x-input.label for="email" :value="Lang::get('validation.attributes.email')" />
+                    <x-input.text id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
+                    <x-input.error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
+                    <x-input.label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-password-input id="password"
+                    <x-input.password id="password"
                                       class="mt-1"
                                       name="password"
                                       autocomplete="new-password"
                                       required
                     />
 
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <x-input-label for="password_confirmation" :value="Lang::get('validation.attributes.password_confirmation')" />
+                    <x-input.label for="password_confirmation" :value="Lang::get('validation.attributes.password_confirmation')" />
 
-                    <x-password-input id="password_confirmation"
+                    <x-input.password id="password_confirmation"
                                       class="mt-1"
                                       name="password_confirmation"
                                       autocomplete="new-password"
                                       required
                     />
 
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
@@ -67,9 +67,9 @@
                         {{ Lang::get('auth.register.already-registered') }}
                     </a>
 
-                    <x-submit-button class="ms-4">
+                    <x-button.submit class="ms-4">
                         {{ Lang::get('auth.register.register') }}
-                    </x-submit-button>
+                    </x-button.submit>
                 </div>
             </form>
 
@@ -85,14 +85,14 @@
                 <!-- External Auth Providers -->
                 <div class="flex flex-col gap-2 justify-center md:flex-row">
                     @if(config('services.facebook.enabled'))
-                        <x-facebook-button class="w-full">
+                        <x-button.facebook class="w-full">
                             {{ Lang::get('main.menu.register-with-provider', ['provider' => 'Facebook']) }}
-                        </x-facebook-button>
+                        </x-button.facebook>
                     @endif
                     @if(config('services.google.enabled'))
-                        <x-google-button class="w-full">
+                        <x-button.google class="w-full">
                             {{ Lang::get('main.menu.register-with-provider', ['provider' => 'Google']) }}
-                        </x-google-button>
+                        </x-button.google>
                     @endif
                 </div>
             @endif

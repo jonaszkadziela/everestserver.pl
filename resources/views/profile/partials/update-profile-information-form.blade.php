@@ -17,15 +17,15 @@
         @method('patch')
 
         <div>
-            <x-input-label for="username" :value="Lang::get('validation.attributes.username')" />
-            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" required autofocus autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('username')" />
+            <x-input.label for="username" :value="Lang::get('validation.attributes.username')" />
+            <x-input.text id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" required autofocus autocomplete="username" />
+            <x-input.error class="mt-2" :messages="$errors->get('username')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <x-input.label for="email" :value="Lang::get('validation.attributes.email')" />
+            <x-input.text id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="email" />
+            <x-input.error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div>
@@ -47,9 +47,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-submit-button>
+            <x-button.submit>
                 {{ Lang::get('profile.actions.save') }}
-            </x-submit-button>
+            </x-button.submit>
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }"

@@ -25,30 +25,30 @@
 
                 <!-- Email Address -->
                 <div>
-                    <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
-                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="email" />
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                    <x-input.label for="email" :value="Lang::get('validation.attributes.email')" />
+                    <x-input.text id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="email" />
+                    <x-input.error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-input-label for="password" :value="Lang::get('validation.attributes.new_password')" />
+                    <x-input.label for="password" :value="Lang::get('validation.attributes.new_password')" />
 
-                    <x-password-input id="password"
+                    <x-input.password id="password"
                                       class="mt-1"
                                       name="password"
                                       autocomplete="new-password"
                                       required
                     />
 
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <x-input-label for="password_confirmation" :value="Lang::get('validation.attributes.new_password_confirmation')" />
+                    <x-input.label for="password_confirmation" :value="Lang::get('validation.attributes.new_password_confirmation')" />
 
-                    <x-text-input id="password_confirmation"
+                    <x-input.text id="password_confirmation"
                                   class="block mt-1 w-full"
                                   type="password"
                                   name="password_confirmation"
@@ -56,13 +56,13 @@
                                   required
                     />
 
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <x-submit-button>
+                    <x-button.submit>
                         {{ Lang::get('auth.reset-password.save') }}
-                    </x-submit-button>
+                    </x-button.submit>
                 </div>
             </form>
         </div>

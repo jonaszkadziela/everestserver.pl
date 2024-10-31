@@ -40,15 +40,15 @@
             </p>
 
             <div class="mt-6">
-                <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
+                <x-input.label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                <x-password-input id="password"
+                <x-input.password id="password"
                                   name="password"
                                   class="mt-1"
                                   required
                 />
 
-                <x-input-error :messages="$errors->deleteProfile->get('password')" class="mt-2" />
+                <x-input.error :messages="$errors->deleteProfile->get('password')" class="mt-2" />
             </div>
 
             <div class="mt-6 flex justify-end">

@@ -68,9 +68,9 @@
                         <p class="font-bold mb-4">
                             {{ Lang::get('services.not-linked') }}
                         </p>
-                        <x-link-service-button modal="link-service">
+                        <x-button.link-service modal="link-service">
                             {{ Lang::get('services.link-new') }}
-                        </x-link-service-button>
+                        </x-button.link-service>
                     @else
                         <p class="font-bold">
                             {{ Lang::get('services.not-available') }}
@@ -85,9 +85,9 @@
                     <p class="font-bold mb-4">
                         {{ Lang::get('services.link-more-services') }}
                     </p>
-                    <x-link-service-button modal="link-service">
+                    <x-button.link-service modal="link-service">
                         {{ Lang::get('services.link-new') }}
-                    </x-link-service-button>
+                    </x-button.link-service>
                 </div>
             @endif
         </div>
@@ -105,8 +105,8 @@
                     {{ Lang::get('services.link-modal.description-2') }}.
                 </p>
                 <div>
-                    <x-input-label for="serviceId" value="{{ Lang::get('services.link-modal.choose-service') }}" />
-                    <x-select-input id="serviceId"
+                    <x-input.label for="serviceId" value="{{ Lang::get('services.link-modal.choose-service') }}" />
+                    <x-input.select id="serviceId"
                                     name="serviceId"
                                     class="mt-1"
                                     :options="$unlinkedServices->mapWithKeys(fn (Service $service) => [$service->id => $service->name])"

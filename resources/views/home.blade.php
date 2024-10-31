@@ -24,7 +24,7 @@
                 </p>
                 <div class="flex flex-col flex-wrap gap-4 items-center justify-center md:flex-row">
                     @forelse (Service::enabled()->public()->get() as $service)
-                        <x-service-button :service="$service" />
+                        <x-button.service :service="$service" />
                     @empty
                         <div>
                             <p class="font-bold">

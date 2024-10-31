@@ -50,9 +50,9 @@
                     <input type="hidden" name="state" value="{{ $request->state }}">
                     <input type="hidden" name="client_id" value="{{ $client->getKey() }}">
                     <input type="hidden" name="auth_token" value="{{ $authToken }}">
-                    <x-submit-button>
+                    <x-button.submit>
                         {{ Lang::get('auth.authorization-request.authorize') }}
-                    </x-submit-button>
+                    </x-button.submit>
                 </form>
             </div>
         </div>

@@ -15,21 +15,21 @@
     <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
             <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
-            <x-text-input id="search"
+            <x-input.text id="search"
                           name="search"
                           class="w-48"
                           placeholder="{{ Lang::get('admin.panel.search') }}..."
                           :value="request()->get('search')"
             />
         </form>
-        <x-primary-button x-data
+        <x-button.primary x-data
                           @click.prevent="$dispatch('open-modal', 'link-service')"
         >
             <span class="mr-2">
                 {{ Lang::get('admin.panel.linked-services.link-service.title') }}
             </span>
             <i class="fa-solid fa-link"></i>
-        </x-primary-button>
+        </x-button.primary>
     </div>
 </div>
 
@@ -106,35 +106,35 @@
             {{ Lang::get('admin.panel.linked-services.link-service.description') }}.
         </p>
         <div class="mt-6">
-            <x-input-label for="service_id" :value="Lang::get('admin.panel.linked-services.link-service.service_id')" />
-            <x-select-input id="service_id"
+            <x-input.label for="service_id" :value="Lang::get('admin.panel.linked-services.link-service.service_id')" />
+            <x-input.select id="service_id"
                             name="service_id"
                             class="mt-1"
                             required
                             :options="Service::enabled()->get()->mapWithKeys(fn (Service $service) => [$service->id => $service->name])"
                             :selected="old('service_id')"
             />
-            <x-input-error :messages="$errors->createUser->get('service_id')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('service_id')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="user_id" :value="Lang::get('admin.panel.linked-services.link-service.user_id')" />
-            <x-select-input id="user_id"
+            <x-input.label for="user_id" :value="Lang::get('admin.panel.linked-services.link-service.user_id')" />
+            <x-input.select id="user_id"
                             name="user_id"
                             class="mt-1"
                             required
                             :options="User::get()->mapWithKeys(fn (User $user) => [$user->id => $user->username])"
                             :selected="old('user_id')"
             />
-            <x-input-error :messages="$errors->createUser->get('user_id')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('user_id')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="identifier" :value="Lang::get('admin.panel.linked-services.link-service.identifier') . ' (' . Lang::get('main.optional') . ')'" />
-            <x-text-input id="identifier"
+            <x-input.label for="identifier" :value="Lang::get('admin.panel.linked-services.link-service.identifier') . ' (' . Lang::get('main.optional') . ')'" />
+            <x-input.text id="identifier"
                           name="identifier"
                           class="block mt-1 w-full"
                           :value="old('identifier')"
             />
-            <x-input-error :messages="$errors->createService->get('identifier')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('identifier')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">

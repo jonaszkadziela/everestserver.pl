@@ -10,21 +10,21 @@
     <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
             <input type="hidden" name="tab" value="{{ request()->get('tab', 'users') }}">
-            <x-text-input id="search"
+            <x-input.text id="search"
                           name="search"
                           class="w-48"
                           placeholder="{{ Lang::get('admin.panel.search') }}..."
                           :value="request()->get('search')"
             />
         </form>
-        <x-primary-button x-data
+        <x-button.primary x-data
                           @click.prevent="$dispatch('open-modal', 'create-user')"
         >
             <span class="mr-2">
                 {{ Lang::get('admin.panel.users.create-user.title') }}
             </span>
             <i class="fa-solid fa-user-plus"></i>
-        </x-primary-button>
+        </x-button.primary>
     </div>
 </div>
 
@@ -112,70 +112,70 @@
             {{ Lang::get('admin.panel.users.create-user.description-2') }}.
         </p>
         <div class="mt-6">
-            <x-input-label for="username" :value="Lang::get('validation.attributes.username')" />
-            <x-text-input id="username"
+            <x-input.label for="username" :value="Lang::get('validation.attributes.username')" />
+            <x-input.text id="username"
                           name="username"
                           class="block mt-1 w-full"
                           required
                           :value="old('username')"
             />
-            <x-input-error :messages="$errors->createUser->get('username')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('username')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="email" :value="Lang::get('validation.attributes.email')" />
-            <x-text-input id="email"
+            <x-input.label for="email" :value="Lang::get('validation.attributes.email')" />
+            <x-input.text id="email"
                           name="email"
                           class="block mt-1 w-full"
                           type="email"
                           required
                           :value="old('email')"
             />
-            <x-input-error :messages="$errors->createUser->get('email')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('email')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
-            <x-password-input id="password"
+            <x-input.label for="password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
+            <x-input.password id="password"
                               name="password"
                               class="mt-1"
             />
-            <x-input-error :messages="$errors->createUser->get('password')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('password')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="language" :value="Lang::get('validation.attributes.language')" />
-            <x-select-input id="language"
+            <x-input.label for="language" :value="Lang::get('validation.attributes.language')" />
+            <x-input.select id="language"
                             name="language"
                             class="mt-1"
                             required
                             :options="collect(config('app.languages'))->mapWithKeys(fn (string $code) => [$code => Lang::get('main.languages.' . $code)])"
                             :selected="old('language')"
             />
-            <x-input-error :messages="$errors->createUser->get('language')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('language')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label :value="Lang::get('admin.panel.users.create-user.toggles')" />
+            <x-input.label :value="Lang::get('admin.panel.users.create-user.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <x-checkbox-input id="is_admin"
+                <x-input.checkbox id="is_admin"
                                   name="is_admin"
                                   :checked="old('is_admin')"
                 >
                     {{ Lang::get('admin.panel.users.create-user.is_admin') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="is_enabled"
+                </x-input.checkbox>
+                <x-input.checkbox id="is_enabled"
                                   name="is_enabled"
                                   :checked="old('is_enabled')"
                 >
                     {{ Lang::get('admin.panel.users.create-user.is_enabled') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="is_verified"
+                </x-input.checkbox>
+                <x-input.checkbox id="is_verified"
                                   name="is_verified"
                                   :checked="old('is_verified')"
                 >
                     {{ Lang::get('admin.panel.users.create-user.is_verified') }}
-                </x-checkbox-input>
+                </x-input.checkbox>
             </div>
-            <x-input-error :messages="$errors->createUser->get('is_admin')" class="mt-2" />
-            <x-input-error :messages="$errors->createUser->get('is_enabled')" class="mt-2" />
-            <x-input-error :messages="$errors->createUser->get('is_verified')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('is_admin')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('is_enabled')" class="mt-2" />
+            <x-input.error :messages="$errors->createUser->get('is_verified')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">
@@ -205,70 +205,70 @@
         </p>
         <input type="hidden" name="id" x-bind:value="form.id || '{{ old('id') }}'">
         <div class="mt-6">
-            <x-input-label for="new_username" :value="Lang::get('validation.attributes.username')" />
-            <x-text-input id="new_username"
+            <x-input.label for="new_username" :value="Lang::get('validation.attributes.username')" />
+            <x-input.text id="new_username"
                           name="new_username"
                           class="block mt-1 w-full"
                           required
                           x-bind:value="form.username || '{{ old('new_username') }}'"
             />
-            <x-input-error :messages="$errors->updateUser->get('new_username')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_username')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_email" :value="Lang::get('validation.attributes.email')" />
-            <x-text-input id="new_email"
+            <x-input.label for="new_email" :value="Lang::get('validation.attributes.email')" />
+            <x-input.text id="new_email"
                           name="new_email"
                           class="block mt-1 w-full"
                           type="email"
                           required
                           x-bind:value="form.email || '{{ old('new_email') }}'"
             />
-            <x-input-error :messages="$errors->updateUser->get('new_email')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_email')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
-            <x-password-input id="new_password"
+            <x-input.label for="new_password" :value="Lang::get('validation.attributes.password') . ' (' . Lang::get('main.optional') . ')'" />
+            <x-input.password id="new_password"
                               name="new_password"
                               class="mt-1"
             />
-            <x-input-error :messages="$errors->updateUser->get('new_password')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_password')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_language" :value="Lang::get('validation.attributes.language')" />
-            <x-select-input id="new_language"
+            <x-input.label for="new_language" :value="Lang::get('validation.attributes.language')" />
+            <x-input.select id="new_language"
                             name="new_language"
                             class="mt-1"
                             required
                             :options="collect(config('app.languages'))->mapWithKeys(fn (string $code) => [$code => Lang::get('main.languages.' . $code)])"
                             :selected="old('new_language')"
             />
-            <x-input-error :messages="$errors->updateUser->get('new_language')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_language')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label :value="Lang::get('admin.panel.users.update-user.toggles')" />
+            <x-input.label :value="Lang::get('admin.panel.users.update-user.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <x-checkbox-input id="new_is_admin"
+                <x-input.checkbox id="new_is_admin"
                                   name="new_is_admin"
                                   x-bind:value="form.is_admin === true || '{{ old('new_is_admin') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.update-user.is_admin') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="new_is_enabled"
+                </x-input.checkbox>
+                <x-input.checkbox id="new_is_enabled"
                                   name="new_is_enabled"
                                   x-bind:value="form.is_enabled === true || '{{ old('new_is_enabled') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.update-user.is_enabled') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="new_is_verified"
+                </x-input.checkbox>
+                <x-input.checkbox id="new_is_verified"
                                   name="new_is_verified"
                                   x-bind:value="form.email_verified_at !== null || '{{ old('new_is_verified') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.users.update-user.is_verified') }}
-                </x-checkbox-input>
+                </x-input.checkbox>
             </div>
-            <x-input-error :messages="$errors->updateUser->get('new_is_admin')" class="mt-2" />
-            <x-input-error :messages="$errors->updateUser->get('new_is_enabled')" class="mt-2" />
-            <x-input-error :messages="$errors->updateUser->get('new_is_verified')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_is_admin')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_is_enabled')" class="mt-2" />
+            <x-input.error :messages="$errors->updateUser->get('new_is_verified')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">

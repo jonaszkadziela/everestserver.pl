@@ -2,7 +2,7 @@
     use App\Http\Controllers\LanguageController;
 @endphp
 
-<x-dropdown align="right" content-classes="bg-white px-6 py-4" width="w-64">
+<x-dropdown.main align="right" content-classes="bg-white px-6 py-4" width="w-64">
     <x-slot name="trigger">
         <button {{ $attributes->merge(['class' => 'flex hover:text-gray-700 p-2 text-gray-500 transition']) }}>
             <div>
@@ -29,4 +29,4 @@
             </a>
         @endforeach
     </x-slot>
-</x-dropdown>
+</x-dropdown.main>

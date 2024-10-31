@@ -25,33 +25,33 @@
 
                 <!-- Login -->
                 <div>
-                    <x-input-label for="login" :value="Lang::get('validation.attributes.login')" />
-                    <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="username" />
-                    <x-input-error :messages="$errors->get('login')" class="mt-2" />
+                    <x-input.label for="login" :value="Lang::get('validation.attributes.login')" />
+                    <x-input.text id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="username" />
+                    <x-input.error :messages="$errors->get('login')" class="mt-2" />
                 </div>
 
                 <!-- Password -->
                 <div class="mt-4">
-                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
+                    <x-input.label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-password-input id="password"
+                    <x-input.password id="password"
                                       class="mt-1"
                                       name="password"
                                       autocomplete="current-password"
                                       required
                     />
 
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Remember Me -->
                 <div class="block mt-4">
-                    <x-checkbox-input id="remember"
+                    <x-input.checkbox id="remember"
                                       name="remember"
                                       :checked="old('remember')"
                     >
                         {{ Lang::get('auth.login.remember-me') }}
-                    </x-checkbox-input>
+                    </x-input.checkbox>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
@@ -61,9 +61,9 @@
                         </a>
                     @endif
 
-                    <x-submit-button class="ms-3">
+                    <x-button.submit class="ms-3">
                         {{ Lang::get('auth.login.log-in') }}
-                    </x-submit-button>
+                    </x-button.submit>
                 </div>
             </form>
 
@@ -79,14 +79,14 @@
                 <!-- External Auth Providers -->
                 <div class="flex flex-col gap-2 justify-center md:flex-row">
                     @if(config('services.facebook.enabled'))
-                        <x-facebook-button class="w-full">
+                        <x-button.facebook class="w-full">
                             {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Facebook']) }}
-                        </x-facebook-button>
+                        </x-button.facebook>
                     @endif
                     @if(config('services.google.enabled'))
-                        <x-google-button class="w-full">
+                        <x-button.google class="w-full">
                             {{ Lang::get('main.menu.log-in-with-provider', ['provider' => 'Google']) }}
-                        </x-google-button>
+                        </x-button.google>
                     @endif
                 </div>
             @endif

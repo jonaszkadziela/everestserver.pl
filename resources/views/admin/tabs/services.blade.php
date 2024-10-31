@@ -10,21 +10,21 @@
     <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
             <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
-            <x-text-input id="search"
+            <x-input.text id="search"
                           name="search"
                           class="w-48"
                           placeholder="{{ Lang::get('admin.panel.search') }}..."
                           :value="request()->get('search')"
             />
         </form>
-        <x-primary-button x-data
+        <x-button.primary x-data
                           @click.prevent="$dispatch('open-modal', 'create-service')"
         >
             <span class="mr-2">
                 {{ Lang::get('admin.panel.services.create-service.title') }}
             </span>
             <i class="fa-solid fa-plus"></i>
-        </x-primary-button>
+        </x-button.primary>
     </div>
 </div>
 
@@ -109,64 +109,64 @@
             {{ Lang::get('admin.panel.services.create-service.description') }}.
         </p>
         <div class="mt-6">
-            <x-input-label for="name" :value="Lang::get('validation.attributes.name')" />
-            <x-text-input id="name"
+            <x-input.label for="name" :value="Lang::get('validation.attributes.name')" />
+            <x-input.text id="name"
                           name="name"
                           class="block mt-1 w-full"
                           required
                           :value="old('name')"
             />
-            <x-input-error :messages="$errors->createService->get('name')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('name')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="description" :value="Lang::get('validation.attributes.description')" />
-            <x-textarea-input id="description"
+            <x-input.label for="description" :value="Lang::get('validation.attributes.description')" />
+            <x-input.textarea id="description"
                               name="description"
                               class="block mt-1 w-full"
                               rows="4"
                               required
                               x-bind:value="'{{ old('description') }}'"
             />
-            <x-input-error :messages="$errors->createService->get('description')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('description')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="icon" :value="Lang::get('validation.attributes.icon')" />
-            <x-text-input id="icon"
+            <x-input.label for="icon" :value="Lang::get('validation.attributes.icon')" />
+            <x-input.text id="icon"
                           name="icon"
                           class="block mt-1 w-full"
                           required
                           :value="old('icon')"
             />
-            <x-input-error :messages="$errors->createService->get('icon')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('icon')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="link" :value="Lang::get('validation.attributes.link')" />
-            <x-text-input id="link"
+            <x-input.label for="link" :value="Lang::get('validation.attributes.link')" />
+            <x-input.text id="link"
                           name="link"
                           class="block mt-1 w-full"
                           required
                           :value="old('link')"
             />
-            <x-input-error :messages="$errors->createService->get('link')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('link')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label :value="Lang::get('admin.panel.services.create-service.toggles')" />
+            <x-input.label :value="Lang::get('admin.panel.services.create-service.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <x-checkbox-input id="is_public"
+                <x-input.checkbox id="is_public"
                                   name="is_public"
                                   :checked="old('is_public')"
                 >
                     {{ Lang::get('admin.panel.services.create-service.is_public') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="is_enabled"
+                </x-input.checkbox>
+                <x-input.checkbox id="is_enabled"
                                   name="is_enabled"
                                   :checked="old('is_enabled')"
                 >
                     {{ Lang::get('admin.panel.services.create-service.is_enabled') }}
-                </x-checkbox-input>
+                </x-input.checkbox>
             </div>
-            <x-input-error :messages="$errors->createService->get('is_public')" class="mt-2" />
-            <x-input-error :messages="$errors->createService->get('is_enabled')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('is_public')" class="mt-2" />
+            <x-input.error :messages="$errors->createService->get('is_enabled')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">
@@ -196,64 +196,64 @@
         </p>
         <input type="hidden" name="id" x-bind:value="form.id || '{{ old('id') }}'">
         <div class="mt-6">
-            <x-input-label for="new_name" :value="Lang::get('validation.attributes.name')" />
-            <x-text-input id="new_name"
+            <x-input.label for="new_name" :value="Lang::get('validation.attributes.name')" />
+            <x-input.text id="new_name"
                           name="new_name"
                           class="block mt-1 w-full"
                           required
                           x-bind:value="form.name || '{{ old('new_name') }}'"
             />
-            <x-input-error :messages="$errors->updateService->get('new_name')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_name')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_description" :value="Lang::get('validation.attributes.description')" />
-            <x-textarea-input id="new_description"
+            <x-input.label for="new_description" :value="Lang::get('validation.attributes.description')" />
+            <x-input.textarea id="new_description"
                               name="new_description"
                               class="block mt-1 w-full"
                               rows="4"
                               required
                               x-bind:value="JSON.stringify(form.description) || '{{ old('new_description') }}'"
             />
-            <x-input-error :messages="$errors->updateService->get('new_description')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_description')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_icon" :value="Lang::get('validation.attributes.icon')" />
-            <x-text-input id="new_icon"
+            <x-input.label for="new_icon" :value="Lang::get('validation.attributes.icon')" />
+            <x-input.text id="new_icon"
                           name="new_icon"
                           class="block mt-1 w-full"
                           required
                           x-bind:value="form.icon || '{{ old('new_icon') }}'"
             />
-            <x-input-error :messages="$errors->updateService->get('new_icon')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_icon')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label for="new_link" :value="Lang::get('validation.attributes.link')" />
-            <x-text-input id="new_link"
+            <x-input.label for="new_link" :value="Lang::get('validation.attributes.link')" />
+            <x-input.text id="new_link"
                           name="new_link"
                           class="block mt-1 w-full"
                           required
                           x-bind:value="form.link || '{{ old('new_link') }}'"
             />
-            <x-input-error :messages="$errors->updateService->get('new_link')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_link')" class="mt-2" />
         </div>
         <div class="mt-4">
-            <x-input-label :value="Lang::get('admin.panel.services.update-service.toggles')" />
+            <x-input.label :value="Lang::get('admin.panel.services.update-service.toggles')" />
             <div class="flex flex-col gap-2 md:flex-row md:gap-8 mt-1">
-                <x-checkbox-input id="new_is_public"
+                <x-input.checkbox id="new_is_public"
                                   name="new_is_public"
                                   x-bind:value="form.is_public === true || '{{ old('new_is_public') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.services.update-service.is_public') }}
-                </x-checkbox-input>
-                <x-checkbox-input id="new_is_enabled"
+                </x-input.checkbox>
+                <x-input.checkbox id="new_is_enabled"
                                   name="new_is_enabled"
                                   x-bind:value="form.is_enabled === true || '{{ old('new_is_enabled') }}' === 'on'"
                 >
                     {{ Lang::get('admin.panel.services.update-service.is_enabled') }}
-                </x-checkbox-input>
+                </x-input.checkbox>
             </div>
-            <x-input-error :messages="$errors->updateService->get('new_is_public')" class="mt-2" />
-            <x-input-error :messages="$errors->updateService->get('new_is_enabled')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_is_public')" class="mt-2" />
+            <x-input.error :messages="$errors->updateService->get('new_is_enabled')" class="mt-2" />
         </div>
         <div class="mt-6 flex justify-end">
             <x-modal.secondary-button x-on:click="$dispatch('close')">

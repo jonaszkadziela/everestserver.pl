@@ -40,9 +40,9 @@
                     @csrf
 
                     <div>
-                        <x-submit-button class="ms-4">
+                        <x-button.submit class="ms-4">
                             {{ Lang::get('auth.verify-email.resend-verification') }}
-                        </x-submit-button>
+                        </x-button.submit>
                     </div>
                 </form>
             </div>

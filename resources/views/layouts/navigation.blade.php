@@ -15,9 +15,9 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     @foreach ($navigation->links() as $key => $value)
-                        <x-nav-link :href="$value" :active="request()->routeIs($key)">
+                        <x-link.nav :href="$value" :active="request()->routeIs($key)">
                             {{ Lang::get('main.titles.' . $key) }}
-                        </x-nav-link>
+                        </x-link.nav>
                     @endforeach
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <div class="mr-1">
-                    <x-language-dropdown class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
+                    <x-dropdown.language class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
                 </div>
 
                 <button @click="open = !open" class="duration-150 ease-in-out focus:bg-gray-100 focus:outline-none focus:text-gray-700 h-8 hover:bg-gray-100 hover:text-gray-700 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
@@ -45,9 +45,9 @@
     <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             @foreach ($navigation->links() as $key => $value)
-                <x-responsive-nav-link :href="$value" :active="request()->routeIs($key)">
+                <x-link.responsive-nav :href="$value" :active="request()->routeIs($key)">
                     {{ Lang::get('main.titles.' . $key) }}
-                </x-responsive-nav-link>
+                </x-link.responsive-nav>
             @endforeach
         </div>
 
@@ -63,19 +63,19 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-link.responsive-nav :href="route('profile.edit')">
                     {{ Lang::get('main.titles.profile') }}
-                </x-responsive-nav-link>
+                </x-link.responsive-nav>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-link.responsive-nav :href="route('logout')"
                                            onclick="event.preventDefault(); this.closest('form').submit();"
                     >
                         {{ Lang::get('auth.actions.log-out') }}
-                    </x-responsive-nav-link>
+                    </x-link.responsive-nav>
                 </form>
             </div>
         </div>

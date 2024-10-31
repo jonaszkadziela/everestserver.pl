@@ -25,22 +25,22 @@
 
                 <!-- Password -->
                 <div>
-                    <x-input-label for="password" :value="Lang::get('validation.attributes.password')" />
+                    <x-input.label for="password" :value="Lang::get('validation.attributes.password')" />
 
-                    <x-password-input id="password"
+                    <x-input.password id="password"
                                       class="mt-1"
                                       name="password"
                                       autocomplete="current-password"
                                       required
                     />
 
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                    <x-input.error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <div class="flex justify-end mt-4">
-                    <x-submit-button>
+                    <x-button.submit>
                         {{ Lang::get('auth.confirm-password.confirm') }}
-                    </x-submit-button>
+                    </x-button.submit>
                 </div>
             </form>
         </div>
