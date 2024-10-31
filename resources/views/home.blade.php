@@ -38,4 +38,24 @@
             </div>
         </div>
     </main>
+
+    <x-modal.main name="info-service">
+        <div x-data="{ service: { description: '' } }"
+             x-on:info-service.window="service = $event.detail"
+             class="text-left p-6"
+        >
+            <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
+                <i class="!text-2xl" x-bind:class="service.icon"></i>
+                <span x-text="service.name"></span>
+            </h2>
+
+            <p class="text-sm text-gray-600" x-text="service.description['{{ Lang::getLocale() }}'] + '.'"></p>
+
+            <div class="mt-6 flex justify-end">
+                <x-modal.secondary-button x-on:click="$dispatch('close')">
+                    {{ Lang::get('main.actions.close') }}
+                </x-modal.secondary-button>
+            </div>
+        </div>
+    </x-modal.main>
 </x-main-layout>
