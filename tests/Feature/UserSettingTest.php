@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Support\Facades\Lang;
 use Tests\TestCase;
 
-class LanguageTest extends TestCase
+class UserSettingTest extends TestCase
 {
     public function test_language_can_be_changed_to_english(): void
     {

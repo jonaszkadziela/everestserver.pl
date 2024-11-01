@@ -1,7 +1,3 @@
-@php
-    use App\Http\Controllers\LanguageController;
-@endphp
-
 @props(['navigation'])
 
 <aside {{ $attributes->merge(['class' => 'flex gap-2 items-center z-50']) }}>
@@ -22,6 +18,14 @@
         </x-slot>
 
         <x-slot name="content">
+            <section class="mb-3">
+                <div class="font-medium">
+                    {{ Lang::get('main.menu.application-theme') }}
+                </div>
+                <div class="border-t mb-2 mt-1"></div>
+                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme')) === 'light'" />
+            </section>
+
             @if ($navigation)
                 <nav class="mb-3">
                     <div class="font-medium">
@@ -36,6 +40,7 @@
                     @endforeach
                 </nav>
             @endif
+
             <section>
                 <div class="font-medium">
                     {{ Lang::get('main.menu.your-account') }}

@@ -1,5 +1,5 @@
 @php
-    use App\Http\Controllers\LanguageController;
+    use App\Http\Controllers\UserSettingController;
 @endphp
 
 <x-dropdown.main align="right" content-classes="bg-white px-6 py-4" width="w-64">
@@ -21,7 +21,7 @@
         </div>
         <div class="border-t my-1"></div>
         @foreach (config('app.languages') as $language)
-            <a href="{{ action([LanguageController::class, 'change'], ['code' => $language]) }}" class="block">
+            <a href="{{ action([UserSettingController::class, 'language'], ['code' => $language]) }}" class="block">
                 <i class="{{ App::getLocale() === $language ? 'fa-solid' : 'fa-regular '}} fa-flag mr-1"></i>
                 <span>
                     {{ Lang::get('main.languages.' . $language) }}

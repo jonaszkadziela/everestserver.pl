@@ -4,9 +4,9 @@ use App\Http\Controllers\Admin\LinkedServiceController;
 use App\Http\Controllers\Admin\PanelController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserSettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', fn () => view('home'))->name('home');
 Route::get('/privacy', fn () => view('privacy'))->name('privacy');
 
-Route::get('/language/{code}', [LanguageController::class, 'change']);
+Route::get('/language/{code}', [UserSettingController::class, 'language']);
+Route::get('/theme/{mode}', [UserSettingController::class, 'theme']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/disabled', [ProfileController::class, 'disabled'])->name('profile.disabled');

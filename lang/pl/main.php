@@ -38,6 +38,7 @@ return [
         'pl' => 'Polski (Polish)',
     ],
     'menu' => [
+        'application-theme' => 'Motyw aplikacji',
         'change-language' => 'Zmień język',
         'log-in-with-provider' => 'Zaloguj się z :provider',
         'log-in' => 'Zaloguj się',

@@ -38,6 +38,7 @@ return [
         'pl' => 'Polish',
     ],
     'menu' => [
+        'application-theme' => 'Application theme',
         'change-language' => 'Change language',
         'log-in-with-provider' => 'Log in with :provider',
         'log-in' => 'Log in',

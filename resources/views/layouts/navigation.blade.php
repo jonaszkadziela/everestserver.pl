@@ -22,17 +22,19 @@
                 </div>
             </div>
 
-            <!-- Account Links -->
+            <!-- Actions Menu -->
             <x-actions-menu class="hidden sm:flex"
                             :navigation="false"
             />
 
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <div class="mr-1">
-                    <x-dropdown.language class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
-                </div>
+            <div class="-me-2 flex gap-1 items-center sm:hidden">
+                <!-- Responsive Dark Mode Toggle -->
+                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme')) === 'light'" />
 
+                <!-- Responsive Language Dropdown -->
+                <x-dropdown.language class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
+
+                <!-- Hamburger -->
                 <button @click="open = !open" class="duration-150 ease-in-out focus:bg-gray-100 focus:outline-none focus:text-gray-700 h-8 hover:bg-gray-100 hover:text-gray-700 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
                     <i class="fa-solid fa-bars fa-lg inline-flex" :class="{'hidden': open, 'inline-flex': !open }"></i>
                     <i class="fa-solid fa-xmark fa-lg hidden" :class="{'hidden': !open, 'inline-flex': open }"></i>
