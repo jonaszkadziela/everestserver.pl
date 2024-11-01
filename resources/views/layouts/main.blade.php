@@ -24,7 +24,7 @@
             <x-analytics g-id="G-S4071NMXR0" />
         @endif
     </head>
-    <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
+    <body class="{{ isset($bodyClass) ? $bodyClass : '' }} {{ Session::get('theme', config('app.default_theme')) }}">
         @isset($withActionsMenu)
             <x-actions-menu class="fixed mr-4 mt-4 right-0 top-0"
                             :navigation="$navigation"
