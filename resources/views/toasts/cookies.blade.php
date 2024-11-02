@@ -7,15 +7,17 @@
     <div class="text-sm">
         <p>
             {{ Lang::get('main.cookies.description') }}
-            <a href="{{ route('privacy') }}" class="text-blue-700 hover:text-blue-900">{{ Lang::get('main.cookies.privacy-policy') }}</a>.
+            <x-link.primary href="{{ route('privacy') }}">
+                {{ Lang::get('main.cookies.privacy-policy') }}.
+            </x-link.primary>
         </p>
         <div class="border-t flex gap-4 items-center justify-end mt-4 pt-4">
-            <a href="{{ route('privacy') }}" class="text-blue-700 hover:text-blue-900">
+            <x-link.primary href="{{ route('privacy') }}">
                 {{ Lang::get('main.cookies.learn-more') }}
-            </a>
-            <button type="button" class="bg-blue-700 hover:bg-blue-800 px-2 py-1.5 rounded text-white transition-colors" data-dismiss="#privacy-warning">
+            </x-link.primary>
+            <x-button.primary type="button" data-dismiss="#privacy-warning">
                 {{ Lang::get('main.cookies.acknowledge') }}
-            </button>
+            </x-button.primary>
         </div>
     </div>
 </div>
