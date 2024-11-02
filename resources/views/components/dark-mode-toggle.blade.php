@@ -6,7 +6,7 @@
 
 <x-input.toggle x-data="{ checked: ('{{ $value }}' === '' ? window.matchMedia('(prefers-color-scheme: light)').matches : {{ $value === 'light' ? 'true' : 'false' }}) }"
                 x-bind:value="checked"
-                :checked="$value"
+                :checked="$value === 'light'"
                 size="lg"
                 @change="checked = $event.target.checked; window.location = `{{ action([UserSettingController::class, 'theme'], ['mode' => '/']) }}/${checked ? 'light' : 'dark'}`;"
 >
