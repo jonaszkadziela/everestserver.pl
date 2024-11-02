@@ -52,7 +52,7 @@
                                 </span>
                             </a>
                             @if ($service->pivot->identifier !== null)
-                                <p class="text-xs text-right">
+                                <p class="dark:text-white text-right text-xs">
                                     <span class="block font-bold">
                                         {{ Lang::get('services.identifier') }}
                                     </span>
