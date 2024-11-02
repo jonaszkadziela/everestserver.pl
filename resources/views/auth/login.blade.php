@@ -56,9 +56,9 @@
 
                 <div class="flex items-center justify-end mt-4">
                     @if (Route::has('password.request'))
-                        <a class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline" href="{{ route('password.request') }}">
+                        <x-link.secondary href="{{ route('password.request') }}">
                             {{ Lang::get('auth.login.forgot-password') }}
-                        </a>
+                        </x-link.secondary>
                     @endif
 
                     <x-button.submit class="ms-3">

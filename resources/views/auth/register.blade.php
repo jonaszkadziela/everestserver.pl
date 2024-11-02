@@ -63,9 +63,9 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <a class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline" href="{{ route('login') }}">
+                    <x-link.secondary href="{{ route('login') }}">
                         {{ Lang::get('auth.register.already-registered') }}
-                    </a>
+                    </x-link.secondary>
 
                     <x-button.submit class="ms-4">
                         {{ Lang::get('auth.register.register') }}

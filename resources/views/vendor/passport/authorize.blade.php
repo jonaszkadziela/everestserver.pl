@@ -39,7 +39,7 @@
                     <input type="hidden" name="state" value="{{ $request->state }}">
                     <input type="hidden" name="client_id" value="{{ $client->getKey() }}">
                     <input type="hidden" name="auth_token" value="{{ $authToken }}">
-                    <button class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline">
+                    <button type="submit" class="dark:hover:text-gray-400 dark:text-gray-300 hover:text-gray-900 text-gray-600 text-sm transition-colors underline">
                         {{ Lang::get('auth.authorization-request.cancel') }}
                     </button>
                 </form>
