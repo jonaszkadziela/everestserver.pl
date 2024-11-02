@@ -29,7 +29,7 @@
 
             <div class="-me-2 flex gap-1 items-center sm:hidden">
                 <!-- Responsive Dark Mode Toggle -->
-                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme')) === 'light'" />
+                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme'))" />
 
                 <!-- Responsive Language Dropdown -->
                 <x-dropdown.language class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 focus:bg-gray-100 hover:bg-gray-100 rounded" />

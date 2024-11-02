@@ -23,7 +23,7 @@
                     {{ Lang::get('main.menu.application-theme') }}
                 </div>
                 <div class="border-t mb-2 mt-1"></div>
-                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme')) === 'light'" />
+                <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme'))" />
             </section>
 
             @if ($navigation)

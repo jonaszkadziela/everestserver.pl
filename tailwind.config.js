@@ -10,7 +10,10 @@ export default {
         './storage/framework/views/*.php',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     ],
-    darkMode: 'class',
+    darkMode: ['variant', [
+        '@media (prefers-color-scheme: dark) { &:not(.light *) }',
+        '&:is(.dark *)',
+    ]],
     theme: {
         extend: {
             minWidth: {

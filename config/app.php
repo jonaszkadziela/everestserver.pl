@@ -73,10 +73,13 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value defines the default theme of the application.
+    | Themes 'dark' and 'light' are supported. An empty value means that the
+    | default theme will be selected based on the prefers-color-scheme CSS
+    | media query.
     |
     */
 
-    'default_theme' =>  env('APP_DEFAULT_THEME', 'light'),
+    'default_theme' =>  env('APP_DEFAULT_THEME', ''),
 
     /*
     |--------------------------------------------------------------------------
