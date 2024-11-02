@@ -66,7 +66,7 @@
                                 <td class="p-4">
                                     <button x-data
                                             @click.prevent="$dispatch('update-user', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'update-user')"
-                                            class="text-blue-700 hover:text-blue-900"
+                                            class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700"
                                             type="button"
                                     >
                                         {{ Lang::get('admin.panel.edit') }}
@@ -74,7 +74,7 @@
                                     <span>|</span>
                                     <button x-data
                                             @click.prevent="$dispatch('delete-user', {{ $data['raw'][$loop->parent->index]->toJson() }}); $dispatch('open-modal', 'delete-user')"
-                                            class="text-blue-700 hover:text-blue-900"
+                                            class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700"
                                             type="button"
                                     >
                                         {{ Lang::get('admin.panel.delete') }}

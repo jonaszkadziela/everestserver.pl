@@ -71,7 +71,7 @@
                                 <td class="p-4">
                                     <button x-data
                                             @click.prevent="$dispatch('unlink-service', @js($data['raw'][$loop->parent->index])); $dispatch('open-modal', 'unlink-service')"
-                                            class="text-blue-700 hover:text-blue-900"
+                                            class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700"
                                             type="button"
                                     >
                                         {{ Lang::get('admin.panel.unlink') }}
