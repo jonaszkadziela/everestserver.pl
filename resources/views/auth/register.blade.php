@@ -73,10 +73,10 @@
                 </div>
             </form>
 
-            @if(config('services.facebook.enabled') || config('services.google.enabled'))
+            @if (config('services.facebook.enabled') || config('services.google.enabled'))
                 <div class="flex items-center my-3">
                     <div class="border-gray-300 border-t w-full"></div>
-                    <span class="lowercase px-2 text-gray-600">
+                    <span class="dark:text-gray-300 lowercase px-2 text-gray-600">
                         {{ Lang::get('main.menu.or') }}
                     </span>
                     <div class="border-gray-300 border-t w-full"></div>

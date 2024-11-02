@@ -16,7 +16,7 @@
         {{ Lang::get('main.footer.programmed-with') }}
         <i class="fa-heart fa-solid text-red-600"></i>
         {{ Lang::get('main.footer.by') }}
-        <a href="https://jonaszkadziela.pl" class="text-blue-700 hover:text-blue-900" target="_blank" rel="noopener noreferrer">
+        <a href="https://jonaszkadziela.pl" class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700" target="_blank" rel="noopener noreferrer">
             {{ Lang::get('main.footer.author') }}
         </a>
     </p>

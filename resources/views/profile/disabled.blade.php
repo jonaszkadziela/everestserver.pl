@@ -12,17 +12,17 @@
 
     <main class="flex flex-1 flex-col my-12 w-full">
         <div class="lg:px-8 max-w-7xl mx-auto sm:px-6 space-y-6 w-full">
-            <div class="bg-white p-4 relative shadow sm:p-8 sm:rounded-lg">
-                <h3 class="font-medium mb-3 text-lg">
+            <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                <h3 class="dark:text-white font-medium mb-3 text-lg">
                     {{ Lang::get('profile.disabled.title') }}
                 </h3>
-                <p>
+                <p class="dark:text-gray-300 text-gray-600">
                     {{ Lang::get('profile.disabled.description') }}.
                 </p>
-                <p>
+                <p class="dark:text-gray-300 text-gray-600">
                     {{ Lang::get('profile.disabled.description-2') }}
                     <a href="{{ 'mailto:' . Lang::get('main.contact-email') }}"
-                       class="text-blue-700 hover:text-blue-900"
+                       class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700"
                     >
                         {{ Lang::get('main.contact-email') }}.
                     </a>

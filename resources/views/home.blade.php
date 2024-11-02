@@ -19,7 +19,7 @@
                 {!! Lang::get('home.welcome') !!}!
             </h1>
             <div class="bg-gray-100 border dark:bg-gray-700 p-4 rounded-lg">
-                <p class="mb-4 text-blue-700">
+                <p class="dark:text-blue-500 mb-4 text-blue-700">
                     {{ Lang::get('home.choose-service') }}
                 </p>
                 <div class="flex flex-col flex-wrap gap-4 items-center justify-center md:flex-row">

@@ -15,7 +15,7 @@
                 </p>
                 <p>
                     {{ Lang::get('privacy.contact') }}
-                    <a href="mailto:{{ Lang::get('main.contact-email') }}" class="text-blue-700 hover:text-blue-900">{{ Lang::get('main.contact-email') }}</a>.
+                    <a href="mailto:{{ Lang::get('main.contact-email') }}" class="dark:hover:text-blue-700 dark:text-blue-500 hover:text-blue-900 text-blue-700">{{ Lang::get('main.contact-email') }}</a>.
                 </p>
             </div>
             <x-privacy-policy />
