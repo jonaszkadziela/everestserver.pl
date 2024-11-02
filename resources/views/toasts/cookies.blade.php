@@ -1,5 +1,5 @@
 <div id="privacy-warning"
-     class="bg-white border duration-500 hidden hover:shadow-xl max-w-md opacity-0 p-4 rounded-lg shadow-md transition-all"
+     class="bg-white border dark:bg-gray-900 dark:text-gray-300 duration-500 hidden hover:shadow-xl max-w-md opacity-0 p-4 rounded-lg shadow-md transition-all"
      role="alert"
      aria-live="assertive"
      aria-atomic="true"

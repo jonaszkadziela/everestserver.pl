@@ -5,19 +5,19 @@
                with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
-        <div class="bg-white border max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
+        <div class="bg-white border dark:bg-gray-800 max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
             <a href="{{ route('home') }}" class="inline-block mb-6">
                 <div class="bg-blue-700 flex h-24 items-center justify-center m-auto rounded-full w-24">
                     <x-application-logo class="block h-16 pb-1 w-16" />
                 </div>
             </a>
-            <h1 class="mb-6 text-3xl">
+            <h1 class="dark:text-white mb-6 text-3xl">
                 {{ Lang::get('auth.verify-email.title') }}
             </h1>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="dark:text-gray-300 mb-4 text-gray-600 text-sm">
                 {{ Lang::get('auth.verify-email.description') }}
             </div>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="dark:text-gray-300 mb-4 text-gray-600 text-sm">
                 {{ Lang::get('auth.verify-email.description-2') }}.
             </div>
 
@@ -31,7 +31,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+                    <button type="submit" class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline">
                         {{ Lang::get('auth.actions.log-out') }}
                     </button>
                 </form>

@@ -1,10 +1,9 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="dark:text-white font-medium text-gray-900 text-lg">
             {{ Lang::get('profile.update-password.title') }}
         </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="dark:text-gray-300 mt-1 text-gray-600 text-sm">
             {{ Lang::get('profile.update-password.description') }}.
         </p>
     </header>

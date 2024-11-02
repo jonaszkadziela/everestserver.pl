@@ -1,9 +1,9 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="dark:text-white font-medium text-gray-900 text-lg">
             {{ Lang::get('profile.update-profile-information.title') }}
         </h2>
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="dark:text-gray-300 mt-1 text-gray-600 text-sm">
             {{ Lang::get('profile.update-profile-information.description') }}.
         </p>
     </header>
@@ -32,7 +32,7 @@
                     <p class="text-sm mt-2 text-gray-800">
                         {{ Lang::get('profile.update-profile-information.email-unverified') }}.
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">
+                        <button form="send-verification" class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline">
                             {{ Lang::get('profile.update-profile-information.resend-email') }}.
                         </button>
                     </p>

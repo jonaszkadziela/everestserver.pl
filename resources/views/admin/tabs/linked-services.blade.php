@@ -5,10 +5,10 @@
 
 <div class="flex flex-col gap-2 items-start justify-between mb-8 md:flex-row">
     <div class="flex flex-col">
-        <h3 class="font-semibold text-xl mb-2">
+        <h3 class="dark:text-white font-semibold mb-2 text-xl">
             {{ Lang::get('admin.panel.linked-services.title') }}
         </h3>
-        <p class="text-gray-600 text-sm">
+        <p class="dark:text-gray-300 text-gray-600 text-sm">
             {{ Lang::get('admin.panel.linked-services.description') }}.
         </p>
     </div>
@@ -33,13 +33,13 @@
     </div>
 </div>
 
-<div class="bg-white overflow-x-auto rounded-lg shadow text-left">
+<div class="bg-white dark:bg-slate-800 dark:text-gray-300 overflow-x-auto rounded-lg shadow text-left">
     @if (!empty($data['transformed']))
         <table class="w-full">
             <thead>
                 <tr>
                     @foreach ($data['transformed'][0] as $key => $value)
-                        <th class="bg-slate-50 border-b p-4 @if($loop->first) rounded-tl-lg @endif">
+                        <th class="bg-slate-50 border-b dark:bg-slate-700 dark:text-white p-4 @if($loop->first) rounded-tl-lg @endif">
                             <a href="{{ url()->current() . '?' . http_build_query([
                                     'tab' => request()->get('tab'),
                                     'column' => $key,
@@ -54,7 +54,7 @@
                             </a>
                         </th>
                     @endforeach
-                    <th class="bg-slate-50 border-b p-4 rounded-tr-lg">
+                    <th class="bg-slate-50 border-b dark:bg-slate-700 dark:text-white p-4 rounded-tr-lg">
                         {{ Lang::get('admin.panel.linked-services.columns.actions') }}
                     </th>
                 </tr>
@@ -99,10 +99,10 @@
 <x-modal.main name="link-service" :show="$errors->linkService->isNotEmpty()" focusable>
     <form method="post" action="{{ route('linked-services.link') }}" class="p-6">
         @csrf
-        <h2 class="font-medium mb-6 text-gray-900 text-lg">
+        <h2 class="dark:text-white font-medium mb-6 text-gray-900 text-lg">
             {{ Lang::get('admin.panel.linked-services.link-service.title') }}
         </h2>
-        <p class="text-sm text-gray-600">
+        <p class="dark:text-gray-300 text-gray-600 text-sm">
             {{ Lang::get('admin.panel.linked-services.link-service.description') }}.
         </p>
         <div class="mt-6">
@@ -155,10 +155,10 @@
           x-on:unlink-service.window="form = $event.detail"
     >
         @csrf
-        <h2 class="font-medium mb-6 text-gray-900 text-lg">
+        <h2 class="dark:text-white font-medium mb-6 text-gray-900 text-lg">
             {{ Lang::get('admin.panel.linked-services.unlink-service.title') }}
         </h2>
-        <p class="text-sm text-gray-600">
+        <p class="dark:text-gray-300 text-gray-600 text-sm">
             {{ Lang::get('admin.panel.linked-services.unlink-service.description') }} <strong x-text="form.service"></strong>
             {{ Lang::get('admin.panel.linked-services.unlink-service.description-2') }} <strong x-text="form.user"></strong>?
         </p>

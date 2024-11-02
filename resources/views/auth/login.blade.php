@@ -5,14 +5,14 @@
                with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
-        <div class="bg-white border max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg w-full">
+        <div class="bg-white border dark:bg-gray-800 max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg w-full">
             <div class="text-center">
                 <a href="{{ route('home') }}" class="inline-block mb-6">
                     <div class="bg-blue-700 flex h-24 items-center justify-center m-auto rounded-full w-24">
                         <x-application-logo class="block h-16 pb-1 w-16" />
                     </div>
                 </a>
-                <h1 class="mb-6 text-3xl">
+                <h1 class="dark:text-white mb-6 text-3xl">
                     {{ Lang::get('auth.login.title') }}
                 </h1>
 
@@ -56,7 +56,7 @@
 
                 <div class="flex items-center justify-end mt-4">
                     @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700" href="{{ route('password.request') }}">
+                        <a class="dark:hover:text-gray-400 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:text-gray-900 rounded-md text-gray-600 text-sm underline" href="{{ route('password.request') }}">
                             {{ Lang::get('auth.login.forgot-password') }}
                         </a>
                     @endif

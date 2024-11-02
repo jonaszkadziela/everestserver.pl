@@ -1,11 +1,11 @@
 <x-main-layout title="{{ Lang::get('main.titles.profile') }}"
-               body-class="bg-gray-100 flex flex-col min-h-screen"
+               body-class="bg-gray-100 dark:bg-gray-900 flex flex-col min-h-screen"
                with-analytics
                with-navigation
                with-footer
 >
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="dark:text-white font-semibold leading-tight text-gray-800 text-xl">
             {{ Lang::get('main.titles.profile') }}
         </h2>
     </x-slot>

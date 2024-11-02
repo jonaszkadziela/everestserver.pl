@@ -12,7 +12,7 @@
            @checked($checked)
            {{ $attributes }}
     >
-    <span class="ms-2 text-sm text-gray-600">
+    <span class="dark:text-gray-400 ms-2 text-gray-600 text-sm">
         {{ $slot }}
     </span>
 </label>

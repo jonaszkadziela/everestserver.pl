@@ -5,11 +5,11 @@
                with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
-        <div class="bg-white border md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
+        <div class="bg-white border dark:bg-gray-800 dark:text-white md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
             <h1 class="mb-6 text-3xl">
                 {{ Lang::get('privacy.title') }}
             </h1>
-            <div class="mb-6 text-gray-500">
+            <div class="dark:text-gray-300 mb-6 text-gray-500">
                 <p>
                     {{ Lang::get('privacy.description') }}.
                 </p>

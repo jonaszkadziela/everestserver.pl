@@ -1,11 +1,11 @@
 @props(['navigation'])
 
 <aside {{ $attributes->merge(['class' => 'flex gap-2 items-center z-50']) }}>
-    <x-dropdown.language class="bg-white border hover:shadow-lg md:text-sm px-4 rounded-full md:py-2.5 text-xs" />
+    <x-dropdown.language class="bg-white border dark:bg-gray-900 hover:shadow-lg md:py-2.5 md:text-sm px-4 rounded-full text-xs" />
 
-    <x-dropdown.main align="right" content-classes="bg-white px-6 py-4" width="w-72">
+    <x-dropdown.main align="right" content-classes="bg-white dark:bg-gray-900 dark:text-white px-6 py-4" width="w-72">
         <x-slot name="trigger">
-            <button type="button" class="bg-white border cursor-pointer flex hover:shadow-lg items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
+            <button type="button" class="bg-white border cursor-pointer dark:bg-gray-900 dark:text-white flex hover:shadow-lg items-center justify-center px-4 py-2 rounded-full select-none transition-shadow">
                 <span class="font-bold hidden md:block mr-2">
                     @auth
                         {{ Auth::user()->username }}
@@ -77,7 +77,7 @@
                     @if(config('services.facebook.enabled') || config('services.google.enabled'))
                         <div class="flex items-center my-3">
                             <div class="border-gray-300 border-t w-full"></div>
-                            <span class="lowercase px-2 text-gray-600">
+                            <span class="dark:text-gray-300 lowercase px-2 text-gray-600">
                                 {{ Lang::get('main.menu.or') }}
                             </span>
                             <div class="border-gray-300 border-t w-full"></div>

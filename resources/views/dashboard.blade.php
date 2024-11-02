@@ -3,13 +3,13 @@
 @endphp
 
 <x-main-layout title="{{ Lang::get('main.titles.dashboard') }}"
-               body-class="bg-gray-100 flex flex-col min-h-screen"
+               body-class="bg-gray-100 dark:bg-gray-900 flex flex-col min-h-screen"
                with-analytics
                with-navigation
                with-footer
 >
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="dark:text-white font-semibold leading-tight text-gray-800 text-xl">
             {{ Lang::get('main.titles.dashboard') }}
         </h2>
     </x-slot>
@@ -21,14 +21,14 @@
     <main class="flex flex-1 flex-col my-12 w-full">
         <div class="lg:px-8 max-w-7xl mx-auto sm:px-6 space-y-6 w-full">
             @forelse ($linkedServices as $service)
-                <div class="bg-white p-4 relative shadow sm:p-8 sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
                     <div class="flex gap-4 items-start justify-between">
                         <div>
-                            <h2 class="flex font-medium gap-2 items-center text-gray-900 text-lg">
+                            <h2 class="dark:text-white flex font-medium gap-2 items-center text-gray-900 text-lg">
                                 <i class="!text-2xl {{ $service->icon }}"></i>
                                 {{ $service->name }}
                             </h2>
-                            <p class="mt-1 text-sm text-gray-600">
+                            <p class="dark:text-gray-300 mt-1 text-gray-600 text-sm">
                                 {{ $service->description }}.
                             </p>
                         </div>
@@ -63,9 +63,9 @@
                     </div>
                 </div>
             @empty
-                <div class="bg-white p-4 relative shadow sm:p-8 sm:rounded-lg">
-                    @if($enabledServices->count() > 0)
-                        <p class="font-bold mb-4">
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                    @if ($enabledServices->count() > 0)
+                        <p class="dark:text-white font-bold mb-4">
                             {{ Lang::get('services.not-linked') }}
                         </p>
                         <x-button.link-service modal="link-service">
@@ -80,9 +80,9 @@
                     @endif
                 </div>
             @endforelse
-            @if($linkedServices->count() > 0 && $unlinkedServices->count() > 0)
-                <div class="bg-white p-4 relative shadow sm:p-8 sm:rounded-lg">
-                    <p class="font-bold mb-4">
+            @if ($linkedServices->count() > 0 && $unlinkedServices->count() > 0)
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                    <p class="dark:text-white font-bold mb-4 text-gray-900">
                         {{ Lang::get('services.link-more-services') }}
                     </p>
                     <x-button.link-service modal="link-service">
@@ -94,14 +94,14 @@
         <x-modal.main name="link-service">
             <form method="post" action="{{ route('services.link') }}" class="p-6">
                 @csrf
-                <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
+                <h2 class="dark:text-white flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
                     <i class="fa-solid fa-square-plus text-2xl"></i>
                     {{ Lang::get('services.link-modal.title') }}
                 </h2>
-                <p class="mb-2 text-gray-600 text-sm">
+                <p class="dark:text-gray-300 mb-2 text-gray-600 text-sm">
                     {{ Lang::get('services.link-modal.description') }}.
                 </p>
-                <p class="mb-6 text-gray-600 text-sm">
+                <p class="dark:text-gray-300 mb-6 text-gray-600 text-sm">
                     {{ Lang::get('services.link-modal.description-2') }}.
                 </p>
                 <div>

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-600">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -32,10 +32,10 @@
                 <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme')) === 'light'" />
 
                 <!-- Responsive Language Dropdown -->
-                <x-dropdown.language class="focus:bg-gray-100 hover:bg-gray-100 rounded" />
+                <x-dropdown.language class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 focus:bg-gray-100 hover:bg-gray-100 rounded" />
 
                 <!-- Hamburger -->
-                <button @click="open = !open" class="duration-150 ease-in-out focus:bg-gray-100 focus:outline-none focus:text-gray-700 h-8 hover:bg-gray-100 hover:text-gray-700 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
+                <button @click="open = !open" class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 duration-150 ease-in-out focus:bg-gray-100 focus:outline-none h-8 hover:bg-gray-100 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
                     <i class="fa-solid fa-bars fa-lg inline-flex" :class="{'hidden': open, 'inline-flex': !open }"></i>
                     <i class="fa-solid fa-xmark fa-lg hidden" :class="{'hidden': !open, 'inline-flex': open }"></i>
                 </button>
@@ -56,10 +56,10 @@
         <!-- Responsive Account Links -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">
+                <div class="dark:text-white font-medium text-base text-gray-800">
                     {{ Auth::user()->username }}
                 </div>
-                <div class="font-medium text-sm text-gray-500">
+                <div class="dark:text-gray-300 font-medium text-gray-500 text-sm">
                     {{ Auth::user()->email }}
                 </div>
             </div>

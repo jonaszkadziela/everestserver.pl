@@ -1,11 +1,11 @@
 <x-main-layout title="{{ Lang::get('main.titles.admin.panel') }}"
-               body-class="bg-gray-100 flex flex-col min-h-screen"
+               body-class="bg-gray-100 dark:bg-gray-900 flex flex-col min-h-screen"
                with-analytics
                with-navigation
                with-footer
 >
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="dark:text-white font-semibold leading-tight text-gray-800 text-xl">
             {{ Lang::get('main.titles.admin.panel') }}
         </h2>
     </x-slot>
@@ -16,9 +16,9 @@
                 <nav class="flex flex-col gap-2 md:w-1/5 w-full">
                     @foreach ($tabs as $tab)
                         <a href="{{ route('admin.panel', ['tab' => $tab]) }}"
-                           class="border rounded px-4 py-2 {{ $tab === $activeTab ? 'bg-blue-200 border-blue-300' : 'bg-gray-200' }}"
+                           class="border rounded px-4 py-2 {{ $tab === $activeTab ? 'bg-blue-200 border-blue-300 dark:bg-blue-700 dark:hover:bg-blue-800' : 'bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700' }}"
                         >
-                            <span class="font-medium {{ $tab === $activeTab ? 'text-blue-800' : 'text-gray-800' }}">
+                            <span class="font-medium {{ $tab === $activeTab ? 'dark:text-white text-blue-800' : 'dark:text-gray-300 text-gray-800' }}">
                                 {{ Lang::get('admin.panel.' . $tab . '.title') }}
                             </span>
                         </a>

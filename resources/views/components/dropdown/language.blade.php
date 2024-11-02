@@ -2,9 +2,9 @@
     use App\Http\Controllers\UserSettingController;
 @endphp
 
-<x-dropdown.main align="right" content-classes="bg-white px-6 py-4" width="w-64">
+<x-dropdown.main align="right" content-classes="bg-white dark:bg-gray-900 dark:text-white px-6 py-4" width="w-64">
     <x-slot name="trigger">
-        <button {{ $attributes->merge(['class' => 'flex hover:text-gray-700 p-2 text-gray-500 transition']) }}>
+        <button {{ $attributes->merge(['class' => 'dark:hover:text-gray-400 dark:sm:bg-gray-900 dark:text-gray-300 flex hover:text-gray-700 p-2 text-gray-500 transition']) }}>
             <div>
                 <i class="fa-solid fa-earth-europe"></i>
             </div>

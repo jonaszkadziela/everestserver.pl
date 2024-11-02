@@ -8,10 +8,10 @@
 >
     <input style="box-shadow: unset;"
            x-bind:type="show ? 'text' : 'password'"
-           {!! $attributes->merge(['class' => 'border-0 focus:outline-0 rounded-l-md w-full']) !!}
+           {!! $attributes->merge(['class' => 'border-0 dark:bg-gray-900 dark:text-gray-300 focus:outline-0 rounded-l-md w-full']) !!}
            {{ $disabled ? 'disabled' : '' }}
     >
-    <button class="px-2"
+    <button class="dark:text-gray-300 px-2"
             type="button"
             @click="show = !show"
     >

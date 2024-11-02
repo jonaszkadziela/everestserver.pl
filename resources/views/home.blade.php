@@ -9,16 +9,16 @@
                with-footer
 >
     <main class="flex flex-1 items-center justify-center my-12 w-full">
-        <div class="bg-white border max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
+        <div class="bg-white border dark:bg-gray-800 max-w-xl md:w-2/3 mx-8 p-8 rounded-lg shadow-lg text-center w-full">
             <a href="{{ route('home') }}" class="inline-block mb-6">
                 <div class="bg-blue-700 flex h-24 items-center justify-center m-auto rounded-full w-24">
                     <x-application-logo class="block h-16 pb-1 w-16" />
                 </div>
             </a>
-            <h1 class="mb-6 text-3xl">
+            <h1 class="dark:text-white mb-6 text-3xl">
                 {!! Lang::get('home.welcome') !!}!
             </h1>
-            <div class="bg-gray-100 border p-4 rounded-lg">
+            <div class="bg-gray-100 border dark:bg-gray-700 p-4 rounded-lg">
                 <p class="mb-4 text-blue-700">
                     {{ Lang::get('home.choose-service') }}
                 </p>
@@ -44,12 +44,12 @@
              x-on:info-service.window="service = $event.detail"
              class="text-left p-6"
         >
-            <h2 class="flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
+            <h2 class="dark:text-white flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
                 <i class="!text-2xl" x-bind:class="service.icon"></i>
                 <span x-text="service.name"></span>
             </h2>
 
-            <p class="text-sm text-gray-600" x-text="service.description['{{ Lang::getLocale() }}'] + '.'"></p>
+            <p class="dark:text-gray-300 text-gray-600 text-sm" x-text="service.description['{{ Lang::getLocale() }}'] + '.'"></p>
 
             <div class="mt-6 flex justify-end">
                 <x-modal.secondary-button x-on:click="$dispatch('close')">

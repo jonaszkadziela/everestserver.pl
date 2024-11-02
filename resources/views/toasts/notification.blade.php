@@ -1,6 +1,6 @@
 <div aria-atomic="true"
      aria-live="assertive"
-     class="bg-white border-2 duration-300 hover:shadow-xl max-w-md min-w-64 p-4 relative rounded-lg shadow-md transition-all {{ $borderClass }}"
+     class="{{ $borderClass }} bg-white border-2 dark:bg-gray-900 duration-300 hover:shadow-xl max-w-md min-w-64 p-4 relative rounded-lg shadow-md transition-all"
      role="alert"
      x-cloak
      x-data="{ open: false }"
@@ -20,12 +20,12 @@
     </button>
     <div class="flex gap-2 items-center">
         <i class="fa-lg {{ $iconClass }} {{ $textClass }}"></i>
-        <p class="font-bold">
+        <p class="dark:text-white font-bold">
             {{ $title }}
         </p>
     </div>
     <div class="border-t my-2"></div>
-    <p class="text-sm">
+    <p class="dark:text-gray-300 text-sm">
         {{ $body }}
     </p>
 </div>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ App::getLocale() }}" class="{{ Session::get('theme', config('app.default_theme')) }}">
     <head>
         <title>
             {{ (isset($title) ? $title . ' - ' : '') . config('app.name') }}
@@ -24,7 +24,7 @@
             <x-analytics g-id="G-S4071NMXR0" />
         @endif
     </head>
-    <body class="{{ isset($bodyClass) ? $bodyClass : '' }} {{ Session::get('theme', config('app.default_theme')) }}">
+    <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
         @isset($withActionsMenu)
             <x-actions-menu class="fixed mr-4 mt-4 right-0 top-0"
                             :navigation="$navigation"
@@ -34,8 +34,8 @@
             @include('layouts.navigation')
         @endisset
         @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-white dark:bg-gray-800 shadow">
+                <div class="lg:px-8 max-w-7xl mx-auto px-4 py-6 sm:px-6">
                     {{ $header }}
                 </div>
             </header>
