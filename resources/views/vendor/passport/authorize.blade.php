@@ -19,7 +19,7 @@
             </div>
 
             @if (count($scopes) > 0)
-                <div class="bg-gray-100 border dark:bg-gray-700 p-4 rounded-lg">
+                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                     <p class="font-medium mb-1">
                         {{ Lang::get('auth.authorization-request.scopes') }}:
                     </p>

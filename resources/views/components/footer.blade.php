@@ -1,4 +1,4 @@
-<footer class="bg-white dark:bg-gray-800 dark:text-gray-300 flex flex-col items-center p-8 text-center">
+<footer class="bg-white border-t dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 flex flex-col items-center p-8 text-center">
     <div class="border flex flex-col mb-4 md:flex-row md:w-auto rounded-lg w-full">
         <a href="{{ $firstLink }}" class="{{ Route::is($firstName) ? 'bg-blue-700 hover:bg-blue-800 hover:text-white text-white' : '' }} border-b flex hover:text-blue-700 items-center justify-center md:border-b-0 md:border-r md:rounded-l-lg md:rounded-tr-none px-4 py-2 rounded-t-lg">
             {{ Lang::get('main.titles.' . $firstName) }}

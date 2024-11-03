@@ -18,7 +18,7 @@
             <h1 class="dark:text-white mb-6 text-3xl">
                 {!! Lang::get('home.welcome') !!}!
             </h1>
-            <div class="bg-gray-100 border dark:bg-gray-700 p-4 rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
                 <p class="dark:text-blue-500 mb-4 text-blue-700">
                     {{ Lang::get('home.choose-service') }}
                 </p>
