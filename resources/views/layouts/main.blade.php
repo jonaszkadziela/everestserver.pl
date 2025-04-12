@@ -10,6 +10,7 @@
         <meta name="keywords" content="everestserver, everestcloud, everest, server, cloud, storage">
         <meta name="author" content="Jonasz Kądziela">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="everestserverpl-hash" content="{{ isset($hash) ? $hash : 'unknown' }}">
         <meta property="og:locale" content="{{ App::getLocale() }}">
         <meta property="og:locale:alternate" content="{{ App::getFallbackLocale() }}">
         <meta property="og:site_name" content="{{ config('app.name') }}">

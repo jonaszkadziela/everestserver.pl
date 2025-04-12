@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Support\Helpers;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
 class MainLayout extends Component
 {
+    public ?string $hash;
     public Navigation $navigation;
 
     /**
@@ -21,6 +23,7 @@ class MainLayout extends Component
         public ?bool $withNavigation = null,
         public ?bool $withFooter = null
     ) {
+        $this->hash = Helpers::getCurrentGitCommitHash();
         $this->navigation = new Navigation();
     }
 
