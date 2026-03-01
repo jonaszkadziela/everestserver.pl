@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'service' => 'ipapi',
+    'service' => env('GEOIP_SERVICE', 'ipgeolocation'),
 
     /*
     |--------------------------------------------------------------------------
