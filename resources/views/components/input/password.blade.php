@@ -3,7 +3,7 @@
     'class' => '',
 ])
 
-<div class="border border-gray-300 flex focus-within:ring-2 focus-within:ring-blue-700 p-0 rounded-md shadow-sm {{ $class }}"
+<div class="border border-gray-300 flex focus-within:ring-2 focus-within:ring-blue-700 p-0 rounded-md shadow-xs {{ $class }}"
      x-data="{ show: false }"
 >
     <input style="box-shadow: unset;"

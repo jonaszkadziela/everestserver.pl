@@ -12,7 +12,7 @@
 
     <main class="flex flex-1 flex-col my-12 w-full">
         <div class="lg:px-8 max-w-7xl mx-auto sm:px-6 space-y-6 w-full">
-            <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 p-4 relative shadow-sm sm:p-8 sm:rounded-lg">
                 <h3 class="dark:text-white font-medium mb-3 text-lg">
                     {{ Lang::get('profile.disabled.title') }}
                 </h3>

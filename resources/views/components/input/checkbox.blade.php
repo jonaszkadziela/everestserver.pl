@@ -8,7 +8,7 @@
     <input id="{{ $id }}"
            name="{{ $name }}"
            type="checkbox"
-           class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded shadow-sm text-blue-600"
+           class="border-gray-300 cursor-pointer focus:ring-blue-700 rounded-sm shadow-xs text-blue-600"
            @checked($checked)
            {{ $attributes }}
     >

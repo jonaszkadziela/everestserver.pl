@@ -45,7 +45,7 @@
              class="text-left p-6"
         >
             <h2 class="dark:text-white flex font-medium gap-2 items-center mb-6 text-gray-900 text-lg">
-                <i class="!text-2xl" x-bind:class="service.icon"></i>
+                <i class="text-2xl!" x-bind:class="service.icon"></i>
                 <span x-text="service.name"></span>
             </h2>
 

@@ -8,7 +8,7 @@
     $sizeClasses = match ($size) {
         'sm' => 'w-9 h-5 after:h-4 after:w-4',
         'md' => 'w-11 h-6 after:h-5 after:w-5',
-        'lg' => 'w-14 h-7 after:h-6 after:w-6 after:top-0.5 after:start-[5px]',
+        'lg' => 'w-14 h-7 after:h-6 after:w-6 after:top-0.5 after:inset-s-[5px]',
     };
 @endphp
 
@@ -17,7 +17,7 @@
            type="checkbox"
            @checked($checked)
     >
-    <div class="{{ $sizeClasses }} after:absolute after:bg-white after:border after:border-gray-300 after:content-[''] after:rounded-full after:start-[2px] after:top-[2px] after:transition-all bg-gray-200 dark:bg-gray-700 dark:border-gray-600 peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-blue-600 peer-focus:outline relative rounded-full rtl:peer-checked:after:-translate-x-full"
+    <div class="{{ $sizeClasses }} after:absolute after:bg-white after:border after:border-gray-300 after:content-[''] after:rounded-full after:inset-s-[2px] after:top-[2px] after:transition-all bg-gray-200 dark:bg-gray-700 dark:border-gray-600 peer peer-checked:after:border-white peer-checked:after:translate-x-full peer-checked:bg-blue-600 peer-focus:outline-solid relative rounded-full peer-checked:rtl:after:-translate-x-full"
     ></div>
     @if ($icons->isNotEmpty())
         {{ $icons }}
