@@ -1,8 +1,37 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900") layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+
+@source "../../storage/framework/views/*.php";
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+
+@custom-variant dark {
+    @media (prefers-color-scheme: dark) {
+        &:not(.light *) {
+            @slot;
+        }
+    }
+    &:is(.dark *) {
+        @slot;
+    }
+}
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
 
 @layer base {
     html {
