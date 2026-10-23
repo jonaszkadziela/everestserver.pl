@@ -32,7 +32,7 @@ $alignmentClasses = implode(' ', [$alignmentClasses, $defaultAlignmentClasses]);
          class="absolute hover:shadow-xl mt-2 rounded-md shadow-lg transition z-50 {{ $width }} {{ $alignmentClasses }}"
          style="display: none;"
     >
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+        <div class="rounded-md ring-1 ring-black/5 {{ $contentClasses }}">
             {{ $content }}
         </div>
     </div>
