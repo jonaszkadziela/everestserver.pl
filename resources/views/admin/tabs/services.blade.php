@@ -7,7 +7,7 @@
             {{ Lang::get('admin.panel.services.description') }}.
         </p>
     </div>
-    <div class="flex flex-col flex-shrink-0 gap-2 md:flex-row">
+    <div class="flex flex-col shrink-0 gap-2 md:flex-row">
         <form method="get" action="{{ url()->current() }}">
             <input type="hidden" name="tab" value="{{ request()->get('tab') }}">
             <x-input.text id="search"
@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="bg-white dark:bg-slate-800 dark:text-gray-300 overflow-x-auto rounded-lg shadow text-left">
+<div class="bg-white dark:bg-slate-800 dark:text-gray-300 overflow-x-auto rounded-lg shadow-sm text-left">
     @if (!empty($data['transformed']))
         <table class="w-full">
             <thead>

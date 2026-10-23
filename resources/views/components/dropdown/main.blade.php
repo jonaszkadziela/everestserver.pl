@@ -3,14 +3,14 @@
 @php
 switch ($align) {
     case 'left':
-        $defaultAlignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0';
+        $defaultAlignmentClasses = 'ltr:origin-top-left rtl:origin-top-right inset-s-0';
         break;
     case 'top':
         $defaultAlignmentClasses = 'origin-top';
         break;
     case 'right':
     default:
-        $defaultAlignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0';
+        $defaultAlignmentClasses = 'ltr:origin-top-right rtl:origin-top-left inset-e-0';
         break;
 }
 
@@ -32,7 +32,7 @@ $alignmentClasses = implode(' ', [$alignmentClasses, $defaultAlignmentClasses]);
          class="absolute hover:shadow-xl mt-2 rounded-md shadow-lg transition z-50 {{ $width }} {{ $alignmentClasses }}"
          style="display: none;"
     >
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+        <div class="rounded-md ring-1 ring-black/5 {{ $contentClasses }}">
             {{ $content }}
         </div>
     </div>

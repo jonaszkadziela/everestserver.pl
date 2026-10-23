@@ -32,10 +32,10 @@
                 <x-dark-mode-toggle :value="Session::get('theme', config('app.default_theme'))" />
 
                 <!-- Responsive Language Dropdown -->
-                <x-dropdown.language class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 focus:bg-gray-100 hover:bg-gray-100 rounded" />
+                <x-dropdown.language class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 focus:bg-gray-100 hover:bg-gray-100 rounded-sm" />
 
                 <!-- Hamburger -->
-                <button @click="open = !open" class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 duration-150 ease-in-out focus:bg-gray-100 focus:outline-none h-8 hover:bg-gray-100 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
+                <button @click="open = !open" class="dark:focus:bg-gray-900 dark:hover:bg-gray-900 dark:text-gray-300 duration-150 ease-in-out focus:bg-gray-100 focus:outline-hidden h-8 hover:bg-gray-100 inline-flex items-center justify-center rounded-md text-gray-500 transition w-8">
                     <i class="fa-solid fa-bars fa-lg inline-flex" :class="{'hidden': open, 'inline-flex': !open }"></i>
                     <i class="fa-solid fa-xmark fa-lg hidden" :class="{'hidden': !open, 'inline-flex': open }"></i>
                 </button>

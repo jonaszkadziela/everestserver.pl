@@ -21,11 +21,11 @@
     <main class="flex flex-1 flex-col my-12 w-full">
         <div class="lg:px-8 max-w-7xl mx-auto sm:px-6 space-y-6 w-full">
             @forelse ($linkedServices as $service)
-                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow-sm sm:p-8 sm:rounded-lg">
                     <div class="flex gap-4 items-start justify-between">
                         <div>
                             <h2 class="dark:text-white flex font-medium gap-2 items-center text-gray-900 text-lg">
-                                <i class="!text-2xl {{ $service->icon }}"></i>
+                                <i class="text-2xl! {{ $service->icon }}"></i>
                                 {{ $service->name }}
                             </h2>
                             <p class="dark:text-gray-300 mt-1 text-gray-600 text-sm">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             @empty
-                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow-sm sm:p-8 sm:rounded-lg">
                     @if ($enabledServices->count() > 0)
                         <p class="dark:text-white font-bold mb-4">
                             {{ Lang::get('services.not-linked') }}
@@ -81,7 +81,7 @@
                 </div>
             @endforelse
             @if ($linkedServices->count() > 0 && $unlinkedServices->count() > 0)
-                <div class="bg-white dark:bg-gray-800 p-4 relative shadow sm:p-8 sm:rounded-lg">
+                <div class="bg-white dark:bg-gray-800 p-4 relative shadow-sm sm:p-8 sm:rounded-lg">
                     <p class="dark:text-white font-bold mb-4 text-gray-900">
                         {{ Lang::get('services.link-more-services') }}
                     </p>

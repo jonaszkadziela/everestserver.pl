@@ -35,7 +35,7 @@
             @include('layouts.navigation')
         @endisset
         @isset($header)
-            <header class="bg-white dark:bg-gray-800 shadow">
+            <header class="bg-white dark:bg-gray-800 shadow-sm">
                 <div class="lg:px-8 max-w-7xl mx-auto px-4 py-6 sm:px-6">
                     {{ $header }}
                 </div>
